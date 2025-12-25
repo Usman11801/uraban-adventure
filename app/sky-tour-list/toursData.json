@@ -1,0 +1,115 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "https://images.pexels.com/photos/2590514/pexels-photo-2590514.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "title": "Helicopter Tour",
+        "location": "UAE",
+        "description": "Experience Dubai's iconic landmarks from a breathtaking aerial perspective!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 1200,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/2590514/pexels-photo-2590514.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image2": "https://images.pexels.com/photos/2589035/pexels-photo-2589035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/7276731/pexels-photo-7276731.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image4": "https://images.pexels.com/photos/3099037/pexels-photo-3099037.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image5": "https://images.pexels.com/photos/19252037/pexels-photo-19252037/free-photo-of-a-crowd-walking-around-a-military-helicopter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Soar above Dubai's most iconic landmarks in a thrilling helicopter tour! Experience breathtaking aerial views of the city's architectural marvels, including the stunning Atlantis The Palm Hotel, the luxurious Burj Al Arab, and the magnificent Burj Khalifa. Fly over the man-made wonders of The World and Palm Jumeirah islands, and take in the spectacular Dubai Marina skyline. This unforgettable experience offers a unique perspective of Dubai's most famous attractions from the sky!",
+        "title2": "Helicopter Tour",
+        "inclusions": {
+          "atlantis": "Atlantis The Palm Hotel",
+          "burj_al_arab": "Burj Al Arab The 7 Star Hotel",
+          "the_world": "The World",
+          "dubai_marina": "Dubai Marina",
+          "burj_khalifa": "Burj Khalifa / Dubai Mall",
+          "palm_jumeirah": "The Palm Jumeirah",
+          "palm_dubai": "The Palm Dubai"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.8,
+        "totalReviews": 156,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "James Anderson",
+            "rating": 5,
+            "comment": "Incredible helicopter tour! The aerial views of Dubai's skyline were absolutely stunning. The pilot was professional and provided great commentary. A once-in-a-lifetime experience!"
+          },
+          {
+            "id": 2,
+            "name": "Maria Garcia",
+            "rating": 4,
+            "comment": "Amazing experience! The helicopter ride was smooth and the views were breathtaking. Perfect for seeing Dubai's landmarks from above. Highly recommend for special occasions!"
+          },
+          {
+            "id": 3,
+            "name": "Robert Taylor",
+            "rating": 5,
+            "comment": "Fantastic helicopter tour! The views of Burj Khalifa, Palm Jumeirah, and the city skyline were incredible. The pilot was experienced and made us feel safe throughout the flight."
+          }
+        ],
+        "link": "tour-details"
+      },
+      {
+        "id": 2,
+       "image": "https://images.pexels.com/photos/27377785/pexels-photo-27377785/free-photo-of-european-balloon-festival-en-igualada.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Hot Air Balloon",
+        "location": "UAE",
+        "description": "Experience the magic of a sunrise hot air balloon ride over the Dubai desert!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 1300,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/3102817/pexels-photo-3102817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/5990208/pexels-photo-5990208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/13474921/pexels-photo-13474921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/2563596/pexels-photo-2563596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/28625220/pexels-photo-28625220/free-photo-of-hot-air-balloons-soaring-at-sunrise-in-cappadocia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on an unforgettable adventure with our Hot Air Balloon experience! Soar above the Dubai desert for 45 to 60 minutes, witnessing a breathtaking sunrise over the desert conservation area. Before your flight, enjoy light refreshments to start your day. After landing, you'll receive a flight certificate to commemorate your experience. Available every day with convenient pick-up and drop-off service from anywhere in Dubai.",
+        "title2": "Hot Air Balloon",
+        "inclusions": {
+          "flight_duration": "45 to 60 Minutes Flight Over The Dubai Desert",
+          "sunrise_view": "See Sunrise In Desert Conservation",
+          "refreshments": "Lite Refreshment Before Flight",
+          "certificate": "Flight Certificate Will Be Provided After The Landing"
+        },
+        "availability": {
+          "schedule": "Available: Everyday",
+          "transportation": "Pick-up & Drop-off Included from anywhere in Dubai"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.9,
+        "totalReviews": 89,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Jennifer Lee",
+            "rating": 5,
+            "comment": "Magical hot air balloon experience! The sunrise over the desert was absolutely breathtaking. The pilot was skilled and the views were incredible. A truly unforgettable experience!"
+          },
+          {
+            "id": 2,
+            "name": "Carlos Mendez",
+            "rating": 5,
+            "comment": "Amazing hot air balloon ride! The desert sunrise was spectacular and the peaceful flight was perfect. The crew was professional and made us feel safe throughout the journey."
+          },
+          {
+            "id": 3,
+            "name": "Anna Kowalski",
+            "rating": 4,
+            "comment": "Beautiful experience! The hot air balloon ride over the desert was peaceful and the sunrise views were stunning. Perfect for a romantic morning adventure in Dubai."
+          }
+        ],
+        "link": "tour-details"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 2,
+      "toursPerPage": 3
+    }
+  }
+  

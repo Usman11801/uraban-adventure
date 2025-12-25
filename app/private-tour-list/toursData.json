@@ -1,0 +1,342 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "assets/images/destinations/dhabi1.jpg",
+        "title": "Private Abu Dhabi City Tour",
+        "location": "UAE",
+        "description": " Discover the best of Abu Dhabi as we take you to iconic landmarks like the breathtaking Sheikh Zayed Grand Mosque, the luxurious Emirates Palace Hotel, and the vibrant Heritage Village.",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 1100,
+        "currency": "AED",
+        "image1": "assets/images/destinations/dhabi1.jpg",
+        "image2": "assets/images/destinations/dhabi2.jpg",
+        "image3": "assets/images/destinations/dhabi3.jpg",
+        "image4": "assets/images/destinations/dhabi4.jpg",
+        "image5": "assets/images/destinations/dhabi5.jpg",
+        "description2": "Discover the ultimate Abu Dhabi City Tour with convenient pickup and drop-off right from your location in Dubai! Travel in comfort and style as our professional drivers take you on a seamless journey in our spotless, well-maintained vehicles. Explore the best of Abu Dhabi, visiting iconic landmarks like the majestic Sheikh Zayed Grand Mosque, the opulent Emirates Palace Hotel, and the culturally rich Heritage Village. Savor the local charm with a stop at the Dates Market, and capture stunning photos outside the iconic Ferrari World. Embark on an unforgettable adventure in Abu Dhabi – a day full of memories awaits!",
+        "title2": "Abu Dhabi City Tour",
+        "inclusions": {
+          "pickup": "Pick from Your Home / Hotel",
+          "professional_guide": "Professional Guided Tour of Abu Dhabi",
+          "sheikh_zayed_mosque": "Sheikh Zayed Mosque (1 Hour 30 Minutes Stop)",
+          "emirates_palace": "Emirates Palace Hotel (VISIT)",
+          "heritage_village": "Herritage Village (VISIT)",
+          "jumeirah_etihad_tower": "Jumeirah Etihad Tower (Photo Stop)",
+          "sheikh_palace": "Photo stop at Sheikh's Palace",
+          "islamic_art_museum": "Islamic Art Museum (VISIT)",
+          "marina_mall": "Marina Mall of Abu Dhabi (Drive Through)",
+          "corniche": "Abu Dhabi Corniche (Photo Stop)",
+          "dates_market": "Dates Market (VISIT)",
+          "ferrari_world": "Ferrari World (Photo Stop)",
+          "dropoff": "Drop Off To Your Home / Hotel"
+        },
+        "additional_info": {
+          "baps_temple": "BAPS Temple Visit",
+          "ferrari_world_ticket": "Ferrari World Ticket",
+          "louvre_museum": "Louvre Museum"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.8,
+        "totalReviews": 45,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "comment": "Excellent private Abu Dhabi tour! The guide was knowledgeable and the itinerary was perfect. The Sheikh Zayed Mosque was breathtaking and the Heritage Village was fascinating. Highly recommend!"
+          },
+          {
+            "id": 2,
+            "name": "Ahmed Al-Rashid",
+            "rating": 4,
+            "comment": "Great private tour experience! The personalized service was excellent and the guide was professional. The Emirates Palace visit and Ferrari World photo stop were highlights. Well organized!"
+          },
+          {
+            "id": 3,
+            "name": "Emma Thompson",
+            "rating": 5,
+            "comment": "Outstanding private Abu Dhabi tour! The guide was informative and the tour covered all major attractions. The Sheikh Zayed Mosque was absolutely stunning. Perfect day out!"
+          }
+        ],
+        "link": "tour-details"
+      },
+      {
+        "id": 2,
+        "image": "https://images.pexels.com/photos/20852585/pexels-photo-20852585/free-photo-of-people-riding-horses-on-a-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Private Evening Desert Safari Dubai",
+        "location": "Dubai, UAE",
+        "description": "Experience the magic of the Arabian desert with our Private Evening Desert Safari. Enjoy thrilling dune bashing, camel rides, and traditional entertainment under the stars.",
+        "duration": "1 day",
+        "guests": "6 guests per vehicle",
+        "price": 1600,
+        "currency": "AED",
+        "validity": "15 Days",
+        "image1": "https://images.pexels.com/photos/20852585/pexels-photo-20852585/free-photo-of-people-riding-horses-on-a-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/28356796/pexels-photo-28356796/free-photo-of-sahara-desert-landscpae.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "assets/images/destinations/bike4.jpg",
+        "image4": "https://images.pexels.com/photos/19709831/pexels-photo-19709831/free-photo-of-silhouettes-of-people-and-vehicles-in-a-desert-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/6318160/pexels-photo-6318160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on an unforgettable desert adventure with our Private Evening Desert Safari. Experience the thrill of dune bashing in a private Land Cruiser, witness a breathtaking desert sunset, and enjoy traditional Arabian hospitality at our desert camp. The evening includes cultural performances, delicious BBQ dinner, and various desert activities.",
+        "title2": "Evening Desert Safari",
+        "inclusions": {
+          "pickup": "Pick up from your Hotel/Home/Apartment/Residence anywhere in Dubai",
+          "camel_farms": "Drive Through Camel Farms",
+          "dune_bashing": "Dune Bashing by Desert Safari License Professional Driver",
+          "sunset_photography": "Beautiful Sunset Scene Photography",
+          "welcome_drinks": "Traditional welcome with Arabic Tea, Coffee",
+          "refreshments": "Arabic Sweets & Fresh Fruits",
+          "sheesha": "Sheesha Facility",
+          "hubbly_bubbly": "'Hubbly Bubbly' Smoking facility",
+          "drinks": "Soft Drinks & Cold Water",
+          "camel_ride": "Camel Ride",
+          "sand_boarding": "Sand Boarding",
+          "henna": "Henna Painting",
+          "dinner": "International Buffet Dinner with BBQ (Vegetarian & Non-vegetarian)",
+          "light_show": "Full Light and Sound display on stage and around the Camp",
+          "fire_show": "Fire Show",
+          "tanoura_show": "Two Tanoura Show Entertainment",
+          "belly_dance": "Two Live Belly Dance Show on traditional Arabic Music",
+          "dropoff": "Drop back to your Hotel/Residence in Dubai",
+          "vehicle_info": "6 People in one car",
+          "driver_license": "All drivers have License from U.A.E govt. for Safari",
+          "vehicle_insurance": "All vehicles are fully insured and as per security requirements of UAE laws"
+        },
+        "additional_info": {
+          "food_on_table": "Food on Table",
+          "quad_bike_1_seat_30min": "1 seat Quad Bike for 30 minutes",
+          "quad_bike_1_seat_1hr": "1 seat Quad Bike for 1 hour",
+          "quad_bike_2_seat_30min": "2 seat Quad Bike for 30 minutes",
+          "quad_bike_2_seat_1hr": "2 seat Quad Bike for 1 hour",
+          "dune_buggy_2_seat_30min": "2 seat Dune Buggy for 30 minutes",
+          "dune_buggy_2_seat_1hr": "2 seat Dune Buggy for 1 Hour",
+          "dune_buggy_4_seat_30min": "4 seat Dune Buggy 30 minutes",
+          "dune_buggy_4_seat_1hr": "4 seat Dune Buggy for 1 Hour"
+        },
+        "badge": "Popular",
+        "rating": 5,
+        "averageRating": 4.9,
+        "totalReviews": 67,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Michael Chen",
+            "rating": 5,
+            "comment": "Perfect private desert safari! The personalized service was exceptional and the dune bashing was thrilling. The private camp setup was luxurious and intimate. Highly recommend!"
+          },
+          {
+            "id": 2,
+            "name": "Lisa Rodriguez",
+            "rating": 5,
+            "comment": "Outstanding private tour! The guide was knowledgeable and attentive to our group's needs. The desert activities were exciting and the dinner was delicious. Perfect for special occasions!"
+          },
+          {
+            "id": 3,
+            "name": "David Wilson",
+            "rating": 4,
+            "comment": "Great private desert safari! The exclusive experience was worth it. The camel riding and sandboarding were fun, and the entertainment was top-quality. Excellent service throughout!"
+          }
+        ],
+        "link": "desert-safari-details"
+      },
+      {
+        "id": 3,
+        "image": "https://images.pexels.com/photos/14750483/pexels-photo-14750483.jpeg",
+        "title": "Private Morning Desert Safari",
+        "location": "Dubai, UAE",
+        "description": "Experience the thrill of the desert in the morning with our Private Morning Desert Safari. Enjoy dune bashing, sand boarding, and witness the beautiful sunrise over the desert.",
+        "duration": "1 day",
+        "guests": "6 guests per vehicle",
+        "price": 1100,
+        "currency": "AED",
+        "validity": "15 Days",
+      "image1": "https://images.pexels.com/photos/14750483/pexels-photo-14750483.jpeg",
+      "image2": "assets/images/destinations/morning2.jpg",
+      "image3": "assets/images/destinations/morning4.jpg",
+      "image4": "assets/images/destinations/morning3.jpg",
+      "image5": "https://images.pexels.com/photos/14362375/pexels-photo-14362375.jpeg",
+        "description2": "Start your day with an exhilarating morning desert safari adventure. Experience the thrill of dune bashing in a private 4x4 Land Cruiser, witness the breathtaking sunrise over the desert, and enjoy various desert activities including sand boarding. Perfect for those who want to experience the desert's beauty in the morning hours.",
+        "title2": "Morning Desert Safari",
+        "inclusions": {
+          "pickup": "Pick from your Apartment, Hotel, Residence, Villa or Near Airport",
+          "vehicle": "Pick by Toyota Suv 4x4 Land Cruiser Desert Safari License driver",
+          "photo_stop": "Adventurous drive to reaching the high Dune for photo stop",
+          "sunrise": "See Beautiful Sun Rising Scene & Capture Moments",
+          "sand_boarding": "Sand Boarding slide experience from high dunes",
+          "dune_bashing": "40 to 45 Minutes Dune Bashing at Red Dunes Desert",
+          "refreshments": "Cold Drink, Water Bottle, Soft Juice Refreshment",
+          "return_drive": "Thrill & fun drive from desert to reaching road",
+          "dropoff": "Drive back to dubai & drop back your location"
+        },
+        "additional_info": {
+          "vehicle_info": "Toyota Land Cruiser 4x4",
+          "driver_license": "Licensed Desert Safari Driver",
+          "vehicle_insurance": "Fully Insured Vehicle"
+        },
+        "badge": "Popular",
+        "rating": 5,
+        "averageRating": 4.8,
+        "totalReviews": 73,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "James Anderson",
+            "rating": 5,
+            "comment": "Amazing private morning desert safari! The sunrise over the desert was breathtaking and the dune bashing was thrilling. The private experience was perfect for our group!"
+          },
+          {
+            "id": 2,
+            "name": "Maria Garcia",
+            "rating": 4,
+            "comment": "Great morning adventure! The desert safari was exciting and the sunrise views were stunning. The sandboarding was fun and the guide was professional. Highly recommend!"
+          },
+          {
+            "id": 3,
+            "name": "Robert Taylor",
+            "rating": 5,
+            "comment": "Perfect morning desert safari! The private tour was well-organized and the sunrise experience was magical. The dune bashing was safe yet exciting. Excellent service!"
+          }
+        ],
+        "link": "morning-safari-details"
+      },
+      {
+        "id": 4,
+        "image": "https://images.pexels.com/photos/11249825/pexels-photo-11249825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Private Abu Dhabi Tour with Mosque, Louvre and Qasr al Watan",
+        "location": "Abu Dhabi, UAE",
+        "description": "Experience the cultural richness of Abu Dhabi with visits to the iconic Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, and the magnificent Qasr Al Watan.",
+        "duration": "1 day",
+        "guests": "5-8 guests",
+        "price": 900,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/15128967/pexels-photo-15128967/free-photo-of-qasr-al-watan-in-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/11249825/pexels-photo-11249825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/5386882/pexels-photo-5386882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/18241813/pexels-photo-18241813/free-photo-of-women-in-abayas-near-building-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on a cultural journey through Abu Dhabi's most iconic landmarks. Visit the breathtaking Sheikh Zayed Grand Mosque, explore the world-class Louvre Abu Dhabi museum, and discover the architectural marvel of Qasr Al Watan. This private tour offers a perfect blend of culture, history, and modern architecture.",
+        "title2": "Abu Dhabi Cultural Tour",
+        "inclusions": {
+          "vehicle": "Comfortable, air-conditioned private vehicle",
+          "guide": "Knowledgeable private guide",
+          "entry_fees": "Entry fees to all attractions included",
+          "pickup": "Private pick-up from your location",
+          "dropoff": "Private drop-off to your location",
+          "sheikh_zayed_mosque": "Sheikh Zayed Grand Mosque visit",
+          "louvre": "Louvre Abu Dhabi visit",
+          "qasr_al_watan": "Qasr Al Watan visit"
+        },
+        "exclusions": {
+          "meals": "Meals and beverages",
+          "souvenirs": "Souvenirs and personal purchases",
+          "gratuities": "Gratuities for guide and driver"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.9,
+        "totalReviews": 34,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Jennifer Lee",
+            "rating": 5,
+            "comment": "Exceptional cultural tour! The Sheikh Zayed Mosque was breathtaking, the Louvre Abu Dhabi was fascinating, and Qasr Al Watan was magnificent. The guide was knowledgeable and the private experience was perfect!"
+          },
+          {
+            "id": 2,
+            "name": "Carlos Mendez",
+            "rating": 5,
+            "comment": "Outstanding Abu Dhabi cultural tour! The combination of mosque, museum, and palace was perfect. The guide provided excellent insights into the history and culture. Highly recommend!"
+          },
+          {
+            "id": 3,
+            "name": "Anna Kowalski",
+            "rating": 4,
+            "comment": "Great cultural experience! The Sheikh Zayed Mosque was stunning and the Louvre Abu Dhabi was impressive. The private tour allowed us to explore at our own pace. Excellent service!"
+          }
+        ],
+        "link": "abudhabi-cultural-tour-details"
+      },
+      {
+        "id": 5,
+        "image": "assets/images/destinations/shams4.jpg",
+        "title": "Safari with Bab AL Shams Dinner",
+        "location": "Dubai, UAE",
+        "description": "Experience an unforgettable evening of desert adventure followed by a luxurious dinner at the iconic Bab Al Shams resort.",
+        "duration": "1 day",
+        "guests": "6 guests per vehicle",
+        "price": 900,
+        "currency": "AED",
+        "image1": "assets/images/destinations/shams1.jpeg",
+        "image2": "assets/images/destinations/shams2.jpg",
+        "image3": "assets/images/destinations/shams4.jpg",
+        "image4": "https://mediaim.expedia.com/localexpert/167034/3b5eeca0-8282-4d7d-980b-211969f6f4b0.jpg",
+        "image5": "https://thrillarkdev.imgix.net/attractions/ED00307/5fea196336ec5ac0509a36d5c83d447e.jpg?auto=true,format&fit=min&crop=faces&w=720&h=1120",
+        "description2": "Combine the thrill of desert safari with the luxury of Bab Al Shams resort. Experience dune bashing in a 4x4 Land Cruiser, capture stunning desert photographs, and enjoy a sumptuous international buffet dinner with live entertainment at one of Dubai's most iconic desert resorts.",
+        "title2": "Desert Safari with Bab Al Shams",
+        "inclusions": {
+          "pickup": "Pick up from your Hotel/Home/Apartment/Residence anywhere in Dubai",
+          "vehicle": "4x4 Toyota SUV Land Cruiser",
+          "dune_bashing": "Dune Bashing by Desert Safari License Professional Driver",
+          "photography": "Beautiful Desert Scene Photography",
+          "welcome": "Traditional welcome at Bab Al Shams",
+          "refreshments": "Arabic Sweets & Fresh Fruits",
+          "drinks": "Soft Drinks & Cold Water",
+          "dinner": "International Buffet Dinner with BBQ (Vegetarian & Non-vegetarian dishes)",
+          "entertainment": "Full Light and Sound display on stage and around the Camp",
+          "tanoura_show": "Two Tanoura Show Entertainment",
+          "belly_dance": "Two Live Belly Dance Show on traditional Arabic Music",
+          "dropoff": "Drop back to your Hotel/Residence in Dubai"
+        },
+        "additional_info": {
+          "sharing_basis": "This price is sharing basis price. We provide private vehicles as well",
+          "vehicle_capacity": "6 People in one car",
+          "driver_license": "All drivers have License from U.A.E govt. for Safari",
+          "vehicle_insurance": "All vehicles are fully insured and as per security requirements of UAE laws",
+          "quad_bike_1_seat_30min": "1 seat Quad Bike for 30 minutes",
+          "quad_bike_1_seat_1hr": "1 seat Quad Bike for 1 hour",
+          "quad_bike_2_seat_30min": "2 seat Quad Bike for 30 minutes",
+          "quad_bike_2_seat_1hr": "2 seat Quad Bike for 1 hour",
+          "dune_buggy_2_seat_30min": "2 seat Dune Buggy for 30 minutes",
+          "dune_buggy_2_seat_1hr": "2 seat Dune Buggy for 1 Hour",
+          "dune_buggy_4_seat_30min": "4 seat Dune Buggy 30 minutes",
+          "dune_buggy_4_seat_1hr": "4 seat Dune Buggy for 1 Hour",
+          "alcohol_1hr": "1 Hour Unlimited Alcohol",
+          "alcohol_2hr": "2 Hours Unlimited Alcohol"
+        },
+        "badge": "Popular",
+        "rating": 5,
+        "averageRating": 4.9,
+        "totalReviews": 89,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Thomas Brown",
+            "rating": 5,
+            "comment": "Exceptional safari with Bab Al Shams dinner! The desert safari was thrilling and the dinner at Bab Al Shams was absolutely exquisite. The combination was perfect for a luxury experience!"
+          },
+          {
+            "id": 2,
+            "name": "Sophie Martin",
+            "rating": 5,
+            "comment": "Outstanding luxury experience! The desert safari was exciting and the Bab Al Shams dinner was world-class. The service was impeccable and the setting was beautiful. Highly recommend!"
+          },
+          {
+            "id": 3,
+            "name": "Ahmed Hassan",
+            "rating": 4,
+            "comment": "Great combination tour! The desert safari was fun and the Bab Al Shams dinner was delicious. The luxury setting made it a memorable experience. Perfect for special occasions!"
+          }
+        ],
+        "link": "bab-al-shams-safari-details"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 3,
+      "toursPerPage": 3
+    }
+  }
+  

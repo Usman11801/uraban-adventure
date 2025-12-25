@@ -1,0 +1,95 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "title": "Desert Safari with Bab Al Shams Dinner Live Music and Live Singing",
+        "location": "UAE",
+        "description": "Embark on an unforgettable adventure with our Desert Safari and Bab Al Shams Dinner experience!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guests",
+        "price": 900,
+        "currency": "AED",
+        "image": "assets/images/destinations/shams4.jpg",
+        "badge": null,
+        "rating": 5,
+        "link": "tour-details",
+        "title2": "Desert Safari with Bab Al Shams Dinner Live Music and Live Singing",
+        "description2": "Embark on a remarkable journey with our Desert Safari and Bab Al Shams Dinner experience! Your adventure begins with convenient pickup in a comfortable 4x4 vehicle. Experience the adrenaline rush of dune bashing and the fun of sandboarding as you navigate the golden desert dunes. Pause to capture unforgettable moments during a photo stop against the stunning desert backdrop. As the day transitions to night, indulge in a sumptuous dinner at the luxurious Bab Al Shams resort, accompanied by enchanting live entertainment that will captivate your senses. This perfect blend of adventure and elegance awaits—book your experience today!",
+        "image1": "assets/images/destinations/shams1.jpeg",
+        "image2": "assets/images/destinations/shams2.jpg",
+        "image3": "assets/images/destinations/shams4.jpg",
+        "image4": "https://mediaim.expedia.com/localexpert/167034/3b5eeca0-8282-4d7d-980b-211969f6f4b0.jpg",
+        "image5": "https://thrillarkdev.imgix.net/attractions/ED00307/5fea196336ec5ac0509a36d5c83d447e.jpg?auto=true,format&fit=min&crop=faces&w=720&h=1120",
+        "inclusions": {
+          "pickup_and_dropoff": "Pick up and drop off from your hotel, apartment, or residence in Dubai using a 4x4 Toyota Land Cruiser.",
+          "dune_bashing": "Professional dune bashing experience with a licensed desert safari driver.",
+          "desert_photography": "Opportunity for stunning photography of the beautiful desert scenery.",
+          "traditional_welcome": "Traditional welcome at Bab Al Shams with Arabic sweets and fresh fruits.",
+          "refreshments": "Soft drinks and cold water available throughout the evening.",
+          "buffet_dinner": "International buffet dinner with BBQ, including vegetarian and non-vegetarian options.",
+          "light_and_sound_show": "Full stage and camp-wide light and sound display.",
+          "tanoura_show": "Two mesmerizing Tanoura dance performances.",
+          "belly_dance_show": "Two captivating live belly dance performances with traditional Arabic music.",
+          "licensed_drivers": "All safari drivers hold UAE government-issued licenses.",
+          "vehicle_safety": "All vehicles are fully insured and meet UAE safety regulations."
+        },
+        "additional_info": {
+          "food_on_table": "Food on Table",
+          "camel_ride_20min": "20 Minutes Camel Ride",
+          "quad_bike_1seat_30min": "1 seat Quad Bike for 30 minutes",
+          "quad_bike_1seat_1hour": "1 seat Quad Bike for 1 hour",
+          "quad_bike_2seat_30min": "2 seat Quad Bike for 30 minutes",
+          "quad_bike_2seat_1hour": "2 seat Quad Bike for 1 hour",
+          "dune_buggy_2seat_30min": "2 seat Dune Buggy for 30 minutes",
+          "dune_buggy_2seat_1hour": "2 seat Dune Buggy for 1 Hour",
+          "dune_buggy_4seat_30min": "4 seat Dune Buggy 30 minutes",
+          "dune_buggy_4seat_1hour": "4 seat Dune Buggy for 1 Hour",
+          "alcohol_1hour": "1 Hour Unlimited Alcohol",
+          "alcohol_2hour": "2 Hours Unlimited Alcohol"
+         
+        }
+      },
+      {
+        "id": 2,
+        "title": "Abu Dhabi Tour with Qasr Al Watan | Abu Dhabi Sightseeing",
+        "location": "UAE",
+        "description": "Discover Abu Dhabi's grandeur with a personalized tour that includes Qasr Al Watan and more.",
+        "duration": "Full Day Tour",
+        "guests": "2-6 guests",
+        "price": 195,
+        "currency": "AED",
+        "image": "https://images.pexels.com/photos/15128974/pexels-photo-15128974/free-photo-of-the-qasr-al-watan-in-united-arab-emirates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "badge": null,
+        "rating": 4.8,
+        "link": "tour-details-abu-dhabi",
+        "title2": "Abu Dhabi Tour with Qasr Al Watan | Abu Dhabi Sightseeing",
+        "description2": "Experience the cultural soul and modern marvels of the UAE capital on this guided Abu Dhabi city tour. Start your journey in a private, air-conditioned vehicle with an expert guide offering fascinating insights at every stop. Visit iconic landmarks including the majestic Qasr Al Watan – the Palace of the Nation – where intricate architecture and historical exhibits await. Capture the city's skyline, stroll along the scenic Corniche, and explore a blend of heritage and innovation. Designed for comfort and discovery, this full-day tour is perfect for families and first-time visitors alike.",
+        "image1": "https://images.pexels.com/photos/24862678/pexels-photo-24862678/free-photo-of-qasr-al-watan-in-abu-dhabi-in-uae-at-night.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image2": "https://images.pexels.com/photos/15129770/pexels-photo-15129770/free-photo-of-courtyard-of-mosque.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/16681379/pexels-photo-16681379/free-photo-of-qasr-al-watan-in-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15128974/pexels-photo-15128974/free-photo-of-the-qasr-al-watan-in-united-arab-emirates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/31157349/pexels-photo-31157349/free-photo-of-luxurious-interior-of-al-watan-palace-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "inclusions": {
+          "private_transport": "Pick-up and drop-off in a private, air-conditioned vehicle from your hotel or home in Dubai.",
+          "guided_tour": "Professional English-speaking guide offering in-depth commentary throughout the journey.",
+          "qasr_al_watan_entry": "Entrance to Qasr Al Watan – explore the Presidential Palace, its exhibitions, and architectural splendor.",
+          "custom_FAQs": "Flexible FAQs tailored to your group's interests and pace.",
+          "vehicle_wifi": "Free WiFi available in the vehicle for added convenience."
+        },
+
+        "additional_info": {
+          "note": "This tour is ideal for families, solo travelers, and small groups seeking a comfortable, culturally rich Abu Dhabi experience. Guests are advised to wear respectful clothing for mosque or palace entries."
+        }
+      }
+      
+      
+     
+
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 3,
+      "toursPerPage": 3
+    }
+  }
+  

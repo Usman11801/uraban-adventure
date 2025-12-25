@@ -1,0 +1,1553 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "assets/images/destinations/dhabi1.jpg",
+        "title": "Abu Dhabi City Tour",
+        "location": "UAE",
+        "description": " Discover the best of Abu Dhabi as we take you to iconic landmarks like the breathtaking Sheikh Zayed Grand Mosque, the luxurious Emirates Palace Hotel, and the vibrant Heritage Village.",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 200,
+        "currency": "AED",
+        "image1": "assets/images/destinations/dhabi1.jpg",
+        "image2": "assets/images/destinations/dhabi2.jpg",
+        "image3": "assets/images/destinations/dhabi3.jpg",
+        "image4": "assets/images/destinations/dhabi4.jpg",
+        "image5": "assets/images/destinations/dhabi5.jpg",
+        "description2": "Discover the ultimate Abu Dhabi City Tour with convenient pickup and drop-off right from your location in Dubai! Travel in comfort and style as our professional drivers take you on a seamless journey in our spotless, well-maintained vehicles. Explore the best of Abu Dhabi, visiting iconic landmarks like the majestic Sheikh Zayed Grand Mosque, the opulent Emirates Palace Hotel, and the culturally rich Heritage Village. Savor the local charm with a stop at the Dates Market, and capture stunning photos outside the iconic Ferrari World. Embark on an unforgettable adventure in Abu Dhabi – a day full of memories awaits!",
+        "title2": "Abu Dhabi City Tour",
+        "inclusions": {
+          "pickup": "Pick from Your Home / Hotel",
+          "professional_guide": "Professional Guided Tour of Abu Dhabi",
+          "sheikh_zayed_mosque": "Sheikh Zayed Mosque (1 Hour 30 Minutes Stop)",
+          "emirates_palace": "Emirates Palace Hotel (VISIT)",
+          "heritage_village": "Herritage Village (VISIT)",
+          "jumeirah_etihad_tower": "Jumeirah Etihad Tower (Photo Stop)",
+          "sheikh_palace": "Photo stop at Sheikh's Palace",
+          "islamic_art_museum": "Islamic Art Museum (VISIT)",
+          "marina_mall": "Marina Mall of Abu Dhabi (Drive Through)",
+          "corniche": "Abu Dhabi Corniche (Photo Stop)",
+          "dates_market": "Dates Market (VISIT)",
+          "ferrari_world": "Ferrari World (Photo Stop)",
+          "dropoff": "Drop Off To Your Home / Hotel"
+        },
+        "additional_info": {
+          "baps_temple": "BAPS Temple Visit",
+          "ferrari_world_ticket": "Ferrari World Ticket",
+          "louvre_museum": "Louvre Museum"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.8,
+        "totalReviews": 156,
+        "reviews": [
+          {
+            "name": "Sarah Johnson",
+            "date": "2 days ago",
+            "rating": 5,
+            "comment": "Amazing Abu Dhabi city tour! The Sheikh Zayed Mosque was absolutely breathtaking and the Heritage Village was fascinating. Our guide was knowledgeable and made the experience memorable.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Michael Chen",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great city tour! The Emirates Palace Hotel was impressive and the Dates Market was interesting. The pickup and drop-off service was convenient.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Emily Rodriguez",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect Abu Dhabi experience! The mosque visit was incredible and the cultural sites were educational. Highly recommend this tour for first-time visitors.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Private Half Day Dubai City Tour",
+        "location": "UAE",
+        "description": "Discover the enchanting allure of Dubai on our Private Half Day City Tour!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 650,
+        "currency": "AED",
+        "image": "assets/images/destinations/dubai2.jpg",
+        "badge": "10% Off",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.7,
+        "totalReviews": 89,
+        "reviews": [
+          {
+            "name": "David Wilson",
+            "date": "3 days ago",
+            "rating": 5,
+            "comment": "Excellent private Dubai tour! The Abra ride was fun and the souks were fascinating. The guide was knowledgeable and the private experience made it so much better.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Lisa Anderson",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great half-day tour! The Bastakiya district was interesting and the Burj Al Arab photo stop was perfect. The private vehicle made it comfortable.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "James Brown",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect Dubai city tour! The Gold Souk was amazing and the Jumeirah Beach views were beautiful. The private guide was excellent.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "description2": "Unveil the captivating charm of Dubai with our Private Half-Day City Tour! Discover the seamless fusion of tradition and modernity as you travel in a pristine, comfortable vehicle accompanied by a knowledgeable guide. Glide across scenic waterways on a traditional Abra ride, immerse yourself in the lively Gold and Spice Souks, and stroll through the historic lanes of Bastakiya. Admire renowned landmarks such as Jumeirah Beach and Jumeirah Mosque, and capture breathtaking photos with the iconic Burj Al Arab as your backdrop. Join us for an extraordinary journey that captures the heart and soul of this dazzling city!",
+        "title2": "Private Half Day Dubai City Tour",
+        "image1": "assets/images/destinations/dubai1.jpg",
+        "image2": "assets/images/destinations/dubai2.jpg",
+        "image3": "assets/images/destinations/dubai3.jpg",
+        "image4": "assets/images/destinations/dubai4.jpg",
+        "image5": "assets/images/destinations/dubai5.jpg",
+        "pick": {
+            "pickup_dropoff": "Convenient pick-up and drop-off from Dubai hotels for a hassle-free experience.",
+            "rulers_palace": "Photo stop at the Ruler's Palace to admire its impressive architecture and learn about Dubai's governance.",
+            "bastakiya": "Visit the historic Bastakiya district, featuring narrow lanes, wind towers, and Arabian architecture. Optional visit to Dubai Museum in Al Fahidi Fort.",
+            "abra_ride": "Enchanting abra ride along Dubai Creek, offering scenic views of the skyline and waterfront.",
+            "spice_souk_gold_souk": "Browse the aromatic Spice Souk and the dazzling Gold Souk for unique finds and souvenirs.",
+            "jumeirah_beach": "Enjoy stunning views of the Arabian Gulf from Jumeirah Beach, a popular public beach.",
+            "burj_al_arab_photo_stop": "Photo opportunity with the iconic Burj Al Arab hotel as the backdrop.",
+            "palm_jumeirah_island": "Explore Palm Jumeirah Island, featuring luxurious villas, hotels, and attractions.",
+            "atlantis_photo_stop": "Photo stop at the magnificent Atlantis, The Palm resort.",
+            "dubai_marina": "End the tour with scenic views of Dubai Marina, featuring modern skyscrapers, yachts, and promenades."
+          },
+          "excluded": {
+            "extended_shopping": "Limited time for shopping at the Spice Souk and Gold Souk to maintain the tour schedule.",
+            "personal_expenses": "Souvenirs, personal purchases, and tips are not included.",
+            "outside_designated_areas": "Transport to/from areas outside the designated pick-up/drop-off zones may incur additional charges.",
+            "guide_gratuities": "Tipping the guide and driver is not included and is at participants' discretion.",
+            "language_specific_guides": "Guides in languages other than the default may incur an additional fee."
+          }
+      },
+      {
+        "id": 3,
+        "title": "Full Day Dubai City Tour with Burj Khalifa",
+        "location": "UAE",
+        "description": "Experience the ultimate Dubai adventure with our Full Day City Tour, including a visit to the iconic Burj Khalifa! ",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 600,
+        "currency": "AED",
+        "image": "assets/images/destinations/dubai6.jpg",
+        "badge": null,
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.9,
+        "totalReviews": 203,
+        "reviews": [
+          {
+            "name": "Jennifer Martinez",
+            "date": "1 day ago",
+            "rating": 5,
+            "comment": "Incredible full-day tour! The Burj Khalifa visit was the highlight and the views were breathtaking. The guide was excellent and covered all the major attractions.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Robert Taylor",
+            "date": "5 days ago",
+            "rating": 5,
+            "comment": "Perfect Dubai experience! The Burj Khalifa was amazing and the Dubai Mall was impressive. The full-day tour gave us time to see everything properly.",
+            "services": 5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Amanda White",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great full-day tour! The Burj Khalifa visit was incredible and the souks were fascinating. The guide was knowledgeable about Dubai's history.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "title2": "Full Day Dubai City Tour with Burj Khalifa",
+        "description2": "Embark on the ultimate Dubai adventure with our Full-Day City Tour, featuring a visit to the world-famous Burj Khalifa! Guided by an expert tour guide, dive into the vibrant mix of tradition and innovation that defines this extraordinary city. Wander through historic gems like Old Dubai, the Gold Souk, and the Spice Souk, then marvel at modern icons such as the Burj Al Arab and the Museum of the Future. Enjoy a serene Abra ride across Dubai Creek and shop to your heart's content at Dubai Mall. The highlight of your day is entry to the Burj Khalifa's breathtaking 124th and 125th floors during non-prime hours—an experience like no other! With hassle-free pickup and drop-off, this seamless journey promises unforgettable memories. Don't miss out on this incredible exploration of Dubai's wonders!",
+        "image1": "assets/images/destinations/dubai2.jpg",
+        "image2": "assets/images/destinations/dubai3.jpg",
+        "image3": "assets/images/destinations/dubai1.jpg",
+        "image4": "assets/images/destinations/dubai4.jpg",
+        "image5": "assets/images/destinations/dubai7.jpg",
+        "pick": {
+            "pickup_dropoff": "Convenient pick-up and drop-off services from Dubai hotels for hassle-free transportation.",
+            "rulers_palace": "Photo stop at the Ruler's Palace to admire its architecture and learn about Dubai's governance.",
+            "bastakiya": "Explore the historic Bastakiya district and the optional Dubai Museum in Al Fahidi Fort.",
+            "abra_ride": "Enjoy an abra ride along Dubai Creek for picturesque views of the skyline and waterfront.",
+            "spice_souk_gold_souk": "Visit the Spice Souk and Gold Souk for unique shopping and cultural experiences.",
+            "creek_al_seef": "Stroll through Dubai Creek Al Seef, blending traditional Emirati charm with modern amenities.",
+            "jumeirah_beach": "Take in the stunning views of the Arabian Gulf from Jumeirah Beach.",
+            "dubai_frame_photo_stop": "Capture iconic views of old and new Dubai at the Dubai Frame.",
+            "burj_al_arab_photo_stop": "Photo opportunity at the iconic Burj Al Arab hotel.",
+            "palm_jumeirah_island": "Explore Palm Jumeirah Island and its upscale attractions.",
+            "atlantis_photo_stop": "Photo stop at Atlantis, The Palm, a luxury resort.",
+            "dubai_marina": "Admire the modern skyline and luxury yachts at Dubai Marina.",
+            "museum_of_the_future_photo_stop": "Photo stop at the futuristic Museum of the Future.",
+            "dubai_mall": "Experience shopping, dining, and entertainment at the Dubai Mall.",
+            "burj_khalifa": "End the tour with breathtaking views from the Burj Khalifa."
+          },
+          "excluded": {
+            "extended_shopping": "Limited time for shopping at the Spice Souk and Gold Souk to stay on schedule.",
+            "personal_expenses": "Souvenirs, tips, and other personal expenses are not included.",
+            "outside_designated_areas": "Additional charges may apply for transportation outside designated pick-up/drop-off areas.",
+            "guide_gratuities": "Tipping the guide and driver is not included and is at participants' discretion.",
+            "language_specific_guides": "Additional fees may apply for guides in languages other than the default."
+          }
+      },
+      {
+        "id": 4,
+        "title": "Half Day Dubai City Tour",
+        "location": "UAE",
+        "description": "Discover the magic of Dubai in just half a day! Join our Half Day Dubai City Tour for an unforgettable experience filled with iconic sights and rich culture.",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 130,
+        "currency": "AED",
+        "image": "assets/images/destinations/dubai1.jpg",
+        "badge": "Popular",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.6,
+        "totalReviews": 178,
+        "reviews": [
+          {
+            "name": "Mark Thompson",
+            "date": "4 days ago",
+            "rating": 5,
+            "comment": "Perfect half-day tour! Covered all the major attractions efficiently. The Burj Al Arab photo stop was amazing and the guide was knowledgeable.",
+            "services": 5,
+            "guides": 4.5,
+            "price": 5
+          },
+          {
+            "name": "Sarah Davis",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great half-day experience! The Dubai Creek ride was fun and the souks were interesting. Perfect for those with limited time.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "John Miller",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Excellent half-day tour! The Jumeirah Beach views were beautiful and the Palm Jumeirah was impressive. Great value for money.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "description2": "Uncover the magic of Dubai in just half a day with our Half-Day Dubai City Tour! This unforgettable journey offers the perfect blend of iconic landmarks and rich culture. Sit back and relax with seamless pickup and drop-off in our immaculate vehicles, accompanied by a knowledgeable guide who will share fascinating stories and insights along the way. Admire breathtaking sights such as Jumeirah Beach, the iconic Burj Al Arab, and the majestic Atlantis Hotel, all from prime photo vantage points. Cruise through the vibrant Dubai Creek, explore exquisite Islamic art, and marvel at the grandeur of Dubai Mall and the towering Burj Khalifa. Ideal for those short on time but eager to experience the best of this dazzling city. Book your adventure now and make every moment count!",
+        "image1": "assets/images/destinations/dubai6.jpg",
+        "image2": "assets/images/destinations/dubai3.jpg",
+        "image3": "assets/images/destinations/dubai2.jpg",
+        "image4": "assets/images/destinations/dubai1.jpg",
+        "image5": "assets/images/destinations/dubai7.jpg",
+        "title2": "Half Day Dubai City Tour",
+        "pick": {
+            "pickup_dropoff": "Convenient pick-up and drop-off services from Dubai hotels for a stress-free experience.",
+            "rulers_palace": "Visit the Ruler's Palace to admire its stunning architecture and learn about Dubai's governance.",
+            "bastakiya": "Explore the historic Bastakiya district and the optional Dubai Museum in Al Fahidi Fort.",
+            "abra_ride": "Enjoy a traditional abra ride along Dubai Creek with picturesque views of the city.",
+            "spice_souk_gold_souk": "Visit the Spice Souk and Gold Souk to explore unique shopping and cultural experiences.",
+            "jumeirah_beach": "Take in the serene views of the Arabian Gulf from Jumeirah Beach.",
+            "burj_al_arab_photo_stop": "Photo stop at the iconic Burj Al Arab hotel, a symbol of luxury.",
+            "palm_jumeirah_island": "Discover Palm Jumeirah Island, a marvel of modern engineering.",
+            "atlantis_photo_stop": "Photo stop at Atlantis, The Palm, an iconic resort.",
+            "dubai_marina": "End the tour with views of Dubai Marina, known for its modern skyline and luxury yachts."
+          },
+          "excluded": {
+            "extended_shopping": "Limited shopping time at the Spice Souk and Gold Souk to maintain the schedule.",
+            "personal_expenses": "Souvenirs, tips, and other personal expenses are not included.",
+            "outside_designated_areas": "Additional charges may apply for transportation outside designated pick-up/drop-off areas.",
+            "guide_gratuities": "Tipping the guide and driver is not included and is at participants' discretion.",
+            "language_specific_guides": "Additional fees may apply for guides in languages other than the default."
+          }
+
+      },
+      {
+        "id": 5,
+        "title": "Sheikh Zayed Grand Mosque Tour",
+        "location": "UAE",
+        "description": "Experience the awe-inspiring beauty of the Sheikh Zayed Grand Mosque on an exclusive private tour!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 650,
+        "currency": "AED",
+        "image": "assets/images/destinations/mosque4.jpg",
+        "badge": null,
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.9,
+        "totalReviews": 67,
+        "reviews": [
+          {
+            "name": "Fatima Al-Zahra",
+            "date": "2 days ago",
+            "rating": 5,
+            "comment": "Absolutely breathtaking mosque tour! The architecture was stunning and the guide was knowledgeable about Islamic culture. The private experience made it so special.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Ahmed Hassan",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect mosque visit! The Sheikh Zayed Grand Mosque was incredible and the cultural insights were educational. The private tour was worth every penny.",
+            "services": 5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Maria Santos",
+            "date": "2 weeks ago",
+            "rating": 4.5,
+            "comment": "Amazing mosque experience! The architecture was beautiful and the guide explained the history well. The photo opportunities were perfect.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "description2": "Immerse yourself in the awe-inspiring beauty of the Sheikh Zayed Grand Mosque on an exclusive private tour! Designed for groups of up to 6, this personalized experience offers the perfect way to explore one of the world's largest and most magnificent mosques in absolute comfort and style. Be mesmerized by the mosque's stunning architecture, intricate details, and serene atmosphere, while our expert guide shares captivating insights into its history and significance. Whether you're visiting with family, friends, or loved ones, this bespoke journey promises to create unforgettable memories. Don't miss the chance to experience this iconic landmark like never before. Book your tour now for a truly unique and enriching adventure!",
+        "image1": "assets/images/destinations/mosque1.jpg",
+        "image2": "assets/images/destinations/mosque2.jpg",
+        "image3": "assets/images/destinations/mosque4.jpg",
+        "image4": "assets/images/destinations/mosque3.jpg",
+        "image5": "assets/images/destinations/mosque5.jpg",
+        "title2": "Sheikh Zayed Grand Mosque Tour",
+        "pick": {
+            "pickup_dropoff": "Convenient pick-up and drop-off services from anywhere in Dubai for a seamless experience.",
+            "sheikh_zayed_grand_mosque": "Visit the Sheikh Zayed Grand Mosque, an architectural marvel that showcases Islamic design at its finest.",
+            "learn_islamic_culture": "Gain a deeper understanding of the Islamic traditions, culture, and history during your tour.",
+            "president_memory": "Learn about the former President of the UAE, whose vision led to the construction of the mosque.",
+            "photo_sessions": "Stop for multiple photo opportunities to capture the beauty of the mosque and its surroundings."
+          },
+          "excluded": {
+            "optional_activities": "Optional activities such as additional sightseeing stops are not included in the standard package.",
+            "meals_beverages": "Meals and beverages are not included unless specified, and participants are responsible for their own food and drinks.",
+            "personal_expenses": "Souvenirs, personal purchases, tips for guides and drivers, and any other personal expenses are not covered in the price.",
+            "guide_gratuities": "Tipping the tour guide and driver is not included and is at the discretion of the participants.",
+            "additional_transportation": "Any transportation for optional activities or private transfers outside the specified FAQs are not included.",
+            "language_specific_guides": "A language-specific guide may incur additional fees if required."
+          }
+      },
+      {
+        "id": 6,
+        "title": "Private Abu Dhabi City Tour",
+        "location": "UAE",
+        "description": "Discover the vibrant heart of Abu Dhabi on our exclusive Private City Tour!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 750,
+        "currency": "AED",
+        "image": "assets/images/destinations/dhabi4.jpg",
+        "badge": null,
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.8,
+        "totalReviews": 45,
+        "reviews": [
+          {
+            "name": "Omar Al-Rashid",
+            "date": "3 days ago",
+            "rating": 5,
+            "comment": "Exceptional private Abu Dhabi tour! The Sheikh Zayed Mosque was breathtaking and the Heritage Village was fascinating. The private guide made it so much more personal.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Sophie Williams",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great private tour! The Emirates Palace Hotel was impressive and the Dates Market was interesting. The private vehicle made it comfortable and convenient.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Carlos Rodriguez",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect private Abu Dhabi experience! The Ferrari World photo stop was great and the cultural sites were educational. The private guide was knowledgeable.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "description2": "Experience the vibrant heart of Abu Dhabi on our exclusive Private City Tour! Enjoy hassle-free pickup and drop-off from your location in our spotless vehicles, and embark on an unforgettable 8 to 9-hour adventure. Marvel at the grandeur of the Sheikh Zayed Grand Mosque, indulge in the luxury of Emirates Palace Hotel, and immerse yourself in the rich local culture at Heritage Village. Stroll through the lively Dates Market, and capture stunning photos at the iconic Ferrari World. From cultural landmarks to modern marvels, this tour offers the best of Abu Dhabi. Book your private tour today for a truly exceptional experience!",
+        "image1": "assets/images/destinations/dhabi1.jpg",
+        "image2": "assets/images/destinations/dhabi3.jpg",
+        "image3": "assets/images/destinations/dhabi4.jpg",
+        "image4": "assets/images/destinations/dhabi2.jpg",
+        "image5": "assets/images/destinations/dhabi5.jpg",
+        "title2": "Private Abu Dhabi City Tour",
+        "inclusions": {
+            "pickup": "Pick from Your Home / Hotel (in Private Vehicle)",
+            "professional_guide": "Professional Guided Tour of Abu Dhabi",
+            "sheikh_zayed_road": "Drive via Sheikh Zayed Road to Abu Dhabi",
+            "sheikh_zayed_mosque": "Sheikh Zayed Mosque (1 Hour 30 Minutes Stop)",
+            "popular_market": "Popular Abu Dhabi Market (Drive Through)",
+            "national_exhibition": "National Exhibition Centre (Drive Through)",
+            "emirates_palace": "Emirates Palace Hotel (VISIT)",
+            "heritage_village": "Herritage Village (VISIT)",
+            "jumeirah_etihad_tower": "Jumeirah Etihad Tower (Photo Stop)",
+            "sheikh_palace": "Photo stop at Sheikh's Palace",
+            "islamic_art_museum": "Islamic Art Museum (VISIT)",
+            "marina_mall": "Marina Mall of Abu Dhabi (Drive Through)",
+            "corniche": "Abu Dhabi Corniche (Photo Stop)",
+            "dates_market": "Dates Market (VISIT)",
+            "yas_island": "Yas Island (Photo Stop)",
+            "ferrari_world": "Ferrari World (Photo Stop)",
+            "saadiyat_island": "Drive through Saadiyat Island",
+            "dropoff": "Drop Off To Your Home / Hotel"
+        }
+      },
+      {
+        "id": 7,
+        "title": "Burj Al Arab Inside Visit",
+        "location": "UAE",
+        "description": "Experience the iconic Burj Al Arab like never before with our exclusive 90-minute inside visit!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 240,
+        "currency": "AED",
+        "image": "assets/images/destinations/burj2.jpg",
+        "badge": null,
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.7,
+        "totalReviews": 92,
+        "reviews": [
+          {
+            "name": "Isabella Martinez",
+            "date": "1 day ago",
+            "rating": 5,
+            "comment": "Incredible Burj Al Arab experience! The 90-minute tour was perfect and the luxury interiors were breathtaking. The guide was knowledgeable about the hotel's history.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Alexander Thompson",
+            "date": "4 days ago",
+            "rating": 4.5,
+            "comment": "Great inside visit! The Burj Al Arab was impressive and the tour was well-organized. The luxury atmosphere was incredible and worth the experience.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Victoria Chen",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect luxury experience! The inside tour was fascinating and the architecture was stunning. The guide explained everything beautifully.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "description2": "Discover the iconic Burj Al Arab like never before with our exclusive 90-minute inside tour! Immerse yourself in the luxury and opulence of this world-famous hotel, exploring its breathtaking architecture and extravagant interiors. While pickup and drop-off are not included in the ticket price, convenient transportation options can be arranged for your convenience. Don't miss out on the opportunity to create unforgettable memories at one of Dubai's most iconic landmarks!",
+        "image1": "assets/images/destinations/burj1.jpg",
+        "image2": "assets/images/destinations/burj2.jpg",
+        "image3": "assets/images/destinations/burj4.jpg",
+        "image4": "assets/images/destinations/burj3.jpg",
+        "image5": "assets/images/destinations/burj5.jpg",
+        "title2": "Burj Al Arab Inside Visit",
+      "pick": {
+    "inside_burj_al_arab": "Enjoy a 90-minute immersive tour of the iconic Burj Al Arab, guided by a private expert and butler.",
+    "tour_guide": "Your knowledgeable guide will provide in-depth insights into the hotel's history, architectural significance, and luxurious amenities."
+  },
+  "excluded": {
+    "alcoholic_beverages": "Alcoholic beverages are not included in the tour and must be purchased separately if desired.",
+    "souvenirs_personal_expenses": "Any additional purchases such as souvenirs, photographs, or personal items are not included and will incur extra charges.",
+    "gratuities": "Gratuities for guides, drivers, and other staff members are not included in the price and are at the guests' discretion."
+  }
+
+      },
+     
+      {
+        "id": 9,
+        "title": "Al Ain City Tour",
+        "location": "UAE",
+        "description": "Embark on an unforgettable adventure with our Al Ain City Tour from Dubai!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 250,
+        "currency": "AED",
+        "image": "assets/images/destinations/ain2.jpg",
+      
+        "description2": "Discover the beauty of Al Ain, the Garden City of the UAE, with our comprehensive tour! Begin with a convenient pick-up from your hotel or residence, followed by a scenic drive to Al Ain. Marvel at the stunning views from Jabel Hafeet, relax in the therapeutic Hot Water Springs, and explore the fascinating Al Ain Zoo (ticket not included). Step back in time at the Al Ain Museum and Fort, wander through the lush Al Ain Oasis, and experience the traditional Camel Market. This tour offers a perfect blend of nature, history, and culture!",
+        "image1": "assets/images/destinations/ain1.jpg",
+        "image2": "assets/images/destinations/ain2.jpg",
+        "image3": "assets/images/destinations/ain4.jpg",
+        "image4": "assets/images/destinations/ain3.jpg",
+        "image5": "assets/images/destinations/ain5.jpg",
+        "title2": "Al Ain City Tour",
+        "inclusions": {
+          "transportation": "Pick-up & Drop-off from your Hotel / Residence",
+          "jabel_hafeet": "Jabel Hafeet",
+          "hot_water_spring": "Hot Water Spring",
+          "al_ain_zoo": "Al Ain Zoo (Ticket Not Include)",
+          "al_ain_museum": "Al Ain Museum",
+          "al_ain_fort": "Al Ain Fort",
+          "al_ain_oasis": "Al Ain Oasis",
+          "camel_market": "Camel Market"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.6,
+        "totalReviews": 134,
+        "reviews": [
+          {
+            "name": "Hassan Al-Mansouri",
+            "date": "3 days ago",
+            "rating": 5,
+            "comment": "Amazing Al Ain tour! The Jabel Hafeet views were stunning and the Hot Water Springs were relaxing. The Al Ain Oasis was beautiful and the Camel Market was fascinating.",
+            "services": 5,
+            "guides": 4.5,
+            "price": 4.5
+          },
+          {
+            "name": "Rachel Green",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great cultural tour! The Al Ain Museum was interesting and the Fort was educational. The Garden City was beautiful and the guide was knowledgeable.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Mohammed Al-Zahra",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect Al Ain experience! The mountain views were incredible and the cultural sites were fascinating. The tour covered everything perfectly.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Dubai Walking Tour",
+        "location": "UAE",
+        "description": "Join us for an unforgettable journey through the heart of Old Dubai, guided by our professional tour guide.",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 150,
+        "currency": "AED",
+        "image": "assets/images/destinations/dubai4.jpg",
+        "badge": null,
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.5,
+        "totalReviews": 167,
+        "reviews": [
+          {
+            "name": "Thomas Anderson",
+            "date": "2 days ago",
+            "rating": 5,
+            "comment": "Excellent walking tour! The Al Fahidi neighborhood was charming and the Abra ride was fun. The Gold and Spice Souks were fascinating and the guide was knowledgeable.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Lisa Wang",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great cultural walking tour! The historic Al Bastakiya was interesting and the Creek views were beautiful. Perfect for experiencing Old Dubai.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "David Smith",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect walking experience! The souks were amazing and the traditional areas were educational. The guide shared great insights about Dubai's history.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ],
+        "description2": "Embark on an unforgettable journey through the heart of Old Dubai with our expert guide. Dive into the rich culture and history as you wander through the charming Al Fahidi neighborhood and the historic Al Bastakiya. Enjoy a traditional abra ride across the sparkling Creek, followed by a visit to the famous Gold and Spice Souks, where you can shop to your heart's content. The adventure begins at Al Ghubaiba Metro Station—don't miss this chance to explore the magic of Dubai's past! Book your spot today!",
+        "image1": "assets/images/destinations/dubai1.jpg",
+        "image2": "assets/images/destinations/dubai2.jpg",
+        "image3": "assets/images/destinations/burj4.jpg",
+        "image4": "assets/images/destinations/burj3.jpg",
+        "image5": "assets/images/destinations/baps5.jpg",
+        "title2": "Dubai Walking Tour",
+        "pick": {
+            "extended_shopping_time": "While visiting the Spice Souk and Gold Souk, time spent shopping is limited to ensure the tour stays on schedule.",
+            "personal_expenses": "Souvenirs, personal purchases, tips for guides, and other personal expenses are not included in the tour price.",
+            "outside_designated_areas": "For guests whose hotels are outside the designated pick-up/drop-off areas, additional transportation fees may apply.",
+            "guide_gratuities": "Tipping the tour guide and driver is not included in the price and is left to the participants' discretion.",
+            "language_specific_guides": "An additional fee may apply if a guide who speaks a language other than the tour's default language is required."
+          },
+          "excluded": {
+            "al_fahidi_historical_neighborhood": "The Al Fahidi Historical Neighborhood is not part of this tour, focusing instead on the souk experience.",
+            "abra_water_taxi": "An Abra water taxi ride, while a popular Dubai activity, is not included in this tour.",
+            "guide_with_extensive_experience": "The detailed tour of the Al Fahidi Historical Neighborhood and its cultural insights are excluded in this tour.",
+            "gold_and_spice_souks_experience": "The Gold and Spice Souks offer an immersive journey, but this tour does not include additional activities within the souks like special demonstrations."
+          }
+
+      },
+      {
+        "id": 11,
+        "image": "https://images.pexels.com/photos/18362031/pexels-photo-18362031/free-photo-of-baps-shri-swaminarayan-mandir-temple.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Abu Dhabi Tour with Temple Visit",
+        "location": "UAE",
+        "description": "Experience the perfect blend of culture and spirituality with our Abu Dhabi Tour featuring a visit to the magnificent temple!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 300,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/31739735/pexels-photo-31739735/free-photo-of-ancient-stone-temples-in-ratanpur-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/5729118/pexels-photo-5729118.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/18362066/pexels-photo-18362066/free-photo-of-baps-shri-swaminarayan-mandir-temple-in-atlanta-united-states.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/18362031/pexels-photo-18362031/free-photo-of-baps-shri-swaminarayan-mandir-temple.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/18362040/pexels-photo-18362040/free-photo-of-domes-of-baps-shri-swaminarayan-mandir-temple-in-toronto-canada.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on a unique journey through Abu Dhabi that combines cultural exploration with spiritual discovery! Our tour begins with a comfortable pickup from your location, followed by a scenic drive along Sheikh Zayed Road. Marvel at the architectural wonder of Sheikh Zayed Mosque, experience the luxury of Emirates Palace Hotel, and immerse yourself in the rich heritage at Heritage Village. Capture stunning photos at Jumeirah Etihad Tower and Sheikh's Palace, explore the Islamic Art Museum, and enjoy a drive through Marina Mall. Visit the vibrant Dates Market before experiencing the serenity of the newly opened temple (Note: Temple is closed on Mondays). This comprehensive tour offers the perfect blend of modern marvels and spiritual discovery!",
+        "title2": "Abu Dhabi Tour with Temple Visit",
+        "inclusions": {
+          "pickup": "Pick from Your Home / Hotel",
+          "professional_guide": "Professional Guided Tour of Abu Dhabi",
+          "sheikh_zayed_road": "Drive via Sheikh Zayed Road to Abu Dhabi",
+          "sheikh_zayed_mosque": "Sheikh Zayed Mosque (1 Hour 30 Minutes Stop)",
+          "emirates_palace": "Emirates Palace Hotel (VISIT)",
+          "heritage_village": "Herritage Village (VISIT)",
+          "jumeirah_etihad_tower": "Jumeirah Etihad Tower (Photo Stop)",
+          "sheikh_palace": "Photo stop at Sheikh's Palace",
+          "islamic_art_museum": "Islamic Art Museum (VISIT)",
+          "marina_mall": "Marina Mall of Abu Dhabi (Drive Through)",
+          "dates_market": "Dates Market (VISIT)",
+          "temple_visit": "Visit to newly open temple in Abu Dhabi (Temple Closed on Monday)",
+          "dropoff": "Drop Off To Your Home / Hotel"
+        },
+        "additional_info": {
+          "ferrari_world_ticket": "Ferrari World Ticket",
+          "louvre_museum": "Louvre Museum"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.8,
+        "totalReviews": 78,
+        "reviews": [
+          {
+            "name": "Priya Patel",
+            "date": "1 day ago",
+            "rating": 5,
+            "comment": "Amazing temple visit! The Sheikh Zayed Mosque was breathtaking and the temple was serene. The cultural combination was perfect and the guide was knowledgeable.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Rajesh Kumar",
+            "date": "5 days ago",
+            "rating": 4.5,
+            "comment": "Great spiritual tour! The temple visit was peaceful and the Heritage Village was interesting. The Emirates Palace Hotel was impressive.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Anita Sharma",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect cultural and spiritual experience! The temple was beautiful and the mosque was incredible. The Dates Market was fascinating.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "image": "assets/images/destinations/dhabi1.jpg",
+        "title": "Abu Dhabi Tour Package",
+        "location": "UAE",
+        "description": "Experience the best of Abu Dhabi with our comprehensive tour package, featuring iconic landmarks and cultural experiences!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 200,
+        "currency": "AED",
+        "image1": "assets/images/destinations/dhabi1.jpg",
+        "image2": "assets/images/destinations/dhabi2.jpg",
+        "image3": "assets/images/destinations/dhabi3.jpg",
+        "image4": "assets/images/destinations/dhabi4.jpg",
+        "image5": "assets/images/destinations/dhabi5.jpg",
+        "description2": "Discover the wonders of Abu Dhabi with our all-inclusive tour package! Begin your journey with a comfortable pickup from your location, followed by a scenic drive along Sheikh Zayed Road. Marvel at the architectural masterpiece of Sheikh Zayed Mosque, experience the luxury of Emirates Palace Hotel, and immerse yourself in the rich heritage at Heritage Village. Capture stunning photos at Jumeirah Etihad Tower and Sheikh's Palace, explore the Islamic Art Museum, and enjoy a drive through Marina Mall. Visit the vibrant Dates Market and choose between a photo stop at Ferrari World or a visit to the newly opened BAPS Hindu Temple. This comprehensive tour offers the perfect blend of modern marvels and cultural experiences!",
+        "title2": "Abu Dhabi Tour Package",
+        "inclusions": {
+          "pickup": "Pick from Your Home / Hotel",
+          "professional_guide": "Professional Guided Tour of Abu Dhabi",
+          "sheikh_zayed_road": "Drive via Sheikh Zayed Road to Abu Dhabi",
+          "sheikh_zayed_mosque": "Sheikh Zayed Mosque (1 Hour 30 Minutes Stop)",
+          "emirates_palace": "Emirates Palace Hotel (VISIT)",
+          "heritage_village": "Herritage Village (VISIT)",
+          "jumeirah_etihad_tower": "Jumeirah Etihad Tower (Photo Stop)",
+          "sheikh_palace": "Photo stop at Sheikh's Palace",
+          "islamic_art_museum": "Islamic Art Museum (VISIT)",
+          "marina_mall": "Marina Mall of Abu Dhabi (Drive Through)",
+          "corniche": "Abu Dhabi Corniche (Photo Stop)",
+          "dates_market": "Dates Market (VISIT)",
+          "optional_activity": "Choose between Ferrari World (Photo Stop) or Visit New Open Hindu Temple (BAPS) in Abu Dhabi",
+          "dropoff": "Drop Off To Your Home / Hotel"
+        },
+        "additional_info": {
+          "louvre_museum": "Louvre Museum",
+          "ferrari_world_ticket": "Ferrari World Ticket"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.7,
+        "totalReviews": 145,
+        "reviews": [
+          {
+            "name": "Aisha Al-Zahra",
+            "date": "3 days ago",
+            "rating": 5,
+            "comment": "Excellent Abu Dhabi package! The Sheikh Zayed Mosque was incredible and the Heritage Village was fascinating. The optional activities were great choices.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "James Wilson",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great comprehensive tour! The Emirates Palace Hotel was impressive and the Dates Market was interesting. The package covered all the major attractions.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Fatima Hassan",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect Abu Dhabi experience! The Islamic Art Museum was educational and the Corniche views were beautiful. The guide was knowledgeable about the culture.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "image": "https://images.pexels.com/photos/15128957/pexels-photo-15128957/free-photo-of-the-louvre-abu-dhabi-in-united-arab-emirates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Abu Dhabi Tour with Louvre Museum",
+        "location": "UAE",
+        "description": "Experience the perfect blend of art and culture with our Abu Dhabi Tour featuring the world-famous Louvre Museum!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 195,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/15128957/pexels-photo-15128957/free-photo-of-the-louvre-abu-dhabi-in-united-arab-emirates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/28994857/pexels-photo-28994857/free-photo-of-visitors-at-louvre-abu-dhabi-museum-in-sunset-glow.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/15127416/pexels-photo-15127416/free-photo-of-woman-posing-near-water-near-building-dome.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15128957/pexels-photo-15128957/free-photo-of-the-louvre-abu-dhabi-in-united-arab-emirates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/31480325/pexels-photo-31480325/free-photo-of-architectural-reflection-at-louvre-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on a cultural journey through Abu Dhabi with our exclusive Louvre Museum tour! Travel in comfort with our private air-conditioned vehicle and professional English-speaking guide. Marvel at the architectural wonder of Sheikh Zayed Grand Mosque, explore the world-class collections at Louvre Abu Dhabi, and capture stunning photos at iconic landmarks like Emirates Palace and Jumeirah Etihad Tower. Enjoy drive-through tours of the National Exhibition Centre, Saadiyat Island, and Abu Dhabi Corniche, all while staying connected with our complimentary Wi-Fi. This tour offers the perfect blend of art, culture, and modern marvels!",
+        "title2": "Abu Dhabi Tour with Louvre Museum",
+        "inclusions": {
+          "transportation": "Private transportation in an air-conditioned vehicle",
+          "guide": "A professional English-speaking guide",
+          "sheikh_zayed_mosque": "Entrance to Sheikh Zayed Grand Mosque",
+          "louvre_museum": "Admission to Louvre Abu Dhabi",
+          "photo_stops": "Photo stops at Emirates Palace, Jumeirah Etihad Tower, and Ferrari World",
+          "drive_through_tours": "Drive-through tours of National Exhibition Centre, Saadiyat Island, and Abu Dhabi Corniche",
+          "wifi": "Free Wi-Fi during the tour"
+        },
+        "excluded": {
+          "meals": "Meals and personal expenses",
+          "tips": "Tips for the guide and driver",
+          "optional_activities": "Optional activities beyond the set FAQs"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.9,
+        "totalReviews": 56,
+        "reviews": [
+          {
+            "name": "Marie Dubois",
+            "date": "2 days ago",
+            "rating": 5,
+            "comment": "Incredible Louvre Museum tour! The art collections were amazing and the Sheikh Zayed Mosque was breathtaking. The private guide was knowledgeable about art and culture.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Pierre Martin",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect cultural experience! The Louvre Abu Dhabi was impressive and the Emirates Palace photo stop was great. The free WiFi was a nice touch.",
+            "services": 5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Sophie Laurent",
+            "date": "2 weeks ago",
+            "rating": 4.5,
+            "comment": "Great art and culture tour! The museum was fascinating and the drive-through tours were informative. The guide was professional and knowledgeable.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "image": "https://images.pexels.com/photos/15129770/pexels-photo-15129770/free-photo-of-courtyard-of-mosque.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Abu Dhabi Tour with Qasr Al Watan",
+        "location": "UAE",
+        "description": "Experience the grandeur of Abu Dhabi with our exclusive tour featuring the magnificent Qasr Al Watan Presidential Palace!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 195,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/24862678/pexels-photo-24862678/free-photo-of-qasr-al-watan-in-abu-dhabi-in-uae-at-night.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image2": "https://images.pexels.com/photos/15129770/pexels-photo-15129770/free-photo-of-courtyard-of-mosque.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/16681379/pexels-photo-16681379/free-photo-of-qasr-al-watan-in-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15128974/pexels-photo-15128974/free-photo-of-the-qasr-al-watan-in-united-arab-emirates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/31157349/pexels-photo-31157349/free-photo-of-luxurious-interior-of-al-watan-palace-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Discover the splendor of Abu Dhabi with our exclusive Qasr Al Watan tour! Enjoy convenient pick-up and drop-off in our private, air-conditioned vehicle, accompanied by a professional guide who will share fascinating insights about each landmark. Experience the grandeur of Qasr Al Watan Presidential Palace and other major attractions, with a personalized FAQs tailored to your family's preferences. Stay connected throughout your journey with complimentary WiFi in the vehicle. This tour offers a perfect blend of cultural discovery and modern comfort!",
+        "title2": "Abu Dhabi Tour with Qasr Al Watan",
+        "inclusions": {
+          "transportation": "Pick-up and drop-off in a private, air-conditioned vehicle from your hotel or home",
+          "guide": "A professional guide providing informative insights into each landmark",
+          "entrance": "Entrance to Qasr Al Watan and other major attractions",
+          "FAQs": "A personalized FAQs to suit your family's preferences",
+          "wifi": "Free WiFi in the vehicle for your convenience"
+        },
+        "excluded": {
+          "meals": "Meals and personal expenses",
+          "tips": "Tips for the guide and driver",
+          "optional_activities": "Optional activities outside the set FAQs"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.8,
+        "totalReviews": 73,
+        "reviews": [
+          {
+            "name": "Ahmed Al-Mansouri",
+            "date": "1 day ago",
+            "rating": 5,
+            "comment": "Magnificent Qasr Al Watan tour! The Presidential Palace was incredible and the architecture was stunning. The private guide was knowledgeable about the history.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Sarah Johnson",
+            "date": "4 days ago",
+            "rating": 4.5,
+            "comment": "Great palace tour! The Qasr Al Watan was impressive and the personalized itinerary was perfect. The free WiFi was convenient.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Omar Hassan",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect cultural experience! The palace was beautiful and the guide explained everything well. The private vehicle made it comfortable.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "image": "https://images.pexels.com/photos/11249825/pexels-photo-11249825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Private Abu Dhabi Tour with Mosque, Louvre and Qasr Al Watan",
+        "location": "UAE",
+        "description": "Experience the ultimate Abu Dhabi cultural journey with our exclusive private tour featuring the city's most iconic landmarks!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 900,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/15128967/pexels-photo-15128967/free-photo-of-qasr-al-watan-in-abu-dhabi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/11249825/pexels-photo-11249825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/5386882/pexels-photo-5386882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/18241813/pexels-photo-18241813/free-photo-of-women-in-abayas-near-building-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on an unforgettable journey through Abu Dhabi's most prestigious landmarks with our exclusive private tour! Travel in comfort and style in our well-maintained, air-conditioned vehicle, enjoying the freedom to explore at your own pace. Our knowledgeable guide will provide personalized insights into each landmark, ensuring you fully appreciate the significance of every stop. Visit the magnificent Sheikh Zayed Grand Mosque, explore the world-class collections at Louvre Abu Dhabi, and marvel at the grandeur of Qasr Al Watan Presidential Palace - all entry fees included. With convenient private pick-up and drop-off from your location, this tour offers the perfect blend of luxury, culture, and convenience!",
+        "title2": "Private Abu Dhabi Tour with Mosque, Louvre and Qasr Al Watan",
+        "inclusions": {
+          "transportation": "Private, well-maintained, air-conditioned vehicle for comfortable travel",
+          "guide": "Knowledgeable guide providing personalized insights and stories about each landmark",
+          "entrance_fees": "All entry fees to Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, and Qasr Al Watan included",
+          "pickup_dropoff": "Private pick-up and drop-off from your home or hotel"
+        },
+        "excluded": {
+          "meals": "You will have the flexibility to enjoy meals at your leisure, choosing from a variety of local or international cuisines",
+          "souvenirs": "Souvenirs or additional purchases during the tour are not included in the package",
+          "gratuities": "While gratuities for your guide and driver are not included, they are always appreciated if you feel the service was exceptional"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.9,
+        "totalReviews": 34,
+        "reviews": [
+          {
+            "name": "Isabella Rodriguez",
+            "date": "2 days ago",
+            "rating": 5,
+            "comment": "Ultimate Abu Dhabi experience! The mosque, Louvre, and Qasr Al Watan were all incredible. The private guide was knowledgeable and the all-inclusive package was perfect.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "James Mitchell",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect private tour! All three landmarks were amazing and the personalized insights made it special. The private vehicle was comfortable and convenient.",
+            "services": 5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Fatima Al-Zahra",
+            "date": "2 weeks ago",
+            "rating": 4.5,
+            "comment": "Excellent comprehensive tour! The cultural sites were fascinating and the guide was professional. The all-inclusive entrance fees made it hassle-free.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "image": "assets/images/destinations/wb1.jpg",
+        "title": "Abu Dhabi Tour with Warner Bros",
+        "location": "UAE",
+        "description": "Experience the magic of Warner Bros World Abu Dhabi with our exclusive private tour!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 450,
+        "currency": "AED",
+        "image1": "assets/images/destinations/wb1.jpg",
+        "image2": "assets/images/destinations/wb4.jpg",
+        "image3": "assets/images/destinations/wb3.jpg",
+        "image4": "assets/images/destinations/wb2.jpg",
+        "image5": "assets/images/destinations/wb5.jpg",
+        "description2": "Embark on an unforgettable adventure with our Private Abu Dhabi Tour featuring Warner Bros World! Our professional guide will enrich your experience with fascinating stories and insights about Abu Dhabi and its attractions. Travel in comfort and style in our private, air-conditioned vehicle, with all entrance fees included for a hassle-free experience. Enjoy priority access to the park, skipping the lines to dive straight into the fun. This tour combines the excitement of Warner Bros World with the comfort of private transportation and expert guidance!",
+        "title2": "Abu Dhabi Tour with Warner Bros",
+        "inclusions": {
+          "guide": "Professional guide providing fascinating stories and facts about Abu Dhabi",
+          "transportation": "Private, air-conditioned vehicle for comfortable travel",
+          "entrance_fees": "All entrance fees to attractions included in the FAQs",
+          "priority_access": "Skip-the-line priority access to the park"
+        },
+        "excluded": {
+          "meals": "While meals are not included, you'll have the flexibility to explore local cuisines according to your preferences",
+          "personal_expenses": "Any personal purchases or expenses outside the FAQs are not covered",
+          "gratuities": "Tips for the guide and driver are not included but are appreciated for exceptional service"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.7,
+        "totalReviews": 89,
+        "reviews": [
+          {
+            "name": "Emma Thompson",
+            "date": "3 days ago",
+            "rating": 5,
+            "comment": "Amazing Warner Bros World tour! The theme park was incredible and the priority access was fantastic. The private guide was knowledgeable about Abu Dhabi.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Michael Brown",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great family tour! Warner Bros World was fun and the private transportation was comfortable. The skip-the-line access made it so much better.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Sophie Davis",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect entertainment tour! The theme park was exciting and the private vehicle made it convenient. The guide was professional and helpful.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "image": "https://www.timeoutabudhabi.com/cloud/timeoutabudhabi/2023/05/23/SeaWorld-Abu-Dhabi-grand-opening-celebration-1.jpg",
+        "title": "Abu Dhabi Tour with Sea World",
+        "location": "UAE",
+        "description": "Experience the wonders of Abu Dhabi and Sea World with our exclusive private tour!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 450,
+        "currency": "AED",
+        "image1": "https://www.timeoutabudhabi.com/cloud/timeoutabudhabi/2023/05/23/SeaWorld-Abu-Dhabi-grand-opening-celebration-1.jpg",
+        "image2": "https://blooloop.com/wp-content/uploads/2023/06/one-ocean-live-performance.jpeg",
+        "image3": "https://platinumlist.net/guide/wp-content/uploads/2023/04/SeaWorld-Abu-Dhabi-1024x576.webp",
+        "image4": "https://cdn-failk.nitrocdn.com/RyKHmvXXxHokVmBMNBLvuMxeBKSzoEFQ/assets/images/optimized/rev-0db88b0/blooloop.com/wp-content/uploads/2023/06/visitors-at-aquarium-endless-ocean-768x576.jpeg",
+        "image5": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz4OdPU6oLGD0stwoYHNQgYIfAUCeA_OgaRooOOFMx6mozvNcdwh3ne0AVLhk9-D7zHCw&usqp=CAU",
+        "description2": "Embark on an unforgettable journey through Abu Dhabi with our exclusive tour featuring Sea World! Travel in comfort in our private, air-conditioned vehicle with a professional guide fluent in both English and Arabic. Experience the best of Abu Dhabi with entrance to all attractions, including Sea World, and exclusive visits to iconic landmarks like Sheikh Zayed Grand Mosque and Emirates Palace. Capture memorable moments at special photo stops throughout the city. This tour combines the excitement of Sea World with the cultural richness of Abu Dhabi's most famous landmarks!",
+        "title2": "Abu Dhabi Tour with Sea World",
+        "inclusions": {
+          "transportation": "Private transportation in a comfortable, air-conditioned vehicle",
+          "guide": "Professional guide fluent in English and Arabic",
+          "entrance_fees": "Entrance fees to all attractions, including Sea World",
+          "landmarks": "Exclusive visits to landmarks like Sheikh Zayed Grand Mosque and the Emirates Palace",
+          "photo_stops": "Special photo stops at key scenic points"
+        },
+        "excluded": {
+          "meals": "Meals and personal expenses (lunch and snacks can be enjoyed at preferred spots)",
+          "gratuities": "Tips for the guide and driver (optional but appreciated)",
+          "personal_purchases": "Any personal purchases or unexpected expenses"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.8,
+        "totalReviews": 67,
+        "reviews": [
+          {
+            "name": "Olivia Martinez",
+            "date": "1 day ago",
+            "rating": 5,
+            "comment": "Incredible Sea World tour! The marine life was amazing and the Sheikh Zayed Mosque was breathtaking. The bilingual guide was excellent.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Daniel Kim",
+            "date": "5 days ago",
+            "rating": 4.5,
+            "comment": "Great marine experience! Sea World was fascinating and the Emirates Palace visit was impressive. The private transportation was comfortable.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Lisa Chen",
+            "date": "1 week ago",
+            "rating": 5,
+            "comment": "Perfect combination tour! The marine park was educational and the cultural landmarks were beautiful. The photo stops were perfect.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "image": "https://static.myconnect.ae/-/media/yasconnect/project/b2b/yas-island/tab-listing/yicardimage970x545.png",
+        "title": "Abu Dhabi Tour with Yas Island Parks",
+        "location": "UAE",
+        "description": "Experience the excitement of Yas Island Parks combined with the cultural richness of Abu Dhabi!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 450,
+        "currency": "AED",
+        "image1": "https://static.myconnect.ae/-/media/yasconnect/project/b2b/yas-island/tab-listing/yicardimage970x545.png",
+        "image2": "https://blooloop.com/wp-content/uploads/2019/04/Yas-Waterworld-and-Warner-Bros.-World-Abu-Dhabi-e1575975891983.jpeg",
+        "image3": "https://static.toiimg.com/photo/93554995.cms",
+        "image4": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgVmEMqfHLw7BAZWF7buBNspgTJ_sYuqOecbbLckL127pdAx4iXJnI1Uyu3Ah6-u2uk0&usqp=CAU",
+        "image5": "https://static.myconnect.ae/-/media/yasconnect/project/yasisland/general-pages/2-theme-parks--attractions/yaswaterworlddesktop.png",
+        "description2": "Discover the perfect blend of entertainment and culture with our Abu Dhabi Tour featuring Yas Island Parks! Travel in comfort in our private, air-conditioned vehicle with a professional guide who will enhance your experience with insightful commentary. Enjoy entrance to all major attractions as per the FAQs, with customizable options to perfectly align with your preferences. Whether you're seeking thrilling rides at Yas Island Parks or exploring Abu Dhabi's cultural landmarks, this tour offers the best of both worlds!",
+        "title2": "Abu Dhabi Tour with Yas Island Parks",
+        "inclusions": {
+          "transportation": "Private transportation in a comfortable, air-conditioned vehicle",
+          "guide": "Professional guide to enhance your experience with insightful commentary",
+          "entrance_fees": "Entrance fees to all major attractions as per the FAQs",
+          "customization": "Customizable tour options to align perfectly with your preferences"
+        },
+        "excluded": {
+          "meals": "Meals and personal expenses",
+          "gratuities": "Tips for guides and drivers (optional but appreciated)",
+          "additional_activities": "Any additional activities outside the predefined FAQs"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.6,
+        "totalReviews": 112,
+        "reviews": [
+          {
+            "name": "Alex Johnson",
+            "date": "2 days ago",
+            "rating": 5,
+            "comment": "Fantastic Yas Island Parks tour! The theme parks were exciting and the customizable options were perfect. The private guide was knowledgeable.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Maria Garcia",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great entertainment tour! Yas Island Parks were fun and the private transportation was comfortable. The customizable itinerary was helpful.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "David Wilson",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect family tour! The parks were amazing and the guide provided great insights. The all-inclusive entrance fees made it convenient.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "image": "https://www.arabianbusiness.com/wp-content/uploads/sites/3/cloud/2021/09/15/lxhqtXin-Ferrari-World-Abu-Dhabi-2.jpg",
+        "title": "Abu Dhabi Tour + Ferrari World",
+        "location": "UAE",
+        "description": "Experience the thrill of Ferrari World combined with the cultural richness of Abu Dhabi!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 450,
+        "currency": "AED",
+        "image1": "https://www.arabianbusiness.com/wp-content/uploads/sites/3/cloud/2021/09/15/lxhqtXin-Ferrari-World-Abu-Dhabi-2.jpg",
+        "image2": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/98/f5/6c.jpg",
+        "image3": "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/102977/pexels-photo-102977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://i.pinimg.com/564x/c7/c7/53/c7c753ccadd5eb767ce9d7df1d1e312a.jpg",
+        "description2": "Embark on an unforgettable journey through Abu Dhabi with our exclusive tour featuring Ferrari World! Begin with a convenient pick-up from your hotel or residence, followed by a visit to the magnificent Sheikh Zayed Mosque. Experience the grandeur of Emirates Palace and President Palace with a drive-through, explore the rich Islamic art at Miraj Gallery, and enjoy lunch time at Marina Mall or Heritage Village. Discover the cultural heritage at the Museum of Abu Dhabi, take in the scenic views along the Corniche, and explore the famous Date Market. The highlight of your day will be the thrilling rides at Ferrari World (tickets included), before returning to your hotel or residence.",
+        "title2": "Abu Dhabi Tour + Ferrari World",
+        "inclusions": {
+          "pickup": "Pick-up from your Hotel / Residence",
+          "sheikh_zayed_mosque": "Visit to Sheikh Zayed Mosque",
+          "palaces": "Drive Through Emirate Palace & President Palace",
+          "islamic_art": "Visit to Miraj Islamic art Gallery",
+          "lunch_break": "Lunch time at Marina Mall or Heritage village (Lunch not included in price)",
+          "heritage_village": "Visit to Heritage village the Museum of Abu Dhabi",
+          "corniche": "Drive through Corniche",
+          "dates_market": "Abu Dhabi Famous Date Market",
+          "ferrari_world": "Ferrari World Rides (Tickets Included)",
+          "dropoff": "Drop-off at your Hotel / Residence"
+        },
+        "additional_info": {
+          "louvre_museum": "Louvre Museum"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details",
+        "averageRating": 4.7,
+        "totalReviews": 98,
+        "reviews": [
+          {
+            "name": "Carlos Rodriguez",
+            "date": "3 days ago",
+            "rating": 5,
+            "comment": "Amazing Ferrari World tour! The rides were thrilling and the Sheikh Zayed Mosque was breathtaking. The Heritage Village was fascinating.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          },
+          {
+            "name": "Anna Kowalski",
+            "date": "1 week ago",
+            "rating": 4.5,
+            "comment": "Great combination tour! Ferrari World was exciting and the Emirates Palace drive-through was impressive. The Dates Market was interesting.",
+            "services": 4.5,
+            "guides": 5,
+            "price": 4
+          },
+          {
+            "name": "Thomas Mueller",
+            "date": "2 weeks ago",
+            "rating": 5,
+            "comment": "Perfect Abu Dhabi experience! The Ferrari rides were incredible and the cultural sites were educational. The included tickets made it convenient.",
+            "services": 5,
+            "guides": 5,
+            "price": 4.5
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "image": "https://images.pexels.com/photos/325193/pexels-photo-325193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Dubai City Tour",
+        "location": "UAE",
+        "description": "Experience the best of Dubai's iconic landmarks and attractions in one comprehensive tour!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 200,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/325193/pexels-photo-325193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/19295933/pexels-photo-19295933/free-photo-of-skyscrapers-behind-sea-coast-in-dubai.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image3": "https://images.pexels.com/photos/9679747/pexels-photo-9679747.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image4": "https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image5": "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "description2": "Discover the magic of Dubai with our comprehensive city tour! Begin with a convenient pick-up from your hotel or residence, followed by a scenic drive through Dubai Creek. Explore the rich history at Dubai Museum, admire the stunning Jumeirah Mosque, and relax at Jumeirah Beach. Capture memorable photos outside the iconic Burj Al Arab and enjoy a picturesque drive through Madinat Jumeirah. Experience the architectural marvel of Palm Jumeirah Island, take a photo stop at Atlantis Hotel, and marvel at the Dubai Marina skyline. Drive through Dubai Mall and Burj Khalifa, visit the Islamic Art Gallery, and see the Ruler's Palace before returning to your hotel or residence.",
+        "title2": "Dubai City Tour",
+        "inclusions": {
+          "pickup": "Pick-up from your Hotel / Residence In Dubai",
+          "dubai_creek": "Drive Through Dubai Creek",
+          "dubai_museum": "Visit Of Dubai Museum",
+          "jumeirah_mosque": "Jumeirah Mosque",
+          "jumeirah_beach": "Jumeirah Beach",
+          "burj_al_arab": "Photo Stop Outside of Burj Al Arab",
+          "madinat_jumeirah": "Drive Through Madinat Jumeirah Along Pictures",
+          "palm_jumeirah": "Palm Jumeirah Island",
+          "atlantis": "Atlantis Hotel Photo Stop From Outside",
+          "dubai_marina": "View Of Dubai Marina",
+          "dubai_mall": "Drive Through Dubai Mall & Burj Khalifa",
+          "islamic_art": "Islamic Art Gallery",
+          "rulers_palace": "Ruler's Palace (His Highness Sheikh Mohammed Bin Rashid Al Maktoum Palace)",
+          "dropoff": "Drop back to your Hotel / Residence in Dubai"
+        },
+        "additional_info": {
+          "burj_khalifa": "Burj Khalifa Entry Ticket",
+          "dubai_frame": "Dubai Frame"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details"
+      },
+      {
+        "id": 21,
+        "image": "https://images.pexels.com/photos/19136333/pexels-photo-19136333/free-photo-of-a-river-in-a-city.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Old Dubai Tour",
+        "location": "UAE",
+        "description": "Step back in time and explore the rich heritage and culture of Old Dubai!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 250,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/19136333/pexels-photo-19136333/free-photo-of-a-river-in-a-city.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/31826467/pexels-photo-31826467/free-photo-of-traditional-wooden-boats-on-dubai-creek.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/27522499/pexels-photo-27522499/free-photo-of-dubai-creek-skyline-and-waterfront-view-in-old-dubai-district.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/28515816/pexels-photo-28515816/free-photo-of-peaceful-afternoon-at-dubai-creek-waterfront.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/19068957/pexels-photo-19068957/free-photo-of-building-by-the-river-in-dubai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Immerse yourself in the authentic charm of Old Dubai with our cultural tour! Begin with a convenient pick-up from anywhere in Dubai, followed by a visit to the historic Dubai Creek. Explore the traditional Al Bastakia quarter, discover the rich history at Dubai Museum, and experience a traditional Abra boat ride across the creek. Wander through the vibrant Spice and Gold Souqs, visit the Heritage Village to learn about Emirati traditions, admire the stunning Jumeirah Mosque, and explore the Islamic Art Museum. This tour offers a perfect blend of history, culture, and tradition!",
+        "title2": "Old Dubai Tour",
+        "inclusions": {
+          "transportation": "Pick-up & Drop-off from anywhere in Dubai",
+          "dubai_creek": "Visit Of Dubai Creek",
+          "al_bastakia": "Visit Of Al Bastakia",
+          "dubai_museum": "Dubai Museum",
+          "abra_ride": "Abra Boat Ride",
+          "souqs": "Visit Of Spice & Gold Souq",
+          "heritage_village": "Heritage Village",
+          "jumeirah_mosque": "Jumeirah Mosque",
+          "islamic_art": "Islamic Art Museum"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.6,
+        "totalReviews": 98,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "comment": "Amazing cultural experience! The Old Dubai tour was incredibly informative and well-organized. Our guide was knowledgeable about the history and traditions. The Abra boat ride and souq visits were highlights!"
+          },
+          {
+            "id": 2,
+            "name": "Ahmed Al-Rashid",
+            "rating": 4,
+            "comment": "Great tour for understanding Dubai's heritage. The Dubai Museum and Heritage Village were particularly interesting. Would recommend for anyone wanting to see the traditional side of Dubai."
+          },
+          {
+            "id": 3,
+            "name": "Emma Thompson",
+            "rating": 5,
+            "comment": "Perfect introduction to Old Dubai! The tour covered all the important historical sites. The spice souq was fascinating, and the Jumeirah Mosque visit was beautiful. Highly recommended!"
+          }
+        ],
+        "link": "tour-details"
+      },
+      {
+        "id": 22,
+        "image": "https://images.pexels.com/photos/9679747/pexels-photo-9679747.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "title": "Burj Khalifa Dubai",
+        "location": "UAE",
+        "description": "Experience the breathtaking views from the world's tallest building!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 185,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/10619940/pexels-photo-10619940.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/13324659/pexels-photo-13324659.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image3": "https://images.pexels.com/photos/10619950/pexels-photo-10619950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15693274/pexels-photo-15693274/free-photo-of-dubai-downtown-with-burj-khalifa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/1534411/pexels-photo-1534411.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "description2": "Experience the awe-inspiring views from the world's tallest building! Your ticket includes access to the 124th Floor Observation Deck, where you'll enjoy a 30-minute tour with panoramic views of Dubai. Please note that transfers are not included - the best way to reach is through public transportation (taxis, metro) or you can book private transfers separately. Remember to bring your passport copy or Emirates ID for entry. For visits between 4:30 PM to 7:30 PM, adult rate is 200 AED and child rate is 160 AED. Please specify your preferred time slot in the special request section when booking.",
+        "title2": "Burj Khalifa Dubai",
+        "inclusions": {
+          "observation_deck": "Entrance Ticket to 124th Floor Observation Deck",
+          "tour_duration": "30 Minutes Tour at Observation Deck"
+        },
+        "important_notes": {
+          "transfers": "This tour doesn't include transfers, the best and cheapest way to reach is through public transportation, i.e (Taxis, Metro etc.) or you can book private transfers from us, just send us request",
+          "id_requirement": "Passport copy / Emirates ID is mandatory to carry during this trip",
+          "peak_hours": "Adult rate will be 200 AED and Child rate will be 160 AED, if you are booking between 4:30 PM to 7:30 PM",
+          "time_slot": "Please mention the required time slots for Burj Khalifa in special request section while making the booking, we'll try our best to get your desired slot or will provide you the best available options",
+          "availability": "Burj Khalifa Tickets are subject to Availability"
+        },
+        "cancellation_policy": {
+          "non_cancellable": "This tour is non cancellable / Non amendable tour",
+          "payment": "This booking can only be confirm after receiving the payment to our bank. (bank details will send to your email and you have 24 hours to send it)",
+          "no_refund": "Once booked no refund will be provided",
+          "time_slot_confirmation": "If we are not able to book the tickets as per your desired time slot we'll not make the booking until unless we get the confirmation from your end, if you don't agree to the time slot provided by us we'll not make the booking"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.9,
+        "totalReviews": 234,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Michael Chen",
+            "rating": 5,
+            "comment": "Absolutely spectacular! The views from Burj Khalifa are breathtaking. The observation deck offers panoramic views of Dubai. A must-visit attraction for anyone in Dubai!"
+          },
+          {
+            "id": 2,
+            "name": "Lisa Rodriguez",
+            "rating": 5,
+            "comment": "Incredible experience! The elevator ride to the top was smooth and the views were amazing. Perfect for photos and seeing Dubai from above. Highly recommend!"
+          },
+          {
+            "id": 3,
+            "name": "David Wilson",
+            "rating": 4,
+            "comment": "Great experience with stunning views. The observation deck is well-maintained and offers great photo opportunities. A bit crowded but worth the visit."
+          }
+        ],
+        "link": "tour-details"
+      },
+      {
+        "id": 23,
+        "image": "https://images.pexels.com/photos/2590514/pexels-photo-2590514.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "title": "Helicopter Tour",
+        "location": "UAE",
+        "description": "Experience Dubai's iconic landmarks from a breathtaking aerial perspective!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 1200,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/2590514/pexels-photo-2590514.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image2": "https://images.pexels.com/photos/2589035/pexels-photo-2589035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/7276731/pexels-photo-7276731.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image4": "https://images.pexels.com/photos/3099037/pexels-photo-3099037.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image5": "https://images.pexels.com/photos/19252037/pexels-photo-19252037/free-photo-of-a-crowd-walking-around-a-military-helicopter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Soar above Dubai's most iconic landmarks in a thrilling helicopter tour! Experience breathtaking aerial views of the city's architectural marvels, including the stunning Atlantis The Palm Hotel, the luxurious Burj Al Arab, and the magnificent Burj Khalifa. Fly over the man-made wonders of The World and Palm Jumeirah islands, and take in the spectacular Dubai Marina skyline. This unforgettable experience offers a unique perspective of Dubai's most famous attractions from the sky!",
+        "title2": "Helicopter Tour",
+        "inclusions": {
+          "atlantis": "Atlantis The Palm Hotel",
+          "burj_al_arab": "Burj Al Arab The 7 Star Hotel",
+          "the_world": "The World",
+          "dubai_marina": "Dubai Marina",
+          "burj_khalifa": "Burj Khalifa / Dubai Mall",
+          "palm_jumeirah": "The Palm Jumeirah",
+          "palm_dubai": "The Palm Dubai"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.8,
+        "totalReviews": 156,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "James Anderson",
+            "rating": 5,
+            "comment": "Incredible helicopter tour! The aerial views of Dubai's skyline were absolutely stunning. The pilot was professional and provided great commentary. A once-in-a-lifetime experience!"
+          },
+          {
+            "id": 2,
+            "name": "Maria Garcia",
+            "rating": 4,
+            "comment": "Amazing experience! The helicopter ride was smooth and the views were breathtaking. Perfect for seeing Dubai's landmarks from above. Highly recommend for special occasions!"
+          },
+          {
+            "id": 3,
+            "name": "Robert Taylor",
+            "rating": 5,
+            "comment": "Fantastic helicopter tour! The views of Burj Khalifa, Palm Jumeirah, and the city skyline were incredible. The pilot was experienced and made us feel safe throughout the flight."
+          }
+        ],
+        "link": "tour-details"
+      },
+      {
+        "id": 24,
+       "image": "https://images.pexels.com/photos/27377785/pexels-photo-27377785/free-photo-of-european-balloon-festival-en-igualada.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Hot Air Balloon",
+        "location": "UAE",
+        "description": "Experience the magic of a sunrise hot air balloon ride over the Dubai desert!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 1300,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/3102817/pexels-photo-3102817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/5990208/pexels-photo-5990208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/13474921/pexels-photo-13474921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/2563596/pexels-photo-2563596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/28625220/pexels-photo-28625220/free-photo-of-hot-air-balloons-soaring-at-sunrise-in-cappadocia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Embark on an unforgettable adventure with our Hot Air Balloon experience! Soar above the Dubai desert for 45 to 60 minutes, witnessing a breathtaking sunrise over the desert conservation area. Before your flight, enjoy light refreshments to start your day. After landing, you'll receive a flight certificate to commemorate your experience. Available every day with convenient pick-up and drop-off service from anywhere in Dubai.",
+        "title2": "Hot Air Balloon",
+        "inclusions": {
+          "flight_duration": "45 to 60 Minutes Flight Over The Dubai Desert",
+          "sunrise_view": "See Sunrise In Desert Conservation",
+          "refreshments": "Lite Refreshment Before Flight",
+          "certificate": "Flight Certificate Will Be Provided After The Landing"
+        },
+        "availability": {
+          "schedule": "Available: Everyday",
+          "transportation": "Pick-up & Drop-off Included from anywhere in Dubai"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.9,
+        "totalReviews": 89,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Jennifer Lee",
+            "rating": 5,
+            "comment": "Magical hot air balloon experience! The sunrise over the desert was absolutely breathtaking. The pilot was skilled and the views were incredible. A truly unforgettable experience!"
+          },
+          {
+            "id": 2,
+            "name": "Carlos Mendez",
+            "rating": 5,
+            "comment": "Amazing hot air balloon ride! The desert sunrise was spectacular and the peaceful flight was perfect. The crew was professional and made us feel safe throughout the journey."
+          },
+          {
+            "id": 3,
+            "name": "Anna Kowalski",
+            "rating": 4,
+            "comment": "Beautiful experience! The hot air balloon ride over the desert was peaceful and the sunrise views were stunning. Perfect for a romantic morning adventure in Dubai."
+          }
+        ],
+        "link": "tour-details"
+      },
+      {
+        "id": 25,
+        "image": "https://images.pexels.com/photos/9679747/pexels-photo-9679747.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "title": "Dubai City Tour + Desert Safari",
+        "location": "UAE",
+        "description": "Experience the best of Dubai with a city tour and thrilling desert safari adventure!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 300,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/2417260/pexels-photo-2417260.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image2": "https://images.pexels.com/photos/14750494/pexels-photo-14750494.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image3": "https://images.pexels.com/photos/9679747/pexels-photo-9679747.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image4": "https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image5": "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "description2": "Experience the perfect combination of Dubai's urban wonders and desert adventures! Begin your day with a comprehensive city tour, exploring iconic landmarks like Dubai Creek, Dubai Museum, and Jumeirah Mosque. Capture stunning photos at Jumeirah Beach with the Burj Al-Arab as your backdrop, and marvel at the architectural wonders of the city. In the evening, embark on an exhilarating desert safari featuring dune bashing, camel riding, and sandboarding. Enjoy traditional entertainment, henna painting, and a delicious dinner buffet under the stars!",
+        "title2": "Dubai City Tour + Desert Safari",
+        "city_tour": {
+          "dubai_creek": "Dubai Creek",
+          "dubai_museum": "Dubai Museum",
+          "jumeirah_mosque": "Jumeirah Mosque",
+          "jumeirah_beach": "Jumeirah Beach",
+          "burj_al_arab": "Photo stop at Burj Al-Arab hotel",
+          "old_quarter": "Old Quarter of Dubai",
+          "madinat_jumeirah": "Madinat Jumeirah",
+          "palm_jumeirah": "Palm Jumeirah Island",
+          "atlantis_hotel": "Atlantis Hotel",
+          "dubai_marina": "Dubai Marina",
+          "mall_of_emirates": "Mall of Emirates",
+          "burj_khalifa": "Burj Khalifa",
+          "dubai_mall": "Dubai Mall",
+          "king_palace": "King Palace"
+        },
+        "desert_safari": {
+          "dune_bashing": "45 minutes of thrilling dune bashing in Lahbab desert",
+          "camel_riding": "Camel riding experience",
+          "sandboarding": "Sandboarding on Dubai's dunes",
+          "henna_painting": "Henna painting",
+          "sheesha": "Sheesha smoking",
+          "dinner": "Dinner buffet with unlimited soft drinks, tea and coffee",
+          "entertainment": "Traditional belly dance and Tanura dance show"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "averageRating": 4.7,
+        "totalReviews": 167,
+        "reviews": [
+          {
+            "id": 1,
+            "name": "Thomas Brown",
+            "rating": 5,
+            "comment": "Perfect combination tour! The city tour was informative and the desert safari was thrilling. Great value for money and excellent organization. Highly recommend!"
+          },
+          {
+            "id": 2,
+            "name": "Sophie Martin",
+            "rating": 4,
+            "comment": "Great tour package! The city tour covered all major landmarks and the desert safari was exciting. The dune bashing and camel ride were highlights. Well worth it!"
+          },
+          {
+            "id": 3,
+            "name": "Ahmed Hassan",
+            "rating": 5,
+            "comment": "Excellent combination tour! The city tour was comprehensive and the desert safari was amazing. The BBQ dinner and entertainment were fantastic. Perfect day out!"
+          }
+        ],
+        "link": "tour-details"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 3,
+      "toursPerPage": 3
+    }
+  }
+  

@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "rating": 4.8,
+      "image": "assets/images/destinations/main1.jpg",
+      "location": " UAE",
+      "title": "Theme Park",
+      "time": "Urban Adventure tourism",
+      "price": 58.00,
+      "link":"theme-park-list"
+    },
+    {
+      "id": 2,
+      "rating": 4.8,
+      "image": "assets/images/destinations/main2.jpg",
+      "location": "UAE",
+      "title": "DESERT RESORTS",
+      "time": "Urban Adventure tourism",
+      "price": 63.00,
+      "link":"desert-resort-list"
+    },
+    {
+      "id": 3,
+      "rating": 4.8,
+      "image": "assets/images/destinations/main3.jpg",
+      "location": "UAE",
+      "title": "City Tour",
+      "time": "Urban Adventure tourism",
+      "price": 42.00,
+      "link":"sight-see-list"
+    },
+    {
+      "id": 4,
+      "rating": 4.8,
+      "image": "assets/images/destinations/main4.jpg",
+      "location": "UAE",
+      "title": "Desert Safari",
+      "time": "Urban Adventure tourism",
+      "price": 52.00,
+      "link":"tour-list"
+    }
+  ]

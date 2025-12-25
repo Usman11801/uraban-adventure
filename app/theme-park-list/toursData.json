@@ -1,0 +1,128 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "assets/images/destinations/alain1.jpg",
+        "title": "IMG Worlds of Adventure",
+        "location": "UAE",
+        "description": "Step into the thrill of IMG Worlds of Adventure, where imagination meets excitement!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 237,
+        "currency": "AED",
+        "image1": "assets/images/destinations/alain1.jpg",
+        "image2": "assets/images/destinations/alain4.jpg",
+        "image3": "assets/images/destinations/alain3.jpg",
+        "image4": "assets/images/destinations/alain2.jpg",
+        "image5": "assets/images/destinations/alain5.jpg",
+        "description2": "Dive into the excitement at IMG Worlds of Adventure, where imagination comes to life! This incredible theme park in Dubai offers endless thrills with rides and attractions inspired by iconic superheroes, prehistoric dinosaurs, and beloved animated characters. Experience adrenaline-pumping roller coasters and immersive adventures that transport you to extraordinary worlds. Whether you're a thrill-seeker or looking for family fun, IMG Worlds of Adventure guarantees unforgettable moments for everyone. Your next great adventure starts here!",
+        "title2": "IMG Worlds of Adventure",
+        "pick": {
+          "personal_expenses": "All personal expenses incurred during the tour, such as shopping, dining, and drinks, will be at the guest's expense."
+        },
+        "excluded": {
+          "theme_park_access": "Entrance to the theme parks is not included and must be purchased separately.",
+          "all_zones_and_attractions": "Access to all zones and attractions within the parks is not part of the base package.",
+          "rides_and_entertainment": "Participation in rides and entertainment options requires an additional ticket or pass.",
+          "live_performances": "Attendance at live shows and performances is excluded unless specified.",
+          "park_facilities": "General use of park facilities such as restrooms and first aid stations is available but not included in any special package."
+        },
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "image": "assets/images/destinations/ferari1.jpg",
+        "title": "Ferrari World",
+        "location": "UAE",
+        "description": "Experience the thrill of Ferrari World with an unforgettable entry pass that propels you into a world of speed and excitement!",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 295,
+        "currency": "AED",
+        "image1": "assets/images/destinations/ferari1.jpg",
+        "image2": "assets/images/destinations/ferari4.jpg",
+        "image3": "assets/images/destinations/ferari3.jpg",
+        "image4": "assets/images/destinations/ferari2.jpg",
+        "image5": "assets/images/destinations/ferari5.jpg",
+        "description2": "Immerse yourself in the excitement of Ferrari World with an entry pass that takes you into a realm of speed, thrills, and luxury! Enjoy heart-pounding rides, discover iconic attractions, and feel the unmatched spirit of Ferrari. While transportation isn’t included, we’re happy to assist—just let us know if you need a ride. Don’t just visit—dive into the ultimate automotive adventure at Ferrari World! Secure your entry today!",
+        "title2": "Ferrari World",
+        "pick": {
+          "transfer_services": "Transportation services provided as per the booking, ensuring a convenient and seamless journey.",
+          "admission": "Admission to Ferrari World Abu Dhabi for one day, granting access to the park's exciting offerings.",
+          "rides_attractions_shows": "Access to all rides, attractions, and shows within the chosen park is included in the package.",
+          "ticket_validity": "Tickets are valid for use only on the date specified at the time of booking."
+        },
+        "excluded": {
+          "personal_expenses": "All personal expenses such as shopping, dining, and drinks during the tour are not included in the package."
+        },
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "image": "assets/images/destinations/wb1.jpg",
+        "title": "Warner Bros World",
+        "location": "UAE",
+        "description": "Experience the magic of Warner Bros World Abu Dhabi! Dive into a universe where your favorite characters come to life and adventure awaits at every turn.",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 295,
+        "currency": "AED",
+        "image1": "assets/images/destinations/wb1.jpg",
+        "image2": "assets/images/destinations/wb4.jpg",
+        "image3": "assets/images/destinations/wb3.jpg",
+        "image4": "assets/images/destinations/wb2.jpg",
+        "image5": "assets/images/destinations/wb5.jpg",
+        "description2": "Discover the wonder of Warner Bros World Abu Dhabi! Step into a vibrant universe where beloved characters come to life and adventure is around every corner. Enjoy thrilling rides, captivating attractions, and dazzling shows—all in one incredible destination. While transportation isn’t included in the ticket price, we’re here to help—just let us know if you’d like us to arrange it for you. Create unforgettable memories at this ultimate entertainment paradise!",
+        "title2": "Warner Bros World",
+        "pick": {
+          "transfer_services": "Transportation services provided based on the booking, ensuring a smooth and comfortable journey.",
+          "admission": "Admission to Warner Bros World Abu Dhabi for one day, granting access to the park's thrilling experiences.",
+          "rides_attractions_shows": "Enjoy access to all rides, attractions, and shows within the park.",
+          "ticket_validity": "Tickets are valid for use on the specified date as indicated during booking."
+        },
+        "excluded": {
+          "personal_expenses": "All personal expenses such as shopping, dining, and drinks during the tour are not included in the package."
+        },
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "image": "assets/images/destinations/lego1.jpg",
+        "title": "Dubai Parks and Resorts",
+        "location": "UAE",
+        "description": "Experience the ultimate adventure at Dubai Parks and Resorts! Choose from an array of world-class theme parks, ",
+        "duration": "3 days 2 nights",
+        "guests": "5-8 guest",
+        "price": 239,
+        "currency": "AED",
+        "image1": "assets/images/destinations/lego2.jpg",
+        "image2": "assets/images/destinations/alain4.jpg",
+        "image3": "assets/images/destinations/lego1.jpg",
+        "image4": "assets/images/destinations/alain2.jpg",
+        "image5": "assets/images/destinations/alain5.jpg",
+        "description2": "Get ready for the ultimate adventure at Dubai Parks and Resorts! Choose from an incredible selection of world-class theme parks, each packed with unforgettable experiences. Whether you’re chasing adrenaline-pumping rides or immersive entertainment, there’s something for everyone. Explore the cinematic thrills of Motiongate Dubai, immerse yourself in the vibrant charm of Bollywood Parks™ Dubai, or embrace family fun at LEGOLAND Dubai. Secure your ticket now and embark on a journey filled with excitement and endless fun in the heart of Dubai!",
+        "title2": "Dubai Parks and Resorts",
+        "pick": {
+          "park_choice": "Choose one park from MOTIONGATE Dubai, LEGOLAND Dubai, LEGOLAND Water Park, or Real Madrid World for a personalized adventure.",
+          "rides_and_attractions": "Enjoy thrilling rides, roller coasters, and interactive play areas designed for the whole family.",
+          "ticket_validity": "The ticket is valid for entry on the date specified during booking.",
+          "single_park_access": "This ticket grants access to a single park only and does not include entry to all parks."
+        },
+        "excluded": {
+          "personal_expenses": "All personal expenses such as shopping, dining, and additional activities on-site are not included in the package."
+        },
+      
+        "rating": 5
+      }
+      
+      
+     
+
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 3,
+      "toursPerPage": 3
+    }
+  }
+  

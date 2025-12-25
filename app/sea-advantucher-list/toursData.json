@@ -1,0 +1,70 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "https://images.pexels.com/photos/15414980/pexels-photo-15414980/free-photo-of-people-on-jet-ski.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Jet Ski Tour",
+        "location": "Dubai",
+        "description": "Experience an exhilarating Jet Ski adventure in the beautiful waters of Dubai!",
+        "duration": "35 minutes",
+        "guests": "1-2 guests",
+        "price": 500,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/11669348/pexels-photo-11669348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/29867683/pexels-photo-29867683/free-photo-of-jet-ski-adventure-on-the-open-sea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/11198148/pexels-photo-11198148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15414980/pexels-photo-15414980/free-photo-of-people-on-jet-ski.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/18636559/pexels-photo-18636559/free-photo-of-man-on-jet-ski.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Enjoy an exciting Jet Ski adventure in Dubai's beautiful waters! This thrilling experience includes a 35-minute Jet Ski ride with sea activities, all under the guidance of well-trained and certified staff. The package includes convenient pick-up and drop-off from your hotel or residence in Dubai via AC Land Cruiser, refreshments, and the option to arrange pick-up times according to your preference.",
+        "title2": "Jet Ski Adventure",
+        "inclusions": {
+          "pickup": "Pick up from your Hotel or Residence in Dubai",
+          "transport": "Pick by AC Land Cruiser / Vehicle",
+          "activity": "35 Minutes Drive Jet Ski (include Sea Activities)",
+          "refreshments": "Refreshment Served with Compliment",
+          "staff": "Well Trained & Certified Staff to guide you",
+          "location": "Jet Ski Point at Mamzae Beach Dubai",
+          "dropoff": "Drop off your Hotel or Residence in Dubai",
+          "flexible": "Other Pick Time can be arrange on your desire time"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details"
+      },
+      {
+        "id": 2,
+        "image": "https://images.pexels.com/photos/19960510/pexels-photo-19960510/free-photo-of-aerial-view-of-the-lotus-mega-yacht-in-the-harbor-in-dubai-uae.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Luxury Yacht Cruising",
+        "location": "Dubai Marina",
+        "description": "Experience the ultimate luxury with a private yacht cruise in Dubai Marina!",
+        "duration": "2 hours",
+        "guests": "Up to 10 guests",
+        "price": 1200,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/20125694/pexels-photo-20125694/free-photo-of-photo-of-a-ferry-in-the-harbor-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/22912024/pexels-photo-22912024/free-photo-of-cruise-ships-on-sea-coast.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/31807106/pexels-photo-31807106/free-photo-of-aerial-view-of-luxury-cruise-boats-on-calm-water.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/27504025/pexels-photo-27504025/free-photo-of-waterfront-line-next-to-promenade-in-marina-with-luxury-yachts-and-boats-docked-modern-high-rise-buildings-in-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/30047576/pexels-photo-30047576/free-photo-of-luxury-yacht-at-dubai-marina-waterfront.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Indulge in a luxurious yacht cruising experience in Dubai Marina. Enjoy a 2-hour cruise in the marina lagoon with professional crew, including a skipper, fishing equipment, safety jackets, and light refreshments. The duration can be extended at extra charges for those who wish to extend their luxury experience.",
+        "title2": "Luxury Yacht Experience",
+        "inclusions": {
+          "crew": "Professional crew with the services of skipper",
+          "equipment": "Fishing equipment and safety jacket",
+          "refreshments": "Light refreshments",
+          "duration": "2 Hour Cruising in marina lagoon",
+          "extension": "Hours can be extended at extra charges",
+          "note": "Minimum booking 2 hours"
+        },
+        "badge": "Luxury",
+        "rating": 5,
+        "link": "tour-details"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 2,
+      "toursPerPage": 3
+    }
+  }
+  

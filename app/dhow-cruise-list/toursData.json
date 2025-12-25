@@ -1,0 +1,69 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "https://images.pexels.com/photos/15330471/pexels-photo-15330471/free-photo-of-cruise-ship-in-city-with-skyscrapers.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Five Star Cruise Dinner",
+        "location": "Dubai Marina",
+        "description": "Experience a luxurious dinner cruise in Dubai Marina with stunning views and entertainment!",
+        "duration": "2 hours",
+        "guests": "Multiple guests",
+        "price": 350,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/813011/pexels-photo-813011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/29994806/pexels-photo-29994806/free-photo-of-majestic-cruise-ship-sailing-at-sea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/11198148/pexels-photo-11198148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15330471/pexels-photo-15330471/free-photo-of-cruise-ship-in-city-with-skyscrapers.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image5": "https://images.pexels.com/photos/16077584/pexels-photo-16077584/free-photo-of-a-ferry-boat-is-docked-in-the-water-near-a-city.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Enjoy a luxurious dinner cruise experience in Dubai Marina! This premium package includes a 2-hour cruise through Dubai Marina, Yatch Club, and Marina Towers. The cruise features both air-conditioned lower deck and open-air upper deck access, offering panoramic views of the Dubai Marina skyline.",
+        "title2": "Five Star Cruise Dinner Experience",
+        "inclusions": {
+          "pickup": "Pick up from your Apartment, Hotel, Residence",
+          "guide": "English Speaking Tour Guide/Driver",
+          "cruise": "2 Hours Cruising in Dubai Marina, Yatch Club, Marina Towers",
+          "deck": "Access to Air Conditioned Lower Deck and Open Air Upper Deck",
+          "drinks": "Welcome Drinks, Water, Tea & Coffee",
+          "food": "Arabic Sweets & Fresh Fruits, Selection of fresh Fruit Salads and Tasty Desserts",
+          "dinner": "Buffet Dinner Catered by a 5* Hotel for both veg and non-veg diets",
+          "entertainment": "Tanura Dance Show by Professional Artist, Family Entertainment",
+          "dropoff": "Drop back to your location"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details"
+      },
+      {
+        "id": 2,
+        "image": "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Luxury Yacht Cruising",
+        "location": "Dubai Marina",
+        "description": "Experience the ultimate luxury with a private yacht cruise in Dubai Marina!",
+        "duration": "2 hours",
+        "guests": "Multiple guests",
+        "price": 1200,
+        "currency": "AED",
+        "image1": "https://images.pexels.com/photos/843633/pexels-photo-843633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/28443535/pexels-photo-28443535/free-photo-of-atlantis-nassau.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/10656996/pexels-photo-10656996.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image5": "https://images.pexels.com/photos/6761416/pexels-photo-6761416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "Indulge in a premium yacht cruising experience in Dubai Marina! This exclusive package includes a 2-hour cruise in the marina lagoon with professional crew services. The package can be extended for additional hours at extra charges.",
+        "title2": "Luxury Yacht Experience",
+        "inclusions": {
+          "crew": "Professional crew with the services of skipper, fishing equipment, safety jacket, and light refreshments",
+          "cruise": "2 Hour Cruising in marina lagoon",
+          "extension": "Hours can be extended at extra charges",
+          "note": "Minimum booking 2 hours"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 2,
+      "toursPerPage": 3
+    }
+  }
+  

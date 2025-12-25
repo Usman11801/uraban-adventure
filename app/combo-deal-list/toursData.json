@@ -1,0 +1,76 @@
+{
+    "tours": [
+      {
+        "id": 1,
+        "image": "https://images.pexels.com/photos/27522502/pexels-photo-27522502/free-photo-of-waterfront-harbor-skyline-with-traditional-drifting-fishing-boat-on-the-sea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "title": "Desert Safari + Dhow Cruise",
+        "location": "UAE",
+        "description": "Experience the ultimate combination of desert adventure and luxury cruise. Enjoy thrilling dune bashing, camel riding, sand boarding, and traditional entertainment in the desert, followed by a relaxing dinner cruise with stunning views.",
+        "duration": "1 day",
+        "guests": "1-6 guests",
+        "price": 480,
+        "currency": "AED",
+        "validity": "15 Days",
+    "image1": "https://images.pexels.com/photos/27522502/pexels-photo-27522502/free-photo-of-waterfront-harbor-skyline-with-traditional-drifting-fishing-boat-on-the-sea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image2": "https://images.pexels.com/photos/27522501/pexels-photo-27522501/free-photo-of-dubai-creek-skyline-and-waterfront-view-from-traditional-abra-boat-in-deira-district-old-dubai.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image3": "https://images.pexels.com/photos/17102564/pexels-photo-17102564/free-photo-of-ferry-sailing-on-sea-coast.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image4": "https://images.pexels.com/photos/30965659/pexels-photo-30965659/free-photo-of-dubai-marina-skyline-with-ain-dubai-in-view.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image5": "https://images.pexels.com/photos/26846420/pexels-photo-26846420/free-photo-of-burj-al-arab.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description2": "DESERT SAFARI: Experience 45 minutes of thrilling dune bashing in Lahbab desert, camel riding, and sand boarding. Enjoy traditional entertainment including henna painting, sheesha smoking, and belly & Tanura dance performances. Savor a wide variety of international dishes in the dinner buffet with unlimited soft drinks, tea, and coffee.\n\nDHOW CRUISE: Perfect for romantic dinners, special occasions, or corporate events. Enjoy a relaxing dinner with stunning views while celebrating birthdays, anniversaries, or any special event.",
+        "title2": "Desert Safari + Dhow Cruise Package",
+        "inclusions": {
+          "pickup": "Pick up from your Hotel/Location/Residence in Dubai",
+          "desert_activities": "45 minutes dune bashing, camel riding, sand boarding",
+          "entertainment": "Henna painting, sheesha smoking, belly & Tanura dance",
+          "dinner": "International buffet dinner with unlimited soft drinks, tea, and coffee",
+          "cruise": "Dhow cruise dinner with stunning views"
+        },
+        "additional_options": {
+          "private_table": "Private table arrangement",
+          "special_occasion": "Special occasion decorations"
+        },
+        "badge": "Featured",
+        "rating": 5,
+        "link": "tour-details"
+      },
+      {
+        "id": 2,
+        "image": "https://images.pexels.com/photos/2417260/pexels-photo-2417260.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "title": "Dubai City Tour + Desert Safari",
+        "location": "UAE",
+        "description": "Experience the best of Dubai with our comprehensive city tour and thrilling desert safari. Explore iconic landmarks during the day and enjoy an exciting desert adventure in the evening.",
+        "duration": "1 day",
+        "guests": "1-6 guests",
+        "price": 300,
+        "currency": "AED",
+        "validity": "15 Days",
+        "image1": "https://images.pexels.com/photos/2417260/pexels-photo-2417260.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image2": "https://images.pexels.com/photos/14750494/pexels-photo-14750494.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image3": "https://images.pexels.com/photos/9679747/pexels-photo-9679747.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image4": "https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "image5": "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "description2": "DUBAI CITY TOUR: Explore Dubai with our expert tour guide visiting main attractions including Dubai Creek, Dubai Museum, Jumeirah Mosque, Jumeirah Beach, Burj Al-Arab hotel, Madinat Jumeirah, Palm Jumeirah Island, Atlantis Hotel, Dubai Marina, Mall of Emirates, Burj Khalifa, Dubai Mall, and King Palace.\n\nDESERT SAFARI: Experience 45 minutes of thrilling dune bashing in Lahbab desert, camel riding, and sand boarding. Enjoy traditional entertainment including henna painting, sheesha smoking, and belly & Tanura dance performances. Savor a wide variety of international dishes in the dinner buffet with unlimited soft drinks, tea, and coffee.",
+        "title2": "Dubai City Tour + Desert Safari Package",
+        "inclusions": {
+          "pickup": "Pick up from your Hotel/Location/Residence in Dubai",
+          "city_tour": "Expert guided tour of Dubai's main attractions",
+          "desert_activities": "45 minutes dune bashing, camel riding, sand boarding",
+          "entertainment": "Henna painting, sheesha smoking, belly & Tanura dance",
+          "dinner": "International buffet dinner with unlimited soft drinks, tea, and coffee"
+        },
+        "additional_options": {
+          "private_guide": "Private tour guide",
+          "photography": "Professional photography service"
+        },
+        "badge": "Popular",
+        "rating": 5,
+        "link": "tour-details"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 3,
+      "toursPerPage": 3
+    }
+  }
+  

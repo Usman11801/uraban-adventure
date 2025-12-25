@@ -1,0 +1,126 @@
+{
+  "tours": [
+    {
+      "id": 1,
+      "image": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-480x320/11/ee/6b/a0.jpg",
+      "title": "Aquaventure Water Park",
+      "location": "Dubai",
+      "description": "Experience the ultimate water adventure at Dubai's premier water park!",
+      "duration": "1 day",
+      "guests": "All ages",
+      "price": 400,
+      "currency": "AED",
+      "image1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUDY8qzd6q_KPPZSI14Vy_lDT00wXB_lqEcg&s",
+      "image2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWnCc0xTp8Ag99Dt6CwhSwjLyNDyUhBYEGZ1KOr_zL1DBntJ1Qp_lSEXiHkDL2BgioeuY&usqp=CAU",
+      "image3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtgwcnm2CCaKWGOBcv5zjZq0j8lwFIgoRmNXFHhbW0r2UHGVKaI59Elm4f_sCB6a1vOw&usqp=CAU",
+      "image4": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-480x320/11/ee/6b/a0.jpg",
+      "image5": "https://content.presspage.com/uploads/2041/1920_aquaventure-waterpark-shark-attack-2.jpg?10000",
+      "description2": "Experience the ultimate water adventure at Dubai's premier water park! Your ticket includes access to all thrilling slides and rides, plus a 700-meter private beach. Please note that this booking requires payment confirmation to our bank account within 48 hours of receiving the details.",
+      "title2": "Aquaventure Water Park",
+      "inclusions": {
+        "entrance_ticket": "Entrance ticket to Aquaventure Water Park",
+        "slides_rides": "Access to adventurous slides and rides",
+        "private_beach": "Access to a 700 meters private beach"
+      },
+      "important_notes": {
+        "payment": "This booking can only be confirmed after receiving your payment to our bank account. Bank details will be sent to your email and you have 48 hours to pay. Upon payment, you need to send the bank transfer receipt to us."
+      },
+      "cancellation_policy": {
+        "48_hours": "If trip cancelled/amended 48 hrs prior to the tour date, no cancellation charges will be applicable",
+        "24_48_hours": "If trip cancelled/amended within 24 to 48 hrs prior to the tour date, 50% cancellation charges will be applicable"
+      },
+      "badge": "Featured",
+      "rating": 5,
+      "link": "tour-details"
+    },
+    {
+      "id": 2,
+      "image": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-480x320/11/ee/6b/a0.jpg",
+      "title": "IMG Worlds of Adventure",
+      "location": "Dubai",
+      "description": "Experience the world's largest indoor theme park with 4 amazing adventure zones!",
+      "duration": "1 day",
+      "guests": "All ages",
+      "price": 350,
+      "currency": "AED",
+      "image1": "assets/images/destinations/alain1.jpg",
+      "image2": "assets/images/destinations/alain4.jpg",
+      "image3": "assets/images/destinations/alain3.jpg",
+      "image4": "assets/images/destinations/alain2.jpg",
+      "image5": "assets/images/destinations/alain5.jpg",
+      "description2": "Experience the world's largest indoor theme park! Your ticket includes access to all 4 adventure zones: Marvel, Lost Valley, Cartoon Network, and IMG Boulevard. Please note that this booking requires payment confirmation to our bank account within 48 hours of receiving the details.",
+      "title2": "IMG Worlds of Adventure",
+      "inclusions": {
+        "entrance_ticket": "Entrance Ticket to IMG Worlds of Adventure",
+        "adventure_zones": "Access to 4 Adventure Zones: Marvel, Lost Valley, Cartoon Network, IMG Boulevard"
+      },
+      "badge": "Featured",
+      "rating": 5,
+      "link": "tour-details"
+    },
+    {
+      "id": 3,
+      "image": "https://www.gokite.travel/wp-content/uploads/2021/11/wild-wadi-water-park-tickets.webp",
+      "title": "Wild Wadi Park",
+      "location": "Dubai",
+      "description": "Experience the world's fastest and tallest water rides at Wild Wadi!",
+      "duration": "1 day",
+      "guests": "All ages",
+      "price": 320,
+      "currency": "AED",
+      "image1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbmVe-yTmd1XYjNOiCJK7y0ly-bgZ3zoGJNg&s",
+      "image2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7u1LlIs5CX8rIp_i2FSSxY0rs0DO-Am_BH3HS6Q1Y1V4OUg6ZbRVAOXzFqIZFLj-5ezk&usqp=CAU",
+      "image3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgGjKmOggKJBYW3qgtxJkBaaTOhuslGF4mbsH6dVp0zbrbfcoKJqMjFAKaA22X0O9s7DM&usqp=CAU",
+      "image4": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiGLLd1zxPwGo1ajWiFpixqhXdMY2NJAk9t-kq7lCDzi5vDtz_QcxaIO33QRI3t8rgvpE&usqp=CAU",
+      "image5": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXrixT4PaMqJc_lEBtEheo1LG68SR0yeFWpg&s",
+      "description2": "Experience the world's fastest and tallest water rides at Wild Wadi! Your ticket includes access to all thrilling rides and attractions suitable for all ages. Food and beverages are available on the premises.",
+      "title2": "Wild Wadi Park",
+      "inclusions": {
+        "entrance_ticket": "Entrance Ticket to Wild Wadi Theme Park",
+        "rides": "Access to World's Fastest and tallest fun rides",
+        "all_ages": "Exciting rides suitable for all ages available",
+        "food_beverage": "Food and beverage available in the premise"
+      },
+      "badge": "Featured",
+      "rating": 5,
+      "link": "tour-details"
+    },
+    {
+      "id": 4,
+      "image": "https://maf-skidubai.sitefinity.cloud/images/default-source/activities/sd-p-p-penguin_penguin_booking-info-1072x800--100.jpg?sfvrsn=2f6e4b29_3",
+      "title": "Ski Dubai",
+      "location": "Dubai",
+      "description": "Experience the world's largest indoor ski resort in the heart of the desert!",
+      "duration": "1 day",
+      "guests": "All ages",
+      "price": 450,
+      "currency": "AED",
+      "image1": "https://maf-skidubai.sitefinity.cloud/images/default-source/activities/sd-p-p-penguin_penguin_booking-info-1072x800--100.jpg?sfvrsn=2f6e4b29_3",
+      "image2": "https://cdn-imgix.headout.com/media/images/d52e3e643a2e1c1c42b68378a5644250-4444-Dubai-SkiDubaiPenguinEncounter-04.jpg?w=1041.6000000000001&h=651&crop=faces&auto=compress%2Cformat&fit=min",
+      "image3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzcQ-9SUyFwnojOQN-87FIIaEhE_lkUV6mw47FNHpcZAgvS8VIDaf73VLKcFRsbUbwvG8&usqp=CAU",
+      "image4": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiGLLd1zxPwGo1ajWiFpixqhXdMY2NJAk9t-kq7lCDzi5vDtz_QcxaIO33QRI3t8rgvpE&usqp=CAU",
+      "image5": "https://curlytales.com/wp-content/uploads/2020/11/penguin-1.jpeg",
+      "description2": "Experience the world's largest indoor ski resort! Your package includes transportation, entrance ticket, and access to all snow activities including skiing, zorbing, bobsled rides, and the famous March of the Penguins show.",
+      "title2": "Ski Dubai",
+      "inclusions": {
+        "transportation": "Pick up from your Hotel / Location / Residence in Dubai by Toyota SUV 4x4 / Family Van with English Speaking Tour Guide",
+        "entrance_ticket": "Entrance Ticket to World Largest indoor Theme Park",
+        "activities": "Enjoy fun activities like skiing, zorbing and bobsled rides at Ski Dubai Snow Park",
+        "super_pass": "Full-day Super Pass to the Snow Park at Ski Dubai",
+        "penguin_show": "Watch the March of the Penguins, when real-life penguins walk across the snow",
+        "chairlift": "Enjoy chairlift use and set your adrenaline rushing with entry to the Giant Snowball ride and a faster bobsled",
+        "toboggan": "Ride a toboggan and zoom down the twin-track bobsled",
+        "mountain_thriller": "Mountain Thriller",
+        "equipment": "Voucher for Fleece Gloves and Warm clothing"
+      },
+      "badge": "Featured",
+      "rating": 5,
+      "link": "tour-details"
+    }
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 2,
+    "toursPerPage": 3
+  }
+}
