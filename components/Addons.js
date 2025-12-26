@@ -7,45 +7,20 @@ const Addons = ({ tour, onAddonsChange }) => {
   // Get tour image for addons
   const tourImage = tour?.image || tour?.image1 || tour?.image2 || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=400&fit=crop";
 
-  // Addons data with original prices for discount display
-  const addons = [
-    {
-      id: "louvre_museum",
-      name: "Louvre Museum",
-      image: tourImage,
-      adultPrice: 65,
-      childPrice: 65,
-      originalPrice: 65,
-      infantPrice: 0
-    },
-    {
-      id: "qasr_al_watan",
-      name: "Qasr Al Watan",
-      image: tourImage,
-      adultPrice: 60,
-      childPrice: 60,
-      originalPrice: 60,
-      infantPrice: 0
-    },
-    {
-      id: "ferrari_world",
-      name: "Ferrari World",
-      image: tourImage,
-      adultPrice: 310,
-      childPrice: 310,
-      originalPrice: 345,
-      infantPrice: 0
-    },
-    {
-      id: "warner_bros",
-      name: "Warner Bros",
-      image: tourImage,
-      adultPrice: 310,
-      childPrice: 310,
-      originalPrice: 345,
-      infantPrice: 0
-    }
-  ];
+  // Get addons from tour data (from DB) or use empty array
+  const dbAddons = tour?.addons || [];
+  
+  // Transform DB addons to component format
+  const addons = dbAddons.map((addon) => ({
+    id: addon.id,
+    name: addon.name,
+    image: addon.image || tourImage,
+    adultPrice: parseFloat(addon.price || 0),
+    childPrice: parseFloat(addon.price || 0), // Assuming same price for child, can be customized
+    originalPrice: parseFloat(addon.price || 0),
+    infantPrice: 0,
+    description: addon.description || ''
+  }));
 
   // Notify parent of addon changes
   useEffect(() => {
@@ -258,91 +233,97 @@ const Addons = ({ tour, onAddonsChange }) => {
           <h2 className="addons-title">
             Addons <span className="addons-subtitle">(Check Addons to customize your experience.)</span>
           </h2>
-          <div className="addons-grid">
-            {addons.map((addon) => {
-              const addonState = selectedAddons[addon.id] || { selected: false, adult: 0, child: 0 };
-              const addonTotal = (addonState.adult * addon.adultPrice) + (addonState.child * addon.childPrice);
-              const hasDiscount = addon.originalPrice && addon.originalPrice > addonTotal;
-              const discountAmount = hasDiscount ? (addon.originalPrice - addonTotal) : 0;
-              
-              return (
-                <div key={addon.id} className={`addon-card ${addonState.selected ? 'selected' : ''}`}>
-                  <img 
-                    src={addon.image} 
-                    alt={addon.name}
-                    className="addon-image"
-                    onError={(e) => { e.target.style.display = 'none'; }}
-                  />
-                  <div className="addon-content">
-                    <div className="addon-name">{addon.name}</div>
-                    <div className="addon-pricing">
-                      <div className="addon-price-group">
-                        <div className="addon-price-label">Adult: {addon.adultPrice} AED</div>
-                        <input
-                          type="number"
-                          min="0"
-                          value={addonState.adult || 0}
-                          onChange={(e) => {
-                            const val = Number(e.target.value) || 0;
-                            setSelectedAddons({
-                              ...selectedAddons,
-                              [addon.id]: { ...addonState, adult: val, selected: val > 0 || addonState.child > 0 }
-                            });
-                          }}
-                          disabled={!addonState.selected}
-                          className="addon-quantity-input"
-                        />
-                      </div>
-                      <div className="addon-price-group">
-                        <div className="addon-price-label">Child: {addon.childPrice} AED</div>
-                        <input
-                          type="number"
-                          min="0"
-                          value={addonState.child || 0}
-                          onChange={(e) => {
-                            const val = Number(e.target.value) || 0;
-                            setSelectedAddons({
-                              ...selectedAddons,
-                              [addon.id]: { ...addonState, child: val, selected: val > 0 || addonState.adult > 0 }
-                            });
-                          }}
-                          disabled={!addonState.selected}
-                          className="addon-quantity-input"
-                        />
-                      </div>
-                      <div className="addon-total-wrapper">
-                        <div className="addon-total">
-                          {addonTotal > 0 ? `${addonTotal.toFixed(0)} AED` : '0 AED'}
+          {addons.length === 0 ? (
+            <p style={{ padding: '20px', textAlign: 'center', color: '#666' }}>
+              No addons available for this package.
+            </p>
+          ) : (
+            <div className="addons-grid">
+              {addons.map((addon) => {
+                const addonState = selectedAddons[addon.id] || { selected: false, adult: 0, child: 0 };
+                const addonTotal = (addonState.adult * addon.adultPrice) + (addonState.child * addon.childPrice);
+                const hasDiscount = addon.originalPrice && addon.originalPrice > addonTotal;
+                const discountAmount = hasDiscount ? (addon.originalPrice - addonTotal) : 0;
+                
+                return (
+                  <div key={addon.id} className={`addon-card ${addonState.selected ? 'selected' : ''}`}>
+                    <img 
+                      src={addon.image} 
+                      alt={addon.name}
+                      className="addon-image"
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                    <div className="addon-content">
+                      <div className="addon-name">{addon.name}</div>
+                      <div className="addon-pricing">
+                        <div className="addon-price-group">
+                          <div className="addon-price-label">Adult: {addon.adultPrice} AED</div>
+                          <input
+                            type="number"
+                            min="0"
+                            value={addonState.adult || 0}
+                            onChange={(e) => {
+                              const val = Number(e.target.value) || 0;
+                              setSelectedAddons({
+                                ...selectedAddons,
+                                [addon.id]: { ...addonState, adult: val, selected: val > 0 || addonState.child > 0 }
+                              });
+                            }}
+                            disabled={!addonState.selected}
+                            className="addon-quantity-input"
+                          />
                         </div>
-                        {hasDiscount && discountAmount > 0 && (
-                          <div className="addon-discount-price">
-                            -{discountAmount.toFixed(0)} AED
+                        <div className="addon-price-group">
+                          <div className="addon-price-label">Child: {addon.childPrice} AED</div>
+                          <input
+                            type="number"
+                            min="0"
+                            value={addonState.child || 0}
+                            onChange={(e) => {
+                              const val = Number(e.target.value) || 0;
+                              setSelectedAddons({
+                                ...selectedAddons,
+                                [addon.id]: { ...addonState, child: val, selected: val > 0 || addonState.adult > 0 }
+                              });
+                            }}
+                            disabled={!addonState.selected}
+                            className="addon-quantity-input"
+                          />
+                        </div>
+                        <div className="addon-total-wrapper">
+                          <div className="addon-total">
+                            {addonTotal > 0 ? `${addonTotal.toFixed(0)} AED` : '0 AED'}
                           </div>
-                        )}
+                          {hasDiscount && discountAmount > 0 && (
+                            <div className="addon-discount-price">
+                              -{discountAmount.toFixed(0)} AED
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
+                    <div className="addon-checkbox-wrapper">
+                      <input
+                        type="checkbox"
+                        checked={addonState.selected || false}
+                        onChange={(e) => {
+                          setSelectedAddons({
+                            ...selectedAddons,
+                            [addon.id]: { 
+                              selected: e.target.checked, 
+                              adult: e.target.checked ? 1 : 0, 
+                              child: 0 
+                            }
+                          });
+                        }}
+                        className="addon-checkbox"
+                      />
+                    </div>
                   </div>
-                  <div className="addon-checkbox-wrapper">
-                    <input
-                      type="checkbox"
-                      checked={addonState.selected || false}
-                      onChange={(e) => {
-                        setSelectedAddons({
-                          ...selectedAddons,
-                          [addon.id]: { 
-                            selected: e.target.checked, 
-                            adult: e.target.checked ? 1 : 0, 
-                            child: 0 
-                          }
-                        });
-                      }}
-                      className="addon-checkbox"
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </>

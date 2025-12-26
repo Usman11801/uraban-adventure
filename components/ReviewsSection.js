@@ -1,39 +1,21 @@
 "use client";
-import { useState } from "react";
 
 const ReviewsSection = ({ tour, tourType = "tour" }) => {
-  const [showAddReview, setShowAddReview] = useState(false);
-  const [newReview, setNewReview] = useState({
-    name: "",
-    email: "",
-    rating: 5,
-    comment: "",
-    services: 5,
-    guides: 5,
-    price: 5,
-  });
 
-  // Get reviews for this specific tour
+  // Get reviews for this specific tour (only approved reviews should be passed)
   const reviews = tour?.reviews || [];
-  const averageRating = tour?.averageRating || 4.5;
-  const totalReviews = tour?.totalReviews || reviews.length;
-
-  const handleSubmitReview = (e) => {
-    e.preventDefault();
-    // Here you would typically send the review to your backend
-    console.log("New review submitted:", newReview);
-    alert("Thank you for your review! It will be published after moderation.");
-    setShowAddReview(false);
-    setNewReview({
-      name: "",
-      email: "",
-      rating: 5,
-      comment: "",
-      services: 5,
-      guides: 5,
-      price: 5,
-    });
+  
+  // Calculate average rating from reviews if not provided
+  const calculateAverageRating = () => {
+    if (tour?.average_rating) return parseFloat(tour.average_rating);
+    if (reviews.length === 0) return 0;
+    const sum = reviews.reduce((acc, review) => acc + (parseInt(review.rating) || 0), 0);
+    return sum / reviews.length;
   };
+  
+  const averageRating = calculateAverageRating() || 0;
+  const totalReviews = tour?.total_reviews || reviews.length;
+
 
   const renderStars = (rating, size = "sm") => {
     const stars = [];
@@ -110,21 +92,6 @@ const ReviewsSection = ({ tour, tourType = "tour" }) => {
           font-size: 14px;
         }
 
-        .add-review-btn {
-          background: linear-gradient(135deg, #e74c3c, #c0392b);
-          color: white;
-          border: none;
-          padding: 12px 24px;
-          border-radius: 8px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .add-review-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
 
         .reviews-list {
           margin-bottom: 40px;
@@ -226,82 +193,6 @@ const ReviewsSection = ({ tour, tourType = "tour" }) => {
           font-size: 14px;
         }
 
-        .add-review-form {
-          background: white;
-          border-radius: 12px;
-          padding: 30px;
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-          border: 1px solid #f0f0f0;
-        }
-
-        .form-group {
-          margin-bottom: 20px;
-        }
-
-        .form-group label {
-          display: block;
-          font-weight: 600;
-          color: #2c3e50;
-          margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-          width: 100%;
-          padding: 12px 15px;
-          border: 2px solid #e1e8ed;
-          border-radius: 8px;
-          font-size: 14px;
-          transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-          outline: none;
-          border-color: #e74c3c;
-          box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
-        }
-
-        .rating-inputs {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-          gap: 15px;
-          margin-bottom: 20px;
-        }
-
-        .rating-input {
-          text-align: center;
-        }
-
-        .rating-input label {
-          font-size: 14px;
-          margin-bottom: 5px;
-        }
-
-        .rating-input select {
-          width: 100%;
-          padding: 8px 12px;
-          border: 2px solid #e1e8ed;
-          border-radius: 6px;
-          font-size: 14px;
-        }
-
-        .submit-btn {
-          background: linear-gradient(135deg, #e74c3c, #c0392b);
-          color: white;
-          border: none;
-          padding: 15px 30px;
-          border-radius: 8px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          width: 100%;
-        }
-
-        .submit-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
 
         .no-reviews {
           text-align: center;
@@ -341,12 +232,6 @@ const ReviewsSection = ({ tour, tourType = "tour" }) => {
             <div className="total-reviews">{totalReviews} Reviews</div>
           </div>
         </div>
-        <button
-          className="add-review-btn"
-          onClick={() => setShowAddReview(!showAddReview)}
-        >
-          {showAddReview ? "Cancel" : "Add Review"}
-        </button>
       </div>
 
       {/* Reviews List */}
@@ -361,7 +246,7 @@ const ReviewsSection = ({ tour, tourType = "tour" }) => {
                   </div>
                   <div className="author-info">
                     <h6>{review.name}</h6>
-                    <span>{review.date}</span>
+                    <span>{review.date || (review.created_at ? new Date(review.created_at).toLocaleDateString() : '')}</span>
                   </div>
                 </div>
                 <div className="review-rating">
@@ -371,20 +256,28 @@ const ReviewsSection = ({ tour, tourType = "tour" }) => {
               </div>
               <div className="review-content">
                 <p className="review-text">{review.comment}</p>
-                <div className="review-details">
-                  <div className="review-detail-item">
-                    <div className="label">Services</div>
-                    <div className="stars">{renderStars(review.services)}</div>
+                {(review.services_rating || review.guides_rating || review.price_rating) && (
+                  <div className="review-details">
+                    {review.services_rating && (
+                      <div className="review-detail-item">
+                        <div className="label">Services</div>
+                        <div className="stars">{renderStars(review.services_rating)}</div>
+                      </div>
+                    )}
+                    {review.guides_rating && (
+                      <div className="review-detail-item">
+                        <div className="label">Guides</div>
+                        <div className="stars">{renderStars(review.guides_rating)}</div>
+                      </div>
+                    )}
+                    {review.price_rating && (
+                      <div className="review-detail-item">
+                        <div className="label">Price</div>
+                        <div className="stars">{renderStars(review.price_rating)}</div>
+                      </div>
+                    )}
                   </div>
-                  <div className="review-detail-item">
-                    <div className="label">Guides</div>
-                    <div className="stars">{renderStars(review.guides)}</div>
-                  </div>
-                  <div className="review-detail-item">
-                    <div className="label">Price</div>
-                    <div className="stars">{renderStars(review.price)}</div>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           ))
@@ -396,139 +289,6 @@ const ReviewsSection = ({ tour, tourType = "tour" }) => {
         )}
       </div>
 
-      {/* Add Review Form */}
-      {showAddReview && (
-        <div className="add-review-form">
-          <h4>Add Your Review</h4>
-          <form onSubmit={handleSubmitReview}>
-            <div className="form-group">
-              <label htmlFor="name">Name *</label>
-              <input
-                type="text"
-                id="name"
-                value={newReview.name}
-                onChange={(e) =>
-                  setNewReview({ ...newReview, name: e.target.value })
-                }
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email *</label>
-              <input
-                type="email"
-                id="email"
-                value={newReview.email}
-                onChange={(e) =>
-                  setNewReview({ ...newReview, email: e.target.value })
-                }
-                required
-              />
-            </div>
-
-            <div className="rating-inputs">
-              <div className="rating-input">
-                <label>Overall Rating</label>
-                <select
-                  value={newReview.rating}
-                  onChange={(e) =>
-                    setNewReview({
-                      ...newReview,
-                      rating: parseFloat(e.target.value),
-                    })
-                  }
-                >
-                  <option value={5}>5 Stars</option>
-                  <option value={4.5}>4.5 Stars</option>
-                  <option value={4}>4 Stars</option>
-                  <option value={3.5}>3.5 Stars</option>
-                  <option value={3}>3 Stars</option>
-                  <option value={2.5}>2.5 Stars</option>
-                  <option value={2}>2 Stars</option>
-                  <option value={1.5}>1.5 Stars</option>
-                  <option value={1}>1 Star</option>
-                </select>
-              </div>
-
-              <div className="rating-input">
-                <label>Services</label>
-                <select
-                  value={newReview.services}
-                  onChange={(e) =>
-                    setNewReview({
-                      ...newReview,
-                      services: parseFloat(e.target.value),
-                    })
-                  }
-                >
-                  <option value={5}>5 Stars</option>
-                  <option value={4.5}>4.5 Stars</option>
-                  <option value={4}>4 Stars</option>
-                  <option value={3.5}>3.5 Stars</option>
-                  <option value={3}>3 Stars</option>
-                </select>
-              </div>
-
-              <div className="rating-input">
-                <label>Guides</label>
-                <select
-                  value={newReview.guides}
-                  onChange={(e) =>
-                    setNewReview({
-                      ...newReview,
-                      guides: parseFloat(e.target.value),
-                    })
-                  }
-                >
-                  <option value={5}>5 Stars</option>
-                  <option value={4.5}>4.5 Stars</option>
-                  <option value={4}>4 Stars</option>
-                  <option value={3.5}>3.5 Stars</option>
-                  <option value={3}>3 Stars</option>
-                </select>
-              </div>
-
-              <div className="rating-input">
-                <label>Price</label>
-                <select
-                  value={newReview.price}
-                  onChange={(e) =>
-                    setNewReview({
-                      ...newReview,
-                      price: parseFloat(e.target.value),
-                    })
-                  }
-                >
-                  <option value={5}>5 Stars</option>
-                  <option value={4.5}>4.5 Stars</option>
-                  <option value={4}>4 Stars</option>
-                  <option value={3.5}>3.5 Stars</option>
-                  <option value={3}>3 Stars</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="comment">Your Review *</label>
-              <textarea
-                id="comment"
-                rows={5}
-                value={newReview.comment}
-                onChange={(e) =>
-                  setNewReview({ ...newReview, comment: e.target.value })
-                }
-                placeholder="Share your experience with this tour..."
-                required
-              />
-            </div>
-
-            <button type="submit" className="submit-btn">
-              Submit Review
-            </button>
-          </form>
-        </div>
-      )}
     </div>
   );
 };

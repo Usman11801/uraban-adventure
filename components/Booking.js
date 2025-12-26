@@ -71,8 +71,8 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
     if (onBookingChange) {
       onBookingChange({
         transferOption,
-        adultCount,
-        childCount,
+      adultCount,
+      childCount,
         infantCount,
         selectedDate,
         selectedTime,
@@ -567,26 +567,26 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                 {/* Tour Date */}
                 <div style={{ flex: '0 0 auto', minWidth: '150px' }}>
                   <label style={{ fontSize: '12px', marginBottom: '5px', display: 'block', color: '#666', fontWeight: '500' }}>Tour Date</label>
-                  <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                    min={new Date().toISOString().split("T")[0]}
-                    required
+                      <input
+                        type="date"
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        min={new Date().toISOString().split("T")[0]}
+                        required
                     style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', height: '36px', boxSizing: 'border-box' }}
-                  />
-                </div>
+                      />
+                    </div>
 
                 {/* Adult */}
                 <div style={{ flex: '0 0 auto', minWidth: '90px' }}>
                   <label style={{ fontSize: '12px', marginBottom: '5px', display: 'block', color: '#666', fontWeight: '500' }}>Adult</label>
-                  <input
+                      <input
                     type="number"
                     min="0"
                     value={adultCount}
                     onChange={(e) => setAdultCount(Number(e.target.value) || 0)}
                     style={{ width: '100%', padding: '8px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', textAlign: 'center', height: '36px', boxSizing: 'border-box' }}
-                  />
+                      />
                   <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>{adultPrice} AED</div>
                 </div>
 
@@ -596,7 +596,7 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                   <input
                     type="number"
                     min="0"
-                    value={childCount}
+                          value={childCount}
                     onChange={(e) => setChildCount(Number(e.target.value) || 0)}
                     style={{ width: '100%', padding: '8px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', textAlign: 'center', height: '36px', boxSizing: 'border-box' }}
                   />
@@ -606,7 +606,7 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                 {/* Infant */}
                 <div style={{ flex: '0 0 auto', minWidth: '90px' }}>
                   <label style={{ fontSize: '12px', marginBottom: '5px', display: 'block', color: '#666', fontWeight: '500' }}>Infant</label>
-                  <input
+                      <input
                     type="number"
                     min="0"
                     value={infantCount}
@@ -614,14 +614,14 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                     style={{ width: '100%', padding: '8px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', textAlign: 'center', height: '36px', boxSizing: 'border-box' }}
                   />
                   <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>{infantPrice} AED</div>
-                </div>
+                        </div>
 
                 {/* Total Price */}
                 <div style={{ flex: '0 0 auto', minWidth: '130px', textAlign: 'right', marginLeft: 'auto' }}>
                   <div style={{ fontSize: '12px', color: '#666', marginBottom: '5px', fontWeight: '500' }}>Total</div>
                   <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--secondary-color)' }}>
                     {displayTotal} AED
-                  </div>
+                    </div>
                   {tour?.price && parseFloat(tour.price) > parseFloat(displayTotal) && (
                     <div style={{ fontSize: '11px', color: '#999', textDecoration: 'line-through', marginTop: '3px' }}>
                       {tour.price} AED
@@ -630,8 +630,8 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                 </div>
               </form>
             </div>
-          </div>
         </div>
+      </div>
     </>
   );
 };

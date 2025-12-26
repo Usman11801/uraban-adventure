@@ -13,31 +13,34 @@ const TourSlider = ({ title, tours = [] }) => {
   }
 
   const tourSliderSettings = {
-    infinite: true,
+    infinite: tours.length > 1, // Fix: infinite only works with >1 item
     speed: 400,
     arrows: false,
     dots: false,
     focusOnSelect: true,
     autoplay: false,
-    slidesToShow: 4,
+    slidesToShow: 4, // Always show 4 slots - CSS enforces 25% width per card
     slidesToScroll: 1,
+    variableWidth: false, // Ensure fixed width per slide
+    centerMode: false,
+    adaptiveHeight: false,
     responsive: [
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3, // CSS will handle width
         },
       },
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2, // CSS will handle width
         },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2, // CSS will handle width
         },
       },
       {
@@ -127,17 +130,34 @@ const TourSlider = ({ title, tours = [] }) => {
         </div>
         <div className="row">
           <div className="col-12" style={{ position: 'relative' }}>
-            <Slider {...tourSliderSettings} className="tour-slider-active" ref={sliderRef}>
+            <Slider 
+              {...tourSliderSettings} 
+              className="tour-slider-active" 
+              ref={sliderRef}
+            >
               {tours.map((tour, index) => {
                 const discount = tour.discount || null;
                 const originalPrice = tour.originalPrice || null;
                 const currentPrice = tour.price || 0;
                 const rating = tour.rating || 5;
                 const reviews = tour.reviews || 0;
+                
+                // Ensure image URL is properly formatted
+                let imageUrl = tour.image || tour.image1 || '/assets/images/default-tour.jpg';
+                
+                // If image is a relative path without leading slash, add it
+                if (imageUrl && !imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+                  imageUrl = '/' + imageUrl;
+                }
+                
+                // If image is empty or null, use default
+                if (!imageUrl || imageUrl === 'null' || imageUrl === 'undefined') {
+                  imageUrl = '/assets/images/default-tour.jpg';
+                }
 
                 return (
-                  <div key={tour.id || index} className="tour-slider-item" style={{ padding: '0 10px' }}>
-                    <div className="destination-item style-two tour-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', transition: 'all 0.3s ease', background: '#fff' }}>
+                  <div key={tour.id || index} className="tour-slider-item" style={{ padding: '0 10px', width: '100%', maxWidth: '100%' }}>
+                    <div className="destination-item style-two tour-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', transition: 'all 0.3s ease', background: '#fff', width: '100%', height: '100%' }}>
                       <div className="image" style={{ position: 'relative', width: '100%' }}>
                         {discount && (
                           <div
@@ -161,12 +181,18 @@ const TourSlider = ({ title, tours = [] }) => {
                           </div>
                         )}
                         <img
-                          src={tour.image}
-                          alt={tour.title}
+                          src={imageUrl}
+                          alt={tour.title || tour.name}
                           style={{
                             width: '100%',
                             height: '250px',
                             objectFit: 'cover',
+                          }}
+                          onError={(e) => {
+                            // Fallback to default image if image fails to load
+                            if (e.target.src !== '/assets/images/default-tour.jpg') {
+                              e.target.src = '/assets/images/default-tour.jpg';
+                            }
                           }}
                         />
                         <Link

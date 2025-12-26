@@ -132,6 +132,53 @@ img.mfp-img {
 .tour-slider-active .slick-slide {
   padding-left: 10px;
   padding-right: 10px;
+  width: 25% !important; /* Force 4 items per row, so each is 25% */
+  max-width: 25% !important;
+  min-width: 25% !important;
+  flex: 0 0 25% !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 1200px) {
+  .tour-slider-active .slick-slide {
+    width: 33.333% !important;
+    max-width: 33.333% !important;
+    min-width: 33.333% !important;
+    flex: 0 0 33.333% !important;
+  }
+}
+@media (max-width: 991px) {
+  .tour-slider-active .slick-slide {
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 50% !important;
+    flex: 0 0 50% !important;
+  }
+}
+@media (max-width: 575px) {
+  .tour-slider-active .slick-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+.tour-slider-active .slick-list {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow: hidden;
+  width: 100% !important;
+}
+.tour-slider-active .slick-track {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch;
+  width: 100% !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+.tour-slider-active .slick-slide > div {
+  display: flex !important;
+  width: 100%;
+  height: 100%;
 }
 .tour-slider-section {
   position: relative;
@@ -292,4 +339,89 @@ img.mfp-img {
 .tour-include-exclude .list-style-one li i {
   color: var(--primary-color);
   margin-right: 10px;
+}
+
+/* Admin Sidebar Navigation Hover */
+.admin-nav-item-hover:hover {
+  background: #2d3748 !important;
+}
+
+/* Quick Actions Hover */
+.quick-action-item:hover {
+  background: #edf2f7 !important;
+  border-color: #cbd5e0 !important;
+}
+
+.quick-action-item[data-color="#667eea"]:hover {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border-color: #667eea !important;
+}
+
+.quick-action-item[data-color="#48bb78"]:hover {
+  background: rgba(72, 187, 120, 0.1) !important;
+  border-color: #48bb78 !important;
+}
+
+.quick-action-item[data-color="#ed8936"]:hover {
+  background: rgba(237, 137, 54, 0.1) !important;
+  border-color: #ed8936 !important;
+}
+
+.quick-action-item[data-color="#38b2ac"]:hover {
+  background: rgba(56, 178, 172, 0.1) !important;
+  border-color: #38b2ac !important;
+}
+
+/* Recent Bookings Hover */
+.recent-booking-item:hover {
+  background: #edf2f7 !important;
+  border-color: #cbd5e0 !important;
+}
+
+/* Recent Bookings Hover Effect */
+.recent-booking-item-hover:hover {
+  background: linear-gradient(135deg, rgba(99,171,69,0.05) 0%, rgba(247,146,30,0.05) 100%) !important;
+  border-color: rgba(99,171,69,0.3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+}
+
+/* Admin Primary Button Hover Effect */
+.admin-primary-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(99,171,69,0.4) !important;
+}
+
+/* Admin Stats Card Hover Effect */
+.admin-stats-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+}
+
+/* Admin View All Link Hover Effect */
+.admin-view-all-link:hover {
+  background: linear-gradient(135deg, #63AB45 0%, #F7921E 100%) !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(99,171,69,0.3) !important;
+}
+
+/* Admin Quick Action Link Hover Effect */
+.admin-quick-action-link:hover {
+  color: #fff !important;
+  transform: translateX(6px) !important;
+  box-shadow: 0 6px 20px rgba(99,171,69,0.3) !important;
+}
+
+.admin-quick-action-link:hover {
+  background: var(--hover-gradient) !important;
+}
+
+/* Set gradient via data attribute */
+.admin-quick-action-link[data-gradient*="#63AB45"]:hover {
+  background: linear-gradient(135deg, #63AB45 0%, #4a8a35 100%) !important;
+}
+
+.admin-quick-action-link[data-gradient*="#F7921E"]:hover {
+  background: linear-gradient(135deg, #F7921E 0%, #e67e1a 100%) !important;
 }

@@ -40,7 +40,7 @@ const page = () => {
       </div>
       <section className="destinations-area py-100 rel z-1">
         <div className="container">
-          <SectionTitle
+                <SectionTitle
             title="Related Destinations"
             subtitle="More places to explore"
           />

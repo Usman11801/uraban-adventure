@@ -1,5 +1,4 @@
 import Banner from "@/components/Banner";
-import TourSidebar from "@/components/TourSidebar";
 import SectionTitle from "@/components/SectionTitle";
 import Subscribe from "@/components/Subscribe";
 import ReveloLayout from "@/layout/ReveloLayout";
@@ -18,7 +17,7 @@ const page = () => {
           />
           <div className="row">
             <div className="col-lg-9">
-              <div className="row">
+                <div className="row">
                 {toursData.tours.map((tour) => (
                   <div key={tour.id} className="col-lg-4 col-md-6 mb-30">
                     <div className="destination-item style-three">
@@ -41,7 +40,6 @@ const page = () => {
                 ))}
               </div>
             </div>
-            <TourSidebar />
           </div>
         </div>
       </section>

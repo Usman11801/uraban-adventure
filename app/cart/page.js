@@ -3,19 +3,41 @@ import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { useState } from "react";
 import ReveloLayout from "@/layout/ReveloLayout";
+import BookingForm from "@/components/BookingForm";
 
 const CartPage = () => {
   const { cartItems, removeFromCart, clearCart, getCartTotal } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [paymentType, setPaymentType] = useState(null);
+  const [bookingSuccess, setBookingSuccess] = useState(null);
 
-  const handleCheckout = async () => {
-    setIsProcessing(true);
-    // Redirect to checkout or process payment
-    // For now, just show an alert
-    setTimeout(() => {
-      alert("Checkout functionality will be implemented here");
-      setIsProcessing(false);
-    }, 500);
+  const handlePayOnArrival = () => {
+    setPaymentType("pay_on_arrival");
+    setShowBookingForm(true);
+  };
+
+  const handleProceedToCheckout = () => {
+    setPaymentType("stripe");
+    setShowBookingForm(true);
+  };
+
+  const handleBookingSuccess = (result) => {
+    setShowBookingForm(false);
+    setBookingSuccess(result);
+    
+    if (result.type === "pay_on_arrival") {
+      // Show success message
+      setTimeout(() => {
+        alert(result.message);
+        clearCart();
+        setBookingSuccess(null);
+      }, 100);
+    } else if (result.type === "stripe") {
+      // Handle Stripe payment - will be implemented
+      console.log("Stripe payment initiated", result);
+      // TODO: Integrate Stripe payment
+    }
   };
 
   const formatDate = (dateString) => {
@@ -358,6 +380,31 @@ const CartPage = () => {
           background: #dc3545;
           color: #fff;
         }
+        .btn-pay-arrival {
+          width: 100%;
+          padding: 15px 30px;
+          background: var(--secondary-color);
+          color: #fff;
+          border: 2px solid var(--secondary-color);
+          border-radius: 30px;
+          font-weight: 600;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-transform: capitalize;
+          box-shadow: 0 4px 12px rgba(255, 193, 7, 0.25);
+          margin-bottom: 15px;
+        }
+        .btn-pay-arrival:hover:not(:disabled) {
+          background: #e0a800;
+          border-color: #e0a800;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(255, 193, 7, 0.35);
+        }
+        .btn-pay-arrival:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
       `}</style>
       <section className="cart-page">
         <div className="container">
@@ -495,8 +542,16 @@ const CartPage = () => {
 
                   <div className="cart-actions">
                     <button
+                      className="btn-pay-arrival"
+                      onClick={handlePayOnArrival}
+                      disabled={isProcessing || cartItems.length === 0}
+                    >
+                      <i className="far fa-hand-holding-usd" style={{ marginRight: '8px' }} />
+                      Pay on Arrival
+                    </button>
+                    <button
                       className="btn-checkout"
-                      onClick={handleCheckout}
+                      onClick={handleProceedToCheckout}
                       disabled={isProcessing || cartItems.length === 0}
                     >
                       {isProcessing ? "Processing..." : "Proceed to Checkout"}
@@ -518,6 +573,19 @@ const CartPage = () => {
           )}
         </div>
       </section>
+
+      {showBookingForm && (
+        <BookingForm
+          cartItems={cartItems}
+          grandTotal={grandTotal}
+          onClose={() => {
+            setShowBookingForm(false);
+            setPaymentType(null);
+          }}
+          paymentType={paymentType}
+          onSuccess={handleBookingSuccess}
+        />
+      )}
     </ReveloLayout>
   );
 };

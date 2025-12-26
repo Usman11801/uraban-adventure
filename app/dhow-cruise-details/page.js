@@ -150,7 +150,7 @@ const page = () => {
             padding: '40px 30px 30px',
             color: '#fff'
           }}>
-            <div className="container">
+          <div className="container">
               <h1 style={{
                 fontSize: '42px',
                 fontWeight: '700',
@@ -168,9 +168,9 @@ const page = () => {
                   <li className="breadcrumb-item active" style={{ color: '#fff' }}>Tour Details</li>
                 </ol>
               </nav>
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
       )}
       {/* Tour Header Area start */}
       <section className="tour-header-area pt-70 rel z-1">

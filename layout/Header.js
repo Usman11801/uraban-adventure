@@ -1,11 +1,29 @@
 "use client";
 import useClickOutside from "@/utility/useClickOutside";
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Accordion } from "react-bootstrap";
 import { useCart } from "@/context/CartContext";
 
 const Menu = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('/api/categories');
+        const data = await response.json();
+        if (data.categories) {
+          setCategories(data.categories.filter(cat => cat.is_active));
+        }
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <nav className="main-menu navbar-expand-lg">
       <Accordion>
@@ -62,42 +80,68 @@ const Menu = () => {
             <li className="dropdown">
               <a href="#">Tours & destinations</a>
               <ul>
-                <li>
-                  <Link href="tour-list">Desert Safari</Link>
-                </li>
-                <li>
-                  <Link href="sight-see-list">City Tour</Link>
-                </li>
-                <li>
-                  <Link href="desert-resort-list">Desert Resort</Link>
-                </li>
-                <li>
-                  <Link href="theme-park-list">Theme Park</Link>
-                </li>
-                <li>
-                  <Link href="buggy-bike-list">Buggy & Quad Bikes</Link>
-                </li>
-                <li>
-                  <Link href="private-tour-list">Private Tour</Link>
-                </li>
-                <li>
-                  <Link href="executive-tour-list">Executive</Link>
-                </li>
-                <li>
-                  <Link href="combo-deal-list">Combo Deals</Link>
-                </li>
-                <li>
-                  <Link href="water-park-list">Water Parks</Link>
-                </li>
-                <li>
-                  <Link href="sky-tour-list">Sky Tours</Link>
-                </li>
-                <li>
-                  <Link href="sea-advantucher-list">Sea Advantucher</Link>
-                </li>
-                <li>
-                  <Link href="dhow-cruise-list">Dhow Cruise</Link>
-                </li>
+                {categories.length > 0 ? (
+                  categories.map((category) => {
+                    // Use category route for dynamic category pages
+                    // If slug already ends with -list, use it as-is; otherwise add -list
+                    let link = '#';
+                    if (category.slug) {
+                      if (category.slug.endsWith('-list')) {
+                        link = `/category/${category.slug}`;
+                      } else {
+                        link = `/category/${category.slug}-list`;
+                      }
+                    }
+                    // #region agent log
+                    fetch('http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout/Header.js:86',message:'Category link generated',data:{categoryName:category.name,categorySlug:category.slug,link,slugEndsWithList:category.slug?.endsWith('-list')},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'G'})}).catch(()=>{});
+                    // #endregion
+                    return (
+                      <li key={category.id}>
+                        <Link href={link}>{category.name}</Link>
+                      </li>
+                    );
+                  })
+                ) : (
+                  // Fallback to hardcoded list while loading
+                  <>
+                    <li>
+                      <Link href="tour-list">Desert Safari</Link>
+                    </li>
+                    <li>
+                      <Link href="sight-see-list">City Tour</Link>
+                    </li>
+                    <li>
+                      <Link href="desert-resort-list">Desert Resort</Link>
+                    </li>
+                    <li>
+                      <Link href="theme-park-list">Theme Park</Link>
+                    </li>
+                    <li>
+                      <Link href="buggy-bike-list">Buggy & Quad Bikes</Link>
+                    </li>
+                    <li>
+                      <Link href="private-tour-list">Private Tour</Link>
+                    </li>
+                    <li>
+                      <Link href="executive-tour-list">Executive</Link>
+                    </li>
+                    <li>
+                      <Link href="combo-deal-list">Combo Deals</Link>
+                    </li>
+                    <li>
+                      <Link href="water-park-list">Water Parks</Link>
+                    </li>
+                    <li>
+                      <Link href="sky-tour-list">Sky Tours</Link>
+                    </li>
+                    <li>
+                      <Link href="sea-advantucher-list">Sea Advantucher</Link>
+                    </li>
+                    <li>
+                      <Link href="dhow-cruise-list">Dhow Cruise</Link>
+                    </li>
+                  </>
+                )}
                 <li></li>
               </ul>
               <div className="dropdown-btn">

@@ -6,13 +6,20 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Accordion } from "react-bootstrap";
 import toursData from "../water-park-list/toursData.json";
-import Gallery from "@/components/slider/Gallery";
 import Booking from "@/components/Booking";
+import Addons from "@/components/Addons";
+import OrderDetail from "@/components/OrderDetail";
+import Gallery from "@/components/slider/Gallery";
+import ReviewsSection from "@/components/ReviewsSection";
+import { useCart } from "@/context/CartContext";
 
 const page = () => {
   const [id, setId] = useState(null);
   const [tour, setTour] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [bookingData, setBookingData] = useState(null);
+  const [selectedAddons, setSelectedAddons] = useState({});
+  const { addToCart } = useCart();
 
   const scrollToBooking = () => {
     const bookingSection = document.querySelector(".widget-booking");
@@ -31,14 +38,11 @@ const page = () => {
         setId(numericId);
 
         const foundTour = toursData.tours.find((tour) => tour.id === numericId);
-        setTour(foundTour || null);
+        setTour(foundTour);
         console.log("Tour:", foundTour);
       }
     }
   }, []);
-
-  // Guard: render skeleton without early-return to keep hooks order stable
-  const isLoading = !tour;
 
   // Get all available images
   const heroImages = tour ? [
@@ -50,7 +54,7 @@ const page = () => {
     tour.image5,
   ].filter((img, index, arr) => img && arr.indexOf(img) === index) : [];
 
-  // Auto-rotate images every 4.5 seconds
+  // Auto-rotate images every 2 seconds
   useEffect(() => {
     if (heroImages.length > 1) {
       const interval = setInterval(() => {
@@ -60,63 +64,45 @@ const page = () => {
     }
   }, [heroImages.length]);
 
+  const [active, setActive] = useState("collapse0");
+
   const faqItem = [
     {
       id: 1,
-      title: "7. How long is the City Tour of Dubai?",
+      title: "1. Do I get picked from hotel when I book a Water Park Tour?",
       answer:
-        "The Dubai City Tour typically lasts 4 to 5 hours. It covers famous landmarks like the Burj Khalifa, the Dubai Mall, the Palm Jumeirah, and the Dubai Marina.",
+        "Yes we shall pick you from your hotel / residence for Water Park Tours. And there is no additional charges for Pick it's included in the Price .",
     },
     {
       id: 2,
-      title: "8. Can I customize my Dubai City Tour?",
+      title: "2. How long is the Water Park Tour?",
       answer:
-        "Yes, you can customize your city tour according to your preferences. Let us know which places you'd like to visit, and we will adjust the itinerary.",
+        "Water Park Tours typically last 4 to 8 hours depending on the package selected.",
     },
     {
       id: 3,
-      title: "9. Will I be picked up from my hotel for the Dubai City Tour?",
-      answer:
-        "Yes, we provide hotel pick-up and drop-off services for all Dubai City Tours. There are no additional charges for this service.",
+      title: "3. What should I bring to the Water Park?",
+      answer: "Bring swimwear, sunscreen, towels, and a change of clothes.",
     },
     {
       id: 4,
-      title: "10. What are the highlights of the Dubai City Tour?",
+      title: "4. Are there age restrictions for Water Park activities?",
       answer:
-        "The highlights include a visit to the Burj Khalifa (the world's tallest building), Dubai Mall, Palm Jumeirah, Dubai Marina, Jumeirah Beach, and the Dubai Creek.",
-    },
-    {
-      id: 5,
-      title: "11. Is the Dubai City Tour suitable for families with children?",
-      answer:
-        "Yes, the Dubai City Tour is suitable for families. The tour includes several attractions that are enjoyable for both adults and children.",
+        "Yes, some activities have age and height restrictions for safety reasons.",
     },
     {
       id: 6,
-      title: "12. Can I book a private City Tour in Dubai?",
+      title:
+        "6. What is the maximum number of people who can go to Water Park?",
       answer:
-        "Yes, private city tours are available. You can book a private vehicle for a more personalized experience, and we'll tailor the tour to suit your interests.",
-    },
-    {
-      id: 7,
-      title: "13. Is it possible to combine a Desert Safari with a City Tour?",
-      answer:
-        "Yes, many of our customers prefer to combine both a Desert Safari and a City Tour for a comprehensive Dubai experience. We can arrange a special package for you.",
-    },
-    {
-      id: 8,
-      title: "14. What time of the day is best for the Dubai City Tour?",
-      answer:
-        "The best time for the city tour is during the morning or late afternoon to avoid the midday heat. However, the tour can be customized to fit your schedule.",
+        "There is no limit to that as we can arrange for groups of any size.",
     },
   ];
-  const [active, setActive] = useState("collapse0");
-
   const [active2, setActive2] = useState("collapse0");
   return (
     <ReveloLayout>
       {/* Hero Image with Title */}
-      {!isLoading && tour && heroImages.length > 0 && (
+      {tour && heroImages.length > 0 && (
         <section className="tour-hero-section" style={{
           position: 'relative',
           width: '100%',
@@ -143,6 +129,7 @@ const page = () => {
               }}
             />
           ))}
+          {/* Title overlay - always visible */}
           <div style={{
             position: 'absolute',
             bottom: 0,
@@ -150,7 +137,8 @@ const page = () => {
             right: 0,
             background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
             padding: '40px 30px 30px',
-            color: '#fff'
+            color: '#fff',
+            zIndex: 10
           }}>
           <div className="container">
               <h1 style={{
@@ -174,62 +162,87 @@ const page = () => {
         </div>
       </section>
       )}
-      {/* Tour Header Area start */}
-      <section className="tour-header-area pt-70 rel z-1">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-xl-6 col-lg-7">
-              <div
-                className="tour-header-content mb-15"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="d-flex justify-content-between align-items-center mb-10">
-                  <span className="location d-inline-block">
-                    <i className="fal fa-map-marker-alt" />{" "}
-                    {tour?.location || "Location not specified"}
-                  </span>
-                  <button
-                    onClick={scrollToBooking}
-                    className="theme-btn style-two bgc-secondary"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    <span data-hover="Book Now">Book Now</span>
-                    <i className="fal fa-arrow-right" />
-                  </button>
-                </div>
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star-half-alt" />
-                </div>
+      {/* Booking Section - Right after hero image */}
+          {tour && (
+        <section className="booking-section-main pt-50 pb-50" style={{ background: 'var(--lighter-color)' }}>
+          <div className="container">
+            {/* Booking Form */}
+            <div className="widget-booking-wrapper mb-30" id="booking-section">
+              <Booking 
+                tour={tour} 
+                onBookingChange={setBookingData}
+                onBuyNow={async () => {
+                  if (bookingData && bookingData.selectedDate) {
+                    const bookingSection = document.querySelector(".widget-booking form");
+                    if (bookingSection) {
+                      bookingSection.requestSubmit();
+                    }
+                  }
+                }}
+                onAddToCart={() => {
+                  if (bookingData && bookingData.selectedDate) {
+                    addToCart({
+                      tourId: tour.id,
+                      tourTitle: tour.title,
+                      tourImage: tour.image || tour.image1,
+                      ...bookingData,
+                      selectedAddons,
+                      totalAmount: (parseFloat(bookingData.totalAmount || 0) + Object.keys(selectedAddons).reduce((sum, id) => {
+                        const addon = selectedAddons[id];
+                        return sum + ((addon?.adult || 0) * (addon?.adultPrice || 0)) + ((addon?.child || 0) * (addon?.childPrice || 0));
+                      }, 0)).toFixed(2)
+                    });
+                    alert("Package added to cart!");
+                  } else {
+                    alert("Please select a date first");
+                  }
+                }}
+              />
+        </div>
+            
+            {/* Content Section with Addons and Order Detail */}
+            <div className="row">
+              <div className="col-lg-8">
+                {/* Addons Section */}
+                <Addons tour={tour} onAddonsChange={setSelectedAddons} />
+      </div>
+              <div className="col-lg-4">
+                <OrderDetail 
+                  tour={tour}
+                  bookingData={bookingData}
+                  selectedAddons={selectedAddons}
+                  onBuyNow={async () => {
+                    if (bookingData && bookingData.selectedDate) {
+                      const bookingSection = document.querySelector(".widget-booking form");
+                      if (bookingSection) {
+                        bookingSection.requestSubmit();
+                      }
+                    }
+                  }}
+                  onAddToCart={() => {
+                    if (bookingData && bookingData.selectedDate) {
+                      addToCart({
+                        tourId: tour.id,
+                        tourTitle: tour.title,
+                        tourImage: tour.image || tour.image1,
+                        ...bookingData,
+                        selectedAddons,
+                        totalAmount: (parseFloat(bookingData.totalAmount || 0) + Object.keys(selectedAddons).reduce((sum, id) => {
+                          const addon = selectedAddons[id];
+                          return sum + ((addon?.adult || 0) * (addon?.adultPrice || 0)) + ((addon?.child || 0) * (addon?.childPrice || 0));
+                        }, 0)).toFixed(2)
+                      });
+                      alert("Package added to cart!");
+                    } else {
+                      alert("Please select a date first");
+                    }
+                  }}
+                />
               </div>
             </div>
-            <div
-              className="col-xl-4 col-lg-5 text-lg-end"
-              data-aos="fade-right"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
-              {/* <div className="tour-header-social mb-10">
-                <a href="#">
-                  <i className="far fa-share-alt" />
-                  Share tours
-                </a>
-                <a href="#">
-                  <i className="fas fa-heart bgc-secondary" />
-                  Wish list
-                </a>
-              </div> */}
-            </div>
-          </div>
-          <hr className="mt-50 mb-70" />
         </div>
       </section>
-      {/* Tour Header Area end */}
+      )}
       {/* Tour Details Area start */}
       <section className="tour-details-page pb-100">
         <div className="container">
@@ -237,19 +250,13 @@ const page = () => {
             <div className="col-lg-8">
               <div className="tour-details-content">
                 <h3>Explore Tours</h3>
-                <p>
-                  {isLoading
-                    ? "Loading description..."
-                    : tour?.description2 ||
-                      tour?.description ||
-                      "No description available"}
-                </p>
+                <p>{tour?.description2}</p>
                 <div className="row pb-55">
                   <div className="">
                     <div className="tour-include-exclude mt-30">
                       <h5>Package Inclusions</h5>
                       <ul className="list-style-one check mt-25">
-                        {tour?.inclusions ? (
+                        {tour?.inclusions &&
                           Object.entries(tour.inclusions).map(
                             ([key, value], index) => (
                               <li key={index}>
@@ -257,158 +264,40 @@ const page = () => {
                                 {value}
                               </li>
                             )
-                          )
-                        ) : (
-                          <li>No inclusions specified</li>
-                        )}
+                          )}
                       </ul>
                     </div>
                   </div>
                 </div>
-
-                {tour?.additional_info &&
-                  Object.keys(tour.additional_info).length > 0 && (
-                    <div className="row pb-55">
-                      <div className="">
-                        <div className="tour-include-exclude mt-30">
-                          <h5>Additional Information</h5>
-                          <ul className="list-style-one check mt-25">
-                            {Object.entries(tour.additional_info).map(
-                              ([key, value], index) => {
-                                if (Array.isArray(value)) {
-                                  return value.map((item, i) => (
-                                    <li key={`${index}-${i}`}>
-                                      <i className="far fa-check" />
-                                      {item}
-                                    </li>
-                                  ));
-                                }
-                                return (
-                                  <li key={index}>
+                <div className="row pb-55">
+                  <div className="">
+                    <div className="tour-include-exclude mt-30">
+                      <h5>Additional Information</h5>
+                      <ul className="list-style-one check mt-25">
+                        {tour?.additional_info &&
+                          Object.entries(tour.additional_info).map(
+                            ([key, value], index) => {
+                              if (Array.isArray(value)) {
+                                return value.map((item, i) => (
+                                  <li key={`${index}-${i}`}>
                                     <i className="far fa-check" />
-                                    {value}
+                                    {item}
                                   </li>
-                                );
+                                ));
                               }
-                            )}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                {tour?.excluded && Object.keys(tour.excluded).length > 0 && (
-                  <div className="row pb-55">
-                    <div className="">
-                      <div className="tour-include-exclude mt-30">
-                        <h5>Excluded</h5>
-                        {Object.entries(tour.excluded).map(
-                          ([key, description]) => (
-                            <div key={key} className="pickup-section">
-                              <div className="pickup-logo-text">
-                                <div>
-                                  <h6
-                                    style={{
-                                      fontWeight: "bold",
-                                      color: "#303030",
-                                    }}
-                                  >
-                                    {key.replace(/_/g, " ").toUpperCase()}
-                                  </h6>
-                                  <p>
-                                    {description ||
-                                      `No ${key.replace(
-                                        /_/g,
-                                        " "
-                                      )} details available.`}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          )
-                        )}
-                      </div>
+                              return (
+                                <li key={index}>
+                                  <i className="far fa-check" />
+                                  {value}
+                                </li>
+                              );
+                            }
+                          )}
+                      </ul>
                     </div>
                   </div>
-                )}
-
-                {tour?.important_notes &&
-                  Object.keys(tour.important_notes).length > 0 && (
-                    <div className="row pb-55">
-                      <div className="">
-                        <div className="tour-include-exclude mt-30">
-                          <h5>Important Notes</h5>
-                          <ul className="list-style-one check mt-25">
-                            {Object.entries(tour.important_notes).map(
-                              ([key, value], index) => (
-                                <li key={index}>
-                                  <i className="far fa-check" />
-                                  {value}
-                                </li>
-                              )
-                            )}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                {tour?.cancellation_policy &&
-                  Object.keys(tour.cancellation_policy).length > 0 && (
-                    <div className="row pb-55">
-                      <div className="">
-                        <div className="tour-include-exclude mt-30">
-                          <h5>Cancellation Policy</h5>
-                          <ul className="list-style-one check mt-25">
-                            {Object.entries(tour.cancellation_policy).map(
-                              ([key, value], index) => (
-                                <li key={index}>
-                                  <i className="far fa-check" />
-                                  {value}
-                                </li>
-                              )
-                            )}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                </div>
               </div>
-              {/* <h3>Activities</h3>
-              <div className="tour-activities mt-30 mb-45">
-                <div className="tour-activity-item">
-                  <i className="flaticon-hiking" />
-                  <b>Hiking</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-fishing" />
-                  <b>Fishing</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-man" />
-                  <b>Kayak shooting</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-kayak-1" />
-                  <b>Kayak</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-bonfire" />
-                  <b>Campfire</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-flashlight" />
-                  <b>Night Exploring</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-cycling" />
-                  <b>Biking</b>
-                </div>
-                <div className="tour-activity-item">
-                  <i className="flaticon-meditation" />
-                  <b>Yoga</b>
-                </div>
-              </div> */}
               <h3>Itinerary</h3>
               <Accordion
                 className="accordion-two mt-25 mb-60"
@@ -427,23 +316,6 @@ const page = () => {
                   />
                 ))}
               </Accordion>
-              {/* <h3>Frequently Asked Questions</h3>
-              <Accordion
-                className="accordion-one mt-25 mb-60"
-                defaultActiveKey={active2}
-              >
-                {faqItem2.map((data, i) => (
-                  <RaveloAccordion
-                    title={data.title}
-                    key={data.id}
-                    event={`collapse${i}`}
-                    onClick={() =>
-                      setActive(active2 == `collapse${i}` ? "" : `collapse${i}`)
-                    }
-                    active={active2}
-                  />
-                ))}
-              </Accordion> */}
               <h3>Maps</h3>
               <div className="tour-map mt-30 mb-50">
                 <iframe
@@ -547,277 +419,7 @@ const page = () => {
                   </div>
                 </div>
               </div>
-              <h3>Clients Comments</h3>
-              <div className="comments mt-30 mb-60">
-                <div
-                  className="comment-body"
-                  data-aos="fade-up"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="author-thumb">
-                    <img
-                      src="assets/images/blog/comment-author1.jpg"
-                      alt="Author"
-                    />
-                  </div>
-                  <div className="content">
-                    <h6>Lonnie B. Horwitz</h6>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                    <span className="time">
-                      Venice, Rome and Milan – 9 Days 8 Nights
-                    </span>
-                    <p>
-                      Tours and travels play a crucial role in enriching lives
-                      by offering unique experiences, cultural exchanges, and
-                      the joy of exploration.
-                    </p>
-                    <a className="read-more" href="#">
-                      Reply <i className="far fa-angle-right" />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className="comment-body comment-child"
-                  data-aos="fade-up"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="author-thumb">
-                    <img
-                      src="assets/images/blog/comment-author2.jpg"
-                      alt="Author"
-                    />
-                  </div>
-                  <div className="content">
-                    <h6>William G. Edwards</h6>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                    <span className="time">
-                      Venice, Rome and Milan – 9 Days 8 Nights
-                    </span>
-                    <p>
-                      Tours and travels play a crucial role in enriching lives
-                      by offering unique experiences, cultural exchanges, and
-                      the joy of exploration.
-                    </p>
-                    <a className="read-more" href="#">
-                      Reply <i className="far fa-angle-right" />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className="comment-body"
-                  data-aos="fade-up"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="author-thumb">
-                    <img
-                      src="assets/images/blog/comment-author3.jpg"
-                      alt="Author"
-                    />
-                  </div>
-                  <div className="content">
-                    <h6>Jaime B. Wilson</h6>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                    <span className="time">
-                      Venice, Rome and Milan – 9 Days 8 Nights
-                    </span>
-                    <p>
-                      Tours and travels play a crucial role in enriching lives
-                      by offering unique experiences, cultural exchanges, and
-                      the joy of exploration.
-                    </p>
-                    <a className="read-more" href="#">
-                      Reply <i className="far fa-angle-right" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <h3>Add Reviews</h3>
-              <form
-                id="comment-form"
-                className="comment-form bgc-lighter z-1 rel mt-30"
-                name="review-form"
-                action="#"
-                method="post"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="comment-review-wrap">
-                  <div className="comment-ratting-item">
-                    <span className="title">Services</span>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                  </div>
-                  <div className="comment-ratting-item">
-                    <span className="title">Guides</span>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                  </div>
-                  <div className="comment-ratting-item">
-                    <span className="title">Price</span>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                  </div>
-                  <div className="comment-ratting-item">
-                    <span className="title">Safety</span>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                  </div>
-                  <div className="comment-ratting-item">
-                    <span className="title">Foods</span>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                  </div>
-                  <div className="comment-ratting-item">
-                    <span className="title">Hotels</span>
-                    <div className="ratting">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star-half-alt" />
-                    </div>
-                  </div>
-                </div>
-                <hr className="mt-30 mb-40" />
-                <h5>Leave Feedback</h5>
-                <div className="row gap-20 mt-20">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label htmlFor="full-name">Name</label>
-                      <input
-                        type="text"
-                        id="full-name"
-                        name="full-name"
-                        className="form-control"
-                        defaultValue=""
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone</label>
-                      <input
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        className="form-control"
-                        defaultValue=""
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-group">
-                      <label htmlFor="email-address">Email</label>
-                      <input
-                        type="email"
-                        id="email-address"
-                        name="email"
-                        className="form-control"
-                        defaultValue=""
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-group">
-                      <label htmlFor="message">Comments</label>
-                      <textarea
-                        name="message"
-                        id="message"
-                        className="form-control"
-                        rows={5}
-                        required=""
-                        defaultValue={""}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-group mb-0">
-                      <button
-                        type="submit"
-                        className="theme-btn bgc-secondary style-two"
-                      >
-                        <span data-hover="Submit reviews">Submit reviews</span>
-                        <i className="fal fa-arrow-right" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div className="col-lg-4 col-md-8 col-sm-10 rmt-75">
-              <div className="blog-sidebar tour-sidebar">
-                <Booking tour={tour} />
-                <div
-                  className="widget widget-contact"
-                  data-aos="fade-up"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <h5 className="widget-title">Need Help?</h5>
-                  <ul className="list-style-one">
-                    <li>
-                      <i className="far fa-envelope" />{" "}
-                      <a href="mailto:urbanadventuretourism@gmail.com">
-                        urbanadventuretourism@gmail.com
-                      </a>
-                    </li>
-                    <li>
-                      <i className="far fa-phone-volume" />{" "}
-                      <a href="callto:+971528067631">+971528067631</a>
-                    </li>
-                  </ul>
-                </div>
-                {/* CTA section removed */}
-              </div>
+              <ReviewsSection tour={tour} />
             </div>
           </div>
         </div>

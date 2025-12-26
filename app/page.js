@@ -1,29 +1,139 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Counter from "@/components/Counter";
 import SearchFilter from "@/components/SearchFilter";
 import SectionTitle from "@/components/SectionTitle";
 import Testimonial from "@/components/slider/Testimonial";
 import ReveloLayout from "@/layout/ReveloLayout";
 import Link from "next/link";
-import destinations from "./Jsons/destinations.json";
-import destinations2 from "./Jsons/destinations2.json";
+// Removed static JSON imports - now fetching from DB
 import Gallery from "@/components/slider/Gallery";
 import TourSlider from "@/components/slider/TourSlider";
 import CategorySlider from "@/components/slider/CategorySlider";
-import toursData from "./tour-list/toursData.json";
-import sightSeeData from "./sight-see-list/toursData.json";
-import desertResortData from "./desert-resort-list/toursData.json";
-import themeParkData from "./theme-park-list/toursData.json";
-import buggyBikeData from "./buggy-bike-list/toursData.json";
-import privateTourData from "./private-tour-list/toursData.json";
-import executiveTourData from "./executive-tour-list/toursData.json";
-import comboDealData from "./combo-deal-list/toursData.json";
-import waterParkData from "./water-park-list/toursData.json";
-import skyTourData from "./sky-tour-list/toursData.json";
-import seaAdvantucherData from "./sea-advantucher-list/toursData.json";
-import dhowCruiseData from "./dhow-cruise-list/toursData.json";
+
 const page = () => {
+  const [categoryTours, setCategoryTours] = useState([]); // Array of {category, tours}
+  const [categories, setCategories] = useState([]);
+  const [topTours, setTopTours] = useState([]);
+  const [bestSelling, setBestSelling] = useState([]);
+
+  useEffect(() => {
+    const fetchCategoriesAndTours = async () => {
+      try {
+        // First, fetch all active categories
+        const categoriesResponse = await fetch('/api/categories');
+        const categoriesData = await categoriesResponse.json();
+        const activeCategories = (categoriesData.categories || []).filter(cat => cat.is_active);
+        
+        // Transform categories for CategorySlider
+        const transformedCategories = activeCategories.map((cat, index) => ({
+          id: cat.id,
+          title: cat.name,
+          image: cat.image || `assets/images/destinations/main${(index % 4) + 1}.jpg`,
+          location: "UAE",
+          rating: 4.8,
+          price: 0,
+            link: cat.slug ? (cat.slug.endsWith('-list') ? `/category/${cat.slug}` : `/category/${cat.slug}-list`) : '#',
+        }));
+        setCategories(transformedCategories);
+
+        // Then, for each category, fetch its packages
+        const categoryToursData = await Promise.all(
+          activeCategories.map(async (category) => {
+            try {
+              const response = await fetch(`/api/packages?category_id=${category.id}&limit=8`);
+              const data = await response.json();
+              const packages = (data.packages || []).map((tour) => ({
+                ...tour,
+                id: tour.id,
+                title: tour.name || 'Untitled Tour',
+                name: tour.name,
+                price: parseFloat(tour.discount_price || tour.base_price || 0),
+                base_price: tour.base_price,
+                discount_price: tour.discount_price,
+                reviews: tour.total_reviews || 0,
+                rating: parseInt(tour.rating || 5),
+                originalPrice: tour.discount_price && tour.base_price ? parseFloat(tour.base_price) : null,
+                discount: tour.badge ? parseInt(tour.badge.replace('% Off', '').replace('%', '')) : null,
+                link: `/top-tour-details?slug=${tour.slug}`,
+                image: tour.image || '/assets/images/default-tour.jpg',
+              }));
+              
+              return {
+                category,
+                tours: packages,
+              };
+            } catch (error) {
+              console.error(`Failed to fetch packages for category ${category.name}:`, error);
+              return {
+                category,
+                tours: [],
+              };
+            }
+          })
+        );
+
+        // Filter out categories with no tours
+        setCategoryTours(categoryToursData.filter(item => item.tours.length > 0));
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      }
+    };
+
+    const fetchFeaturedTours = async () => {
+      try {
+        // Fetch packages with badge "Featured" or "Popular" for Top Tours
+        const topToursResponse = await fetch('/api/packages?limit=3');
+        const topToursData = await topToursResponse.json();
+        if (topToursData.packages) {
+          const transformedTopTours = topToursData.packages.slice(0, 3).map((tour) => ({
+            ...tour,
+            id: tour.id,
+            title: tour.name || 'Untitled Tour',
+            name: tour.name,
+            price: parseFloat(tour.discount_price || tour.base_price || 0),
+            base_price: tour.base_price,
+            discount_price: tour.discount_price,
+            reviews: tour.total_reviews || 0,
+            rating: parseInt(tour.rating || 5),
+            originalPrice: tour.discount_price && tour.base_price ? parseFloat(tour.base_price) : null,
+            discount: tour.badge ? parseInt(tour.badge.replace('% Off', '').replace('%', '')) : null,
+            link: `/top-tour-details?slug=${tour.slug}`,
+            image: tour.image || '/assets/images/default-tour.jpg',
+          }));
+          setTopTours(transformedTopTours);
+        }
+
+        // Fetch packages for Best Selling (can use different criteria)
+        const bestSellingResponse = await fetch('/api/packages?limit=3');
+        const bestSellingData = await bestSellingResponse.json();
+        if (bestSellingData.packages) {
+          const transformedBestSelling = bestSellingData.packages.slice(3, 6).map((tour) => ({
+            ...tour,
+            id: tour.id,
+            title: tour.name || 'Untitled Tour',
+            name: tour.name,
+            price: parseFloat(tour.discount_price || tour.base_price || 0),
+            base_price: tour.base_price,
+            discount_price: tour.discount_price,
+            reviews: tour.total_reviews || 0,
+            rating: parseInt(tour.rating || 5),
+            originalPrice: null,
+            discount: null,
+            link: `/top-tour-details?slug=${tour.slug}`,
+            image: tour.image || '/assets/images/default-tour.jpg',
+          }));
+          setBestSelling(transformedBestSelling);
+        }
+      } catch (error) {
+        console.error('Failed to fetch featured tours:', error);
+      }
+    };
+
+    fetchCategoriesAndTours();
+    fetchFeaturedTours();
+  }, []);
   return (
     <div>
       <style jsx>{`
@@ -87,8 +197,8 @@ const page = () => {
         </section>
         {/* Hero Area End */}
 
-        {/* Categories Slider Section */}
-        <CategorySlider
+        {/* Categories Slider Section - Now Dynamic from DB */}
+        {/* <CategorySlider
           title="Discover the Dubai with Urban Adventure tourism"
           categories={[
             {
@@ -200,214 +310,54 @@ const page = () => {
               link: "dhow-cruise-list",
             },
           ]}
-        />
+        /> */}
+        {categories.length > 0 && (
+          <CategorySlider
+            title="Discover the Dubai with Urban Adventure tourism"
+            categories={categories}
+          />
+        )}
 
         {/* Top Tours Section */}
-        <TourSlider
-          title="Top Tours"
-          tours={destinations2.map((tour) => ({
-            ...tour,
-            reviews: 176,
-            originalPrice:
-              tour.id === 1
-                ? 800
-                : tour.id === 2
-                ? 900
-                : tour.id === 3
-                ? 150
-                : null,
-            discount:
-              tour.id === 1
-                ? 6
-                : tour.id === 2
-                ? 11
-                : tour.id === 3
-                ? 13
-                : null,
-            link: `/top-tour-details?id=${tour.id}`,
-          }))}
-        />
+        {topTours.length > 0 && (
+          <TourSlider
+            title="Top Tours"
+            tours={topTours}
+          />
+        )}
 
         {/* Best Selling Section */}
-        <TourSlider
-          title="BEST SELLING"
-          tours={destinations2.map((tour) => ({
-            ...tour,
-            reviews: 144,
-            originalPrice: null,
-            discount: null,
-            link: `/top-tour-details?id=${tour.id}`,
-          }))}
-        />
+        {bestSelling.length > 0 && (
+          <TourSlider
+            title="BEST SELLING"
+            tours={bestSelling}
+          />
+        )}
 
-        {/* Category Sliders Start */}
-        <TourSlider
-          title="Desert Safari"
-          tours={toursData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/tour-details?id=${tour.id}`,
-          }))}
-        />
+        {/* Category Sliders Start - Dynamic from Database */}
+        {/* Render a slider for each category with its packages */}
+        {categoryTours.map((item) => (
+          item.tours.length > 0 && (
+            <TourSlider 
+              key={item.category.id} 
+              title={item.category.name} 
+              tours={item.tours} 
+            />
+          )
+        ))}
 
-        <TourSlider
-          title="City Tour"
-          tours={sightSeeData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.15) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/sight-see-Tdetails?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Desert Resort"
-          tours={desertResortData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/desert-resort-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Theme Park"
-          tours={themeParkData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/theme-park-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Buggy & Quad Bikes"
-          tours={buggyBikeData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/buggy-bike-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Private Tour"
-          tours={privateTourData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/private-tour-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Executive"
-          tours={executiveTourData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/executive-tour-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Combo Deals"
-          tours={comboDealData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/combo-deal-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Water Parks"
-          tours={waterParkData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/water-park-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Sky Tours"
-          tours={skyTourData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/sky-tour-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Sea Advantucher"
-          tours={seaAdvantucherData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/sea-advantucher-details?id=${tour.id}`,
-          }))}
-        />
-
-        <TourSlider
-          title="Dhow Cruise"
-          tours={dhowCruiseData.tours.slice(0, 8).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: tour.badge ? Math.round(tour.price * 1.1) : null,
-            discount: tour.badge
-              ? parseInt(tour.badge.replace("% Off", ""))
-              : null,
-            link: `/dhow-cruise-details?id=${tour.id}`,
-          }))}
-        />
-
-        {/* Tickets Section */}
-        <TourSlider
-          title="Tickets"
-          tours={toursData.tours.slice(0, 6).map((tour) => ({
-            ...tour,
-            reviews: tour.totalReviews || 0,
-            originalPrice: null,
-            discount: null,
-            link: `/tour-details?id=${tour.id}`,
-          }))}
-        />
+        {/* Tickets Section - Show featured tours from first category if available */}
+        {categoryTours.length > 0 && categoryTours[0].tours.length > 0 && (
+          <TourSlider
+            title="Tickets"
+            tours={categoryTours[0].tours.slice(0, 6).map((tour) => ({
+              ...tour,
+              reviews: tour.reviews || 0,
+              originalPrice: null,
+              discount: null,
+            }))}
+          />
+        )}
 
         {/* About Us Area start */}
         <section className="about-us-area py-100 rpb-90 rel z-1">

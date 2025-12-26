@@ -2,12 +2,25 @@ import Link from "next/link";
 import { Fragment } from "react";
 import SearchFilter from "./SearchFilter";
 
-const Banner = ({ pageTitle, pageName, search }) => {
+const Banner = ({ pageTitle, pageName, search, backgroundImage }) => {
+  // Ensure background image URL is properly formatted
+  let bgImageUrl = backgroundImage || "/assets/images/banner/ddubai.jpg";
+  
+  // If image is a relative path without leading slash, add it
+  if (bgImageUrl && !bgImageUrl.startsWith("http") && !bgImageUrl.startsWith("/")) {
+    bgImageUrl = "/" + bgImageUrl;
+  }
+  
+  // If image is empty or null, use default
+  if (!bgImageUrl || bgImageUrl === "null" || bgImageUrl === "undefined") {
+    bgImageUrl = "/assets/images/banner/ddubai.jpg";
+  }
+
   return (
     <Fragment>
       <section
         className="page-banner-area pt-50 pb-35 rel z-1 bgs-cover"
-        style={{ backgroundImage: "url(assets/images/banner/ddubai.jpg)" }}
+        style={{ backgroundImage: `url(${bgImageUrl})` }}
       >
         <div className="container">
           <div className={`banner-inner text-white ${search ? "mb-50" : ""}`}>
