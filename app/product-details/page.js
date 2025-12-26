@@ -1,3 +1,5 @@
+"use client";
+
 import Banner from "@/components/Banner";
 import SectionTitle from "@/components/SectionTitle";
 import Product from "@/components/slider/Product";
