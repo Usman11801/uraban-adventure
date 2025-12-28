@@ -3,7 +3,7 @@
 import { sliderProps } from "@/utility/sliderprops";
 import Link from "next/link";
 import Slider from "react-slick";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import SectionTitle from "@/components/SectionTitle";
 
 const CategorySlider = ({ title, categories = [] }) => {
@@ -13,48 +13,68 @@ const CategorySlider = ({ title, categories = [] }) => {
     return null;
   }
 
-  const categorySliderSettings = {
+  const categoriesLength = categories.length;
+
+  // Memoize slider settings to prevent recreation on every render
+  const categorySliderSettings = useMemo(() => ({
     infinite: true,
     speed: 400,
     arrows: false,
     dots: false,
     focusOnSelect: true,
-    autoplay: false,
-    slidesToShow: 4,
-    slidesToScroll: 1,
+    autoplay: categoriesLength > 1, // Enable autoplay if more than 1 category
+    autoplaySpeed: 2000, // Auto slide every 2 seconds
+    pauseOnHover: false, // Don't pause on hover - continuous auto slide
+    slidesToShow: 5,
+    slidesToScroll: 1, // Scroll one item at a time for smooth transition
     responsive: [
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
+          autoplay: categoriesLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
+          autoplay: categoriesLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
+          autoplay: categoriesLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 2,
+          autoplay: categoriesLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 575,
         settings: {
           slidesToShow: 1,
+          autoplay: categoriesLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
     ],
-  };
+  }), [categoriesLength]);
 
   return (
     <section className="destinations-area bgc-black pt-100 pb-70 rel z-1">
@@ -143,43 +163,42 @@ const CategorySlider = ({ title, categories = [] }) => {
         </div>
         <div className="row">
           <div className="col-12" style={{ position: 'relative' }}>
-            <Slider {...categorySliderSettings} className="category-slider-active" ref={sliderRef}>
+            <Slider 
+              {...categorySliderSettings} 
+              className="category-slider-active" 
+              ref={sliderRef}
+            >
               {categories.map((category, index) => (
                 <div key={category.id || index} className="category-slider-item" style={{ padding: '0 5px' }}>
+                  <Link
+                    href={category.link || '#'}
+                    style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%' }}
+                  >
                   <div
                     className="destination-item"
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                     data-aos-duration={1500}
                     data-aos-offset={50}
-                    style={{ display: 'flex', flexDirection: 'column' }}
+                      style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                   >
                     <div className="image" style={{ position: 'relative', width: '100%' }}>
                       <div className="ratting">
                         <i className="fas fa-star" /> {category.rating || 4.8}
                       </div>
-                      <img src={category.image} alt={category.title} style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
+                        <img src={category.image} alt={category.title} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
                     </div>
-                    <div className="content">
-                      <span className="location">
+                      <div className="content" style={{ padding: '12px' }}>
+                        <span className="location" style={{ fontSize: '13px', color: '#fff' }}>
                         <i className="fal fa-map-marker-alt" /> {category.location || "UAE"}
                       </span>
-                      <h5>
-                        <Link href={category.link || '#'}>
+                        <h5 style={{ marginTop: '8px', marginBottom: '5px', fontSize: '16px', color: '#fff' }}>
                           {category.title}
-                        </Link>
                       </h5>
-                      <span className="time">Urban Adventure tourism</span>
+                        <span className="time" style={{ fontSize: '12px', color: '#fff' }}>Urban Adventure tourism</span>
+                      </div>
                     </div>
-                    <div className="destination-footer">
-                      <Link
-                        href={category.link || '#'}
-                        className="read-more"
-                      >
-                        Check more details <i className="fal fa-angle-right" />
                       </Link>
-                    </div>
-                  </div>
                 </div>
               ))}
             </Slider>

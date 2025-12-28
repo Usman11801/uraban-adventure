@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+  startTransition,
+  useDeferredValue,
+} from "react";
 import Counter from "@/components/Counter";
 import SearchFilter from "@/components/SearchFilter";
 import SectionTitle from "@/components/SectionTitle";
@@ -11,61 +18,100 @@ import Link from "next/link";
 import Gallery from "@/components/slider/Gallery";
 import TourSlider from "@/components/slider/TourSlider";
 import CategorySlider from "@/components/slider/CategorySlider";
+import Loader from "@/components/Loader";
 
 const page = () => {
   const [categoryTours, setCategoryTours] = useState([]); // Array of {category, tours}
   const [categories, setCategories] = useState([]);
   const [topTours, setTopTours] = useState([]);
   const [bestSelling, setBestSelling] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const hasFetchedRef = useRef(false); // Prevent multiple simultaneous fetches
 
   useEffect(() => {
+    // Prevent multiple simultaneous fetches (e.g., from React Strict Mode double mount)
+    if (hasFetchedRef.current) {
+      return;
+    }
+    hasFetchedRef.current = true;
+
+    // Set a maximum timeout to show page after 1.5 seconds max
+    const maxTimeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
     const fetchCategoriesAndTours = async () => {
       try {
-        // First, fetch all active categories
-        const categoriesResponse = await fetch('/api/categories');
+        // First, fetch all active categories (critical data - show page after this)
+        const categoriesResponse = await fetch("/api/categories");
         const categoriesData = await categoriesResponse.json();
-        const activeCategories = (categoriesData.categories || []).filter(cat => cat.is_active);
-        
+        const activeCategories = (categoriesData.categories || []).filter(
+          (cat) => cat.is_active
+        );
+
         // Transform categories for CategorySlider
         const transformedCategories = activeCategories.map((cat, index) => ({
           id: cat.id,
           title: cat.name,
-          image: cat.image || `assets/images/destinations/main${(index % 4) + 1}.jpg`,
+          image:
+            cat.image ||
+            `assets/images/destinations/main${(index % 4) + 1}.jpg`,
           location: "UAE",
           rating: 4.8,
           price: 0,
-            link: cat.slug ? (cat.slug.endsWith('-list') ? `/category/${cat.slug}` : `/category/${cat.slug}-list`) : '#',
+          link: cat.slug
+            ? cat.slug.endsWith("-list")
+              ? `/category/${cat.slug}`
+              : `/category/${cat.slug}-list`
+            : "#",
         }));
         setCategories(transformedCategories);
 
-        // Then, for each category, fetch its packages
+        // Show page immediately after categories load (critical data ready)
+        clearTimeout(maxTimeoutId);
+        // Minimum 400ms to prevent flicker
+        setTimeout(() => {
+          setLoading(false);
+        }, 400);
+
+        // Then, fetch packages for each category in background (non-blocking)
         const categoryToursData = await Promise.all(
           activeCategories.map(async (category) => {
             try {
-              const response = await fetch(`/api/packages?category_id=${category.id}&limit=8`);
+              const response = await fetch(
+                `/api/packages?category_id=${category.id}&limit=8`
+              );
               const data = await response.json();
               const packages = (data.packages || []).map((tour) => ({
                 ...tour,
                 id: tour.id,
-                title: tour.name || 'Untitled Tour',
+                title: tour.name || "Untitled Tour",
                 name: tour.name,
                 price: parseFloat(tour.discount_price || tour.base_price || 0),
                 base_price: tour.base_price,
                 discount_price: tour.discount_price,
                 reviews: tour.total_reviews || 0,
                 rating: parseInt(tour.rating || 5),
-                originalPrice: tour.discount_price && tour.base_price ? parseFloat(tour.base_price) : null,
-                discount: tour.badge ? parseInt(tour.badge.replace('% Off', '').replace('%', '')) : null,
+                originalPrice:
+                  tour.discount_price && tour.base_price
+                    ? parseFloat(tour.base_price)
+                    : null,
+                discount: tour.badge
+                  ? parseInt(tour.badge.replace("% Off", "").replace("%", ""))
+                  : null,
                 link: `/top-tour-details?slug=${tour.slug}`,
-                image: tour.image || '/assets/images/default-tour.jpg',
+                image: tour.image || "/assets/images/default-tour.jpg",
               }));
-              
+
               return {
                 category,
                 tours: packages,
               };
             } catch (error) {
-              console.error(`Failed to fetch packages for category ${category.name}:`, error);
+              console.error(
+                `Failed to fetch packages for category ${category.name}:`,
+                error
+              );
               return {
                 category,
                 tours: [],
@@ -75,65 +121,120 @@ const page = () => {
         );
 
         // Filter out categories with no tours
-        setCategoryTours(categoryToursData.filter(item => item.tours.length > 0));
+        // Use startTransition for non-critical updates to reduce render blocking
+        startTransition(() => {
+          setCategoryTours(
+            categoryToursData.filter((item) => item.tours.length > 0)
+          );
+        });
       } catch (error) {
-        console.error('Failed to fetch categories:', error);
+        console.error("Failed to fetch categories:", error);
+        clearTimeout(maxTimeoutId);
+        setLoading(false);
       }
     };
 
     const fetchFeaturedTours = async () => {
       try {
         // Fetch packages with badge "Featured" or "Popular" for Top Tours
-        const topToursResponse = await fetch('/api/packages?limit=3');
+        const topToursResponse = await fetch("/api/packages?limit=3");
         const topToursData = await topToursResponse.json();
         if (topToursData.packages) {
-          const transformedTopTours = topToursData.packages.slice(0, 3).map((tour) => ({
-            ...tour,
-            id: tour.id,
-            title: tour.name || 'Untitled Tour',
-            name: tour.name,
-            price: parseFloat(tour.discount_price || tour.base_price || 0),
-            base_price: tour.base_price,
-            discount_price: tour.discount_price,
-            reviews: tour.total_reviews || 0,
-            rating: parseInt(tour.rating || 5),
-            originalPrice: tour.discount_price && tour.base_price ? parseFloat(tour.base_price) : null,
-            discount: tour.badge ? parseInt(tour.badge.replace('% Off', '').replace('%', '')) : null,
-            link: `/top-tour-details?slug=${tour.slug}`,
-            image: tour.image || '/assets/images/default-tour.jpg',
-          }));
-          setTopTours(transformedTopTours);
+          const transformedTopTours = topToursData.packages
+            .slice(0, 3)
+            .map((tour) => ({
+              ...tour,
+              id: tour.id,
+              title: tour.name || "Untitled Tour",
+              name: tour.name,
+              price: parseFloat(tour.discount_price || tour.base_price || 0),
+              base_price: tour.base_price,
+              discount_price: tour.discount_price,
+              reviews: tour.total_reviews || 0,
+              rating: parseInt(tour.rating || 5),
+              originalPrice:
+                tour.discount_price && tour.base_price
+                  ? parseFloat(tour.base_price)
+                  : null,
+              discount: tour.badge
+                ? parseInt(tour.badge.replace("% Off", "").replace("%", ""))
+                : null,
+              link: `/top-tour-details?slug=${tour.slug}`,
+              image: tour.image || "/assets/images/default-tour.jpg",
+            }));
+          // Use startTransition for non-critical updates
+          startTransition(() => {
+            setTopTours(transformedTopTours);
+          });
         }
 
         // Fetch packages for Best Selling (can use different criteria)
-        const bestSellingResponse = await fetch('/api/packages?limit=3');
+        const bestSellingResponse = await fetch("/api/packages?limit=3");
         const bestSellingData = await bestSellingResponse.json();
         if (bestSellingData.packages) {
-          const transformedBestSelling = bestSellingData.packages.slice(3, 6).map((tour) => ({
-            ...tour,
-            id: tour.id,
-            title: tour.name || 'Untitled Tour',
-            name: tour.name,
-            price: parseFloat(tour.discount_price || tour.base_price || 0),
-            base_price: tour.base_price,
-            discount_price: tour.discount_price,
-            reviews: tour.total_reviews || 0,
-            rating: parseInt(tour.rating || 5),
-            originalPrice: null,
-            discount: null,
-            link: `/top-tour-details?slug=${tour.slug}`,
-            image: tour.image || '/assets/images/default-tour.jpg',
-          }));
-          setBestSelling(transformedBestSelling);
+          const transformedBestSelling = bestSellingData.packages
+            .slice(3, 6)
+            .map((tour) => ({
+              ...tour,
+              id: tour.id,
+              title: tour.name || "Untitled Tour",
+              name: tour.name,
+              price: parseFloat(tour.discount_price || tour.base_price || 0),
+              base_price: tour.base_price,
+              discount_price: tour.discount_price,
+              reviews: tour.total_reviews || 0,
+              rating: parseInt(tour.rating || 5),
+              originalPrice: null,
+              discount: null,
+              link: `/top-tour-details?slug=${tour.slug}`,
+              image: tour.image || "/assets/images/default-tour.jpg",
+            }));
+          // Use startTransition for non-critical updates
+          startTransition(() => {
+            setBestSelling(transformedBestSelling);
+          });
         }
       } catch (error) {
-        console.error('Failed to fetch featured tours:', error);
+        console.error("Failed to fetch featured tours:", error);
       }
     };
 
+    // Fetch all data - show page after categories load, rest loads in background
     fetchCategoriesAndTours();
     fetchFeaturedTours();
+
+    return () => {
+      clearTimeout(maxTimeoutId);
+      // Reset the ref if component unmounts (for hot reload scenarios)
+      hasFetchedRef.current = false;
+    };
   }, []);
+
+  // Defer categoryTours update to prevent blocking renders
+  const deferredCategoryTours = useDeferredValue(categoryTours);
+
+  // Memoize the category tours to prevent unnecessary re-renders
+  const memoizedCategoryTours = useMemo(() => {
+    return deferredCategoryTours.filter((item) => item.tours.length > 0);
+  }, [deferredCategoryTours]);
+
+  // Memoize tickets tours to prevent recreation on each render
+  const ticketsTours = useMemo(() => {
+    if (categoryTours.length > 0 && categoryTours[0].tours.length > 0) {
+      return categoryTours[0].tours.slice(0, 6).map((tour) => ({
+        ...tour,
+        reviews: tour.reviews || 0,
+        originalPrice: null,
+        discount: null,
+      }));
+    }
+    return [];
+  }, [categoryTours]);
+
+  if (loading) {
+    return <Loader message="Loading tours and destinations..." />;
+  }
+
   return (
     <div>
       <style jsx>{`
@@ -320,152 +421,29 @@ const page = () => {
 
         {/* Top Tours Section */}
         {topTours.length > 0 && (
-          <TourSlider
-            title="Top Tours"
-            tours={topTours}
-          />
+          <TourSlider title="Top Tours" tours={topTours} />
         )}
 
         {/* Best Selling Section */}
         {bestSelling.length > 0 && (
-          <TourSlider
-            title="BEST SELLING"
-            tours={bestSelling}
-          />
+          <TourSlider title="BEST SELLING" tours={bestSelling} />
         )}
 
         {/* Category Sliders Start - Dynamic from Database */}
         {/* Render a slider for each category with its packages */}
-        {categoryTours.map((item) => (
-          item.tours.length > 0 && (
-            <TourSlider 
-              key={item.category.id} 
-              title={item.category.name} 
-              tours={item.tours} 
-            />
-          )
+        {memoizedCategoryTours.map((item) => (
+          <TourSlider
+            key={item.category.id}
+            title={item.category.name}
+            tours={item.tours}
+          />
         ))}
 
         {/* Tickets Section - Show featured tours from first category if available */}
-        {categoryTours.length > 0 && categoryTours[0].tours.length > 0 && (
-          <TourSlider
-            title="Tickets"
-            tours={categoryTours[0].tours.slice(0, 6).map((tour) => ({
-              ...tour,
-              reviews: tour.reviews || 0,
-              originalPrice: null,
-              discount: null,
-            }))}
-          />
+        {ticketsTours.length > 0 && (
+          <TourSlider title="Tickets" tours={ticketsTours} />
         )}
 
-        {/* About Us Area start */}
-        <section className="about-us-area py-100 rpb-90 rel z-1">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-xl-5 col-lg-6">
-                <div
-                  className="about-us-content rmb-55"
-                  data-aos="fade-left"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="section-title mb-25">
-                    <h2>
-                      Travel with Confidence Top Reasons to Choose Our Agency
-                    </h2>
-                  </div>
-                  <p>
-                    We go above and beyond to make your travel dreams reality
-                    hidden gems and must-see attractions
-                  </p>
-                  <div className="divider counter-text-wrap mt-45 mb-55">
-                    <span>
-                      We have{" "}
-                      <span>
-                        <span
-                          className="count-text plus"
-                          data-speed={3000}
-                          data-stop={25}
-                        >
-                          <Counter end={25} />
-                        </span>{" "}
-                        Years
-                      </span>{" "}
-                      of experience
-                    </span>
-                  </div>
-                  <div className="row">
-                    <div className="col-6">
-                      <div className="counter-item counter-text-wrap">
-                        <span
-                          className="count-text k-plus"
-                          data-speed={3000}
-                          data-stop={3}
-                        >
-                          <Counter end={3} />
-                        </span>
-                        <span className="counter-title">
-                          Popular Destination
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-6">
-                      <div className="counter-item counter-text-wrap">
-                        <span
-                          className="count-text m-plus"
-                          data-speed={3000}
-                          data-stop={9}
-                        >
-                          <Counter end={9} />
-                        </span>
-                        <span className="counter-title">Satisfied Clients</span>
-                      </div>
-                    </div>
-                  </div>
-                  <Link href="tour-list" className="theme-btn mt-10 style-two">
-                    <span data-hover="Explore Destinations">
-                      Explore Destinations
-                    </span>
-                    <i className="fal fa-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-              <div
-                className="col-xl-7 col-lg-6"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="about-us-image">
-                  <div className="shape">
-                    <img src="assets/images/about/shape1.png" alt="Shape" />
-                  </div>
-                  <div className="shape">
-                    <img src="assets/images/about/shape2.png" alt="Shape" />
-                  </div>
-                  <div className="shape">
-                    <img src="assets/images/about/shape3.png" alt="Shape" />
-                  </div>
-                  <div className="shape">
-                    <img src="assets/images/about/shape4.png" alt="Shape" />
-                  </div>
-                  <div className="shape">
-                    <img src="assets/images/about/shape5.png" alt="Shape" />
-                  </div>
-                  <div className="shape">
-                    <img src="assets/images/about/shape6.png" alt="Shape" />
-                  </div>
-                  <div className="shape">
-                    <img src="assets/images/about/shape7.png" alt="Shape" />
-                  </div>
-                  <img src="assets/images/about/about.png" alt="About" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* About Us Area end */}
         {/* Popular Destinations Area start */}
         {/* <section className="popular-destinations-area rel z-1">
           <div className="container-fluid">

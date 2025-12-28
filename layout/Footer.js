@@ -1,5 +1,8 @@
+"use client";
+
 import Counter from "@/components/Counter";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const Footer = ({ footer, insta }) => {
   switch (footer) {
@@ -284,33 +287,7 @@ const Footer1 = () => {
                 </ul>
               </div>
             </div>
-            <div
-              className="col col-small"
-              data-aos="fade-up"
-              data-aos-delay={100}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
-              <div className="footer-widget footer-links">
-                <div className="footer-title">
-                  <h5>Destinations</h5>
-                </div>
-                <ul className="list-style-three">
-                  <li>
-                    <Link href="theme-park-list">Theme Park</Link>
-                  </li>
-                  <li>
-                    <Link href="desert-resort-list">Desert and Resort</Link>
-                  </li>
-                  <li>
-                    <Link href="sight-see-list">City Tour</Link>
-                  </li>
-                  <li>
-                    <Link href="tour-list">Desert Safari</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <FooterDestinations />
             <div
               className="col col-small"
               data-aos="fade-up"
@@ -413,6 +390,126 @@ const Footer1 = () => {
   );
 };
 
+const FooterDestinations = () => {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("/api/categories");
+        const data = await response.json();
+        const activeCategories = (data.categories || []).filter(
+          (cat) => cat.is_active
+        );
+        setCategories(activeCategories);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  // Split categories into 3 rows
+  const itemsPerRow = Math.ceil(categories.length / 3);
+  const row1 = categories.slice(0, itemsPerRow);
+  const row2 = categories.slice(itemsPerRow, itemsPerRow * 2);
+  const row3 = categories.slice(itemsPerRow * 2);
+
+  return (
+    <div
+      className="col"
+      style={{ flex: "0 0 auto", minWidth: "300px", maxWidth: "400px" }}
+      data-aos="fade-up"
+      data-aos-delay={150}
+      data-aos-duration={1500}
+      data-aos-offset={50}
+    >
+      <div className="footer-widget footer-links">
+        <div className="footer-title">
+          <h5>Destinations</h5>
+        </div>
+        {loading ? (
+          <ul className="list-style-three">
+            <li>Loading...</li>
+          </ul>
+        ) : categories.length === 0 ? (
+          <ul className="list-style-three">
+            <li>No categories available</li>
+          </ul>
+        ) : (
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            {/* Row 1 */}
+            <ul
+              className="list-style-three"
+              style={{ margin: 0, padding: 0, listStyle: "none" }}
+            >
+              {row1.map((category) => {
+                const link = category.slug
+                  ? category.slug.endsWith("-list")
+                    ? `/category/${category.slug}`
+                    : `/category/${category.slug}-list`
+                  : "#";
+                return (
+                  <li key={category.id} style={{ marginBottom: "5px" }}>
+                    <Link href={link}>{category.name}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+            {/* Row 2 */}
+            {row2.length > 0 && (
+              <ul
+                className="list-style-three"
+                style={{ margin: 0, padding: 0, listStyle: "none" }}
+              >
+                {row2.map((category) => {
+                  const link = category.slug
+                    ? category.slug.endsWith("-list")
+                      ? `/category/${category.slug}`
+                      : `/category/${category.slug}-list`
+                    : "#";
+                  return (
+                    <li key={category.id} style={{ marginBottom: "5px" }}>
+                      <Link href={link}>{category.name}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+            {/* Row 3 */}
+            {row3.length > 0 && (
+              <ul
+                className="list-style-three"
+                style={{ margin: 0, padding: 0, listStyle: "none" }}
+              >
+                {row3.map((category) => {
+                  const link = category.slug
+                    ? category.slug.endsWith("-list")
+                      ? `/category/${category.slug}`
+                      : `/category/${category.slug}-list`
+                    : "#";
+                  return (
+                    <li key={category.id} style={{ marginBottom: "5px" }}>
+                      <Link href={link}>{category.name}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Footer2 = ({ insta }) => {
   return (
     <footer
@@ -504,33 +601,7 @@ const Footer2 = ({ insta }) => {
                 </ul>
               </div>
             </div>
-            <div
-              className="col col-small"
-              data-aos="fade-up"
-              data-aos-delay={150}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
-              <div className="footer-widget footer-links">
-                <div className="footer-title">
-                  <h5>Destinations</h5>
-                </div>
-                <ul className="list-style-three">
-                  <li>
-                    <Link href="theme-park-list">Theme Park</Link>
-                  </li>
-                  <li>
-                    <Link href="desert-resort-list">Desert and Resort</Link>
-                  </li>
-                  <li>
-                    <Link href="sight-see-list">City Tour</Link>
-                  </li>
-                  <li>
-                    <Link href="tour-list">Desert Safari</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <FooterDestinations />
             <div
               className="col col-md-6 col-10 col-small"
               data-aos="fade-up"

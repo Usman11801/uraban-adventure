@@ -11,14 +11,19 @@ import Addons from "@/components/Addons";
 import OrderDetail from "@/components/OrderDetail";
 import Gallery from "@/components/slider/Gallery";
 import ReviewsSection from "@/components/ReviewsSection";
+import BookingForm from "@/components/BookingForm";
+import Loader from "@/components/Loader";
 import { useCart } from "@/context/CartContext";
 
 const page = () => {
   const [id, setId] = useState(null);
   const [tour, setTour] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [bookingData, setBookingData] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState({});
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [paymentType, setPaymentType] = useState(null);
   const { addToCart } = useCart();
 
   const scrollToBooking = () => {
@@ -31,10 +36,16 @@ const page = () => {
   useEffect(() => {
     const fetchPackage = async () => {
       if (typeof window !== "undefined") {
+        setLoading(true);
         const queryString = window.location.search;
         const params = new URLSearchParams(queryString);
         const slug = params.get("slug");
         const id = params.get("id");
+        
+        // Set maximum timeout - show page after 1.5 seconds even if data not loaded
+        const timeoutId = setTimeout(() => {
+          setLoading(false);
+        }, 1500);
         
         try {
           if (slug) {
@@ -63,6 +74,12 @@ const page = () => {
           }
         } catch (error) {
           console.error("Error fetching package:", error);
+        } finally {
+          clearTimeout(timeoutId);
+          // Hide loader after minimum 300ms to prevent flicker
+          setTimeout(() => {
+            setLoading(false);
+          }, 300);
         }
       }
     };
@@ -123,6 +140,85 @@ const page = () => {
 
   const faqItem = getItineraryItems();
   const [active2, setActive2] = useState("collapse0");
+
+  // Calculate grand total including addons
+  const calculateGrandTotal = () => {
+    if (!bookingData) return 0;
+    const baseTotal = parseFloat(bookingData.totalAmount || 0);
+    const addonsTotal = Object.keys(selectedAddons).reduce((sum, id) => {
+      const addon = selectedAddons[id];
+      if (addon && addon.selected) {
+        return sum + ((addon.adult || 0) * (addon.adultPrice || 0)) + ((addon.child || 0) * (addon.childPrice || 0));
+      }
+      return sum;
+    }, 0);
+    return baseTotal + addonsTotal;
+  };
+
+  // Prepare cart item for BookingForm (single item array)
+  const getCartItemForBooking = () => {
+    if (!bookingData || !tour) return null;
+    
+    return {
+      id: `temp-${Date.now()}`,
+      tourId: tour.id,
+      tourTitle: tour.name || tour.title,
+      tourImage: tour.image || tour.image1,
+      ...bookingData,
+      selectedAddons,
+      totalAmount: calculateGrandTotal().toFixed(2)
+    };
+  };
+
+  // Handle Buy Now - open booking form modal
+  const handleBuyNow = () => {
+    if (!bookingData || !bookingData.selectedDate) {
+      alert("Please select a date first");
+      return;
+    }
+    if (!tour) {
+      alert("Tour information is not available. Please refresh the page.");
+      return;
+    }
+    setPaymentType("stripe");
+    setShowBookingForm(true);
+  };
+
+  // Handle booking form success
+  const handleBookingSuccess = (result) => {
+    setShowBookingForm(false);
+    
+    if (result.type === "stripe") {
+      // Redirect to Stripe checkout
+      if (result.checkoutUrl) {
+        window.location.href = result.checkoutUrl;
+      } else {
+        alert("Failed to create payment session. Please try again.");
+      }
+    }
+  };
+
+  if (loading) {
+    return <Loader message="Loading tour details..." />;
+  }
+
+  if (!tour) {
+    return (
+      <ReveloLayout>
+        <div style={{ padding: '100px 20px', textAlign: 'center' }}>
+          <h2>Tour Not Found</h2>
+          <p style={{ marginTop: '20px', color: 'var(--base-color)' }}>
+            The tour you're looking for doesn't exist or has been removed.
+          </p>
+          <Link href="/" className="theme-btn bgc-secondary" style={{ marginTop: '30px', display: 'inline-block' }}>
+            <span data-hover="Go Home">Go Home</span>
+            <i className="fal fa-arrow-right" />
+          </Link>
+        </div>
+      </ReveloLayout>
+    );
+  }
+
   return (
     <ReveloLayout>
       {/* Hero Image with Title */}
@@ -195,14 +291,7 @@ const page = () => {
               <Booking 
                 tour={tour} 
                 onBookingChange={setBookingData}
-                onBuyNow={async () => {
-                  if (bookingData && bookingData.selectedDate) {
-                    const bookingSection = document.querySelector(".widget-booking form");
-                    if (bookingSection) {
-                      bookingSection.requestSubmit();
-                    }
-                  }
-                }}
+                onBuyNow={handleBuyNow}
                 onAddToCart={() => {
                   if (bookingData && bookingData.selectedDate) {
                     addToCart({
@@ -235,14 +324,7 @@ const page = () => {
                   tour={tour}
                   bookingData={bookingData}
                   selectedAddons={selectedAddons}
-                  onBuyNow={async () => {
-                    if (bookingData && bookingData.selectedDate) {
-                      const bookingSection = document.querySelector(".widget-booking form");
-                      if (bookingSection) {
-                        bookingSection.requestSubmit();
-                      }
-                    }
-                  }}
+                  onBuyNow={handleBuyNow}
                   onAddToCart={() => {
                     if (bookingData && bookingData.selectedDate) {
                       addToCart({
@@ -487,6 +569,20 @@ const page = () => {
       {/* Newsletter Area start */}
       {/* <Subscribe /> */}
       {/* Newsletter Area end */}
+
+      {/* Booking Form Modal */}
+      {showBookingForm && bookingData && tour && getCartItemForBooking() && (
+        <BookingForm
+          cartItems={[getCartItemForBooking()]}
+          grandTotal={calculateGrandTotal()}
+          onClose={() => {
+            setShowBookingForm(false);
+            setPaymentType(null);
+          }}
+          paymentType={paymentType}
+          onSuccess={handleBookingSuccess}
+        />
+      )}
     </ReveloLayout>
   );
 };

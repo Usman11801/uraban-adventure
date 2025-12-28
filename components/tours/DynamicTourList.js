@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Loader from '@/components/Loader'
 
 const ITEMS_PER_PAGE = 10
 
@@ -16,6 +17,11 @@ export default function DynamicTourList({
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // Set max timeout - show content after 1 second even if still loading
+    const maxTimeoutId = setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+
     const fetchTours = async () => {
       try {
         const params = new URLSearchParams()
@@ -30,11 +36,19 @@ export default function DynamicTourList({
       } catch (error) {
         console.error('Failed to fetch tours:', error)
       } finally {
+        clearTimeout(maxTimeoutId)
+        // Minimum 300ms to prevent flicker
+        setTimeout(() => {
         setLoading(false)
+        }, 300)
       }
     }
 
     fetchTours()
+
+    return () => {
+      clearTimeout(maxTimeoutId)
+    }
   }, [displayPage])
 
   useEffect(() => {
@@ -52,7 +66,7 @@ export default function DynamicTourList({
   }
 
   if (loading) {
-    return <div style={{ padding: '40px', textAlign: 'center' }}>Loading tours...</div>
+    return <Loader fullScreen={false} message="Loading tours..." />
   }
 
   if (tours.length === 0) {

@@ -34,9 +34,13 @@ const CartPage = () => {
         setBookingSuccess(null);
       }, 100);
     } else if (result.type === "stripe") {
-      // Handle Stripe payment - will be implemented
-      console.log("Stripe payment initiated", result);
-      // TODO: Integrate Stripe payment
+      // Redirect to Stripe checkout
+      if (result.checkoutUrl) {
+        window.location.href = result.checkoutUrl;
+      } else {
+        alert("Failed to create payment session. Please try again.");
+        setBookingSuccess(null);
+      }
     }
   };
 

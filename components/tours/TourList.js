@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import TourCard from './TourCard'
+import Loader from '@/components/Loader'
 
-export default function TourList({ page, section, initialTours = [], detailPage = '/tour-details' }) {
+export default function TourList({ page, section, initialTours = [], detailPage = '/tour-details', showPagination = true }) {
   const [tours, setTours] = useState(initialTours)
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
@@ -41,7 +42,8 @@ export default function TourList({ page, section, initialTours = [], detailPage 
 
   const totalPages = Math.ceil(tours.length / ITEMS_PER_PAGE)
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-  const currentTours = tours.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+  // Show all tours if pagination is disabled, otherwise show paginated tours
+  const currentTours = showPagination ? tours.slice(startIndex, startIndex + ITEMS_PER_PAGE) : tours
 
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
@@ -50,7 +52,7 @@ export default function TourList({ page, section, initialTours = [], detailPage 
   }
 
   if (loading) {
-    return <div style={{ padding: '40px', textAlign: 'center' }}>Loading tours...</div>
+    return <Loader fullScreen={false} message="Loading tours..." />
   }
 
   if (tours.length === 0) {
@@ -84,7 +86,7 @@ export default function TourList({ page, section, initialTours = [], detailPage 
         </div>
       </div>
 
-      {totalPages > 1 && (
+      {showPagination && totalPages > 1 && (
         <ul
           className="pagination pt-15 flex-wrap"
           data-aos="fade-up"

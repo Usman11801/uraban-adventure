@@ -11,13 +11,13 @@ const Menu = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('/api/categories');
+        const response = await fetch("/api/categories");
         const data = await response.json();
         if (data.categories) {
-          setCategories(data.categories.filter(cat => cat.is_active));
+          setCategories(data.categories.filter((cat) => cat.is_active));
         }
       } catch (error) {
-        console.error('Failed to fetch categories:', error);
+        console.error("Failed to fetch categories:", error);
       }
     };
 
@@ -84,17 +84,14 @@ const Menu = () => {
                   categories.map((category) => {
                     // Use category route for dynamic category pages
                     // If slug already ends with -list, use it as-is; otherwise add -list
-                    let link = '#';
+                    let link = "#";
                     if (category.slug) {
-                      if (category.slug.endsWith('-list')) {
+                      if (category.slug.endsWith("-list")) {
                         link = `/category/${category.slug}`;
                       } else {
                         link = `/category/${category.slug}-list`;
                       }
                     }
-                    // #region agent log
-                    fetch('http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'layout/Header.js:86',message:'Category link generated',data:{categoryName:category.name,categorySlug:category.slug,link,slugEndsWithList:category.slug?.endsWith('-list')},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'G'})}).catch(()=>{});
-                    // #endregion
                     return (
                       <li key={category.id}>
                         <Link href={link}>{category.name}</Link>
@@ -318,7 +315,7 @@ const Header1 = ({ sidebarClick }) => {
               <div className="menu-btns py-10 d-flex align-items-center gap-3">
                 <CartIcon />
                 <Link
-                  href="tour-list"
+                  href="/book-now"
                   className="theme-btn style-two bgc-secondary"
                 >
                   <span data-hover="Book Now">Book Now</span>
@@ -672,7 +669,7 @@ const Header3 = ({ sidebarClick }) => {
               <div className="menu-btns py-10 d-flex align-items-center gap-3">
                 <CartIcon />
                 <Link
-                  href="tour-list"
+                  href="/book-now"
                   className="theme-btn style-two bgc-secondary"
                 >
                   <span data-hover="Book Now">Book Now</span>
@@ -703,41 +700,46 @@ const CartIcon = () => {
           display: inline-block;
         }
         .cart-icon-link {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 45px;
-          height: 45px;
-          background: var(--lighter-color);
-          border-radius: 50%;
-          color: var(--heading-color);
-          text-decoration: none;
-          transition: all 0.3s ease;
-          position: relative;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 100px !important;
+          height: 100px !important;
+          min-width: 100px !important;
+          min-height: 100px !important;
+          background: var(--lighter-color) !important;
+          border-radius: 50% !important;
+          color: var(--heading-color) !important;
+          text-decoration: none !important;
+          transition: all 0.3s ease !important;
+          position: relative !important;
         }
         .cart-icon-link:hover {
-          background: var(--secondary-color);
-          color: #fff;
-          transform: translateY(-2px);
+          background: var(--secondary-color) !important;
+          color: #fff !important;
+          transform: translateY(-2px) !important;
         }
         .cart-icon-link i {
-          font-size: 20px;
+          font-size: 50px !important;
+          line-height: 1 !important;
         }
         .cart-badge {
-          position: absolute;
-          top: -5px;
-          right: -5px;
-          background: var(--secondary-color);
-          color: #fff;
-          border-radius: 50%;
-          width: 22px;
-          height: 22px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 11px;
-          font-weight: 700;
-          border: 2px solid #fff;
+          position: absolute !important;
+          top: -8px !important;
+          right: -8px !important;
+          background: var(--secondary-color) !important;
+          color: #fff !important;
+          border-radius: 50% !important;
+          width: 32px !important;
+          height: 32px !important;
+          min-width: 32px !important;
+          min-height: 32px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          font-size: 14px !important;
+          font-weight: 700 !important;
+          border: 3px solid #fff !important;
         }
         .cart-badge.hidden {
           display: none;
@@ -745,7 +747,7 @@ const CartIcon = () => {
       `}</style>
       <div className="cart-icon-wrapper">
         <Link href="/cart" className="cart-icon-link">
-          <i className="fal fa-shopping-cart" />
+          <i style={{ fontSize: "26px" }} className="fal fa-shopping-cart" />
           {itemCount > 0 && (
             <span className="cart-badge">
               {itemCount > 9 ? "9+" : itemCount}

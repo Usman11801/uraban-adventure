@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,26 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    // Only lock scroll if modal is actually being displayed
+    if (typeof document !== 'undefined') {
+      // Store original overflow value
+      const originalOverflow = window.getComputedStyle(document.body).overflow;
+      // Lock scroll
+      document.body.style.overflow = 'hidden';
+      
+      // Cleanup: restore scroll when modal closes
+      return () => {
+        document.body.style.overflow = originalOverflow || '';
+        // Force restore scroll as safety measure
+        if (document.body.style.overflow === 'hidden') {
+          document.body.style.overflow = '';
+        }
+      };
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,12 +108,16 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
           bookingId: data.booking?.id,
         });
       } else {
-        // For Stripe, initiate payment
+        // For Stripe, redirect to checkout URL
+        if (data.checkoutUrl) {
         onSuccess({
           type: "stripe",
-          bookingId: data.booking?.id,
-          clientSecret: data.clientSecret,
+            bookingId: data.bookings?.[0]?.id,
+            checkoutUrl: data.checkoutUrl,
         });
+        } else {
+          throw new Error("Failed to create payment session. Please try again.");
+        }
       }
     } catch (error) {
       alert(error.message || "An error occurred. Please try again.");
@@ -102,7 +126,23 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
   };
 
   return (
-    <div className="booking-form-overlay" onClick={onClose}>
+    <div 
+      className="booking-form-overlay" 
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0, 0, 0, 0.6)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 10000,
+        padding: '20px',
+      }}
+    >
       <div className="booking-form-container" onClick={(e) => e.stopPropagation()}>
         <div className="booking-form-header">
           <h2>Booking Information</h2>
@@ -241,17 +281,27 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
 
         <style jsx>{`
           .booking-form-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            padding: 20px;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(0, 0, 0, 0.6) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 10000 !important;
+            padding: 20px !important;
+            animation: fadeIn 0.3s ease;
+          }
+
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
           }
 
           .booking-form-container {
@@ -262,6 +312,19 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s ease;
+            position: relative;
+          }
+
+          @keyframes slideUp {
+            from {
+              transform: translateY(20px);
+              opacity: 0;
+            }
+            to {
+              transform: translateY(0);
+              opacity: 1;
+            }
           }
 
           .booking-form-header {

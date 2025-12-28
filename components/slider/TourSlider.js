@@ -3,7 +3,7 @@
 import { sliderProps } from "@/utility/sliderprops";
 import Link from "next/link";
 import Slider from "react-slick";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 
 const TourSlider = ({ title, tours = [] }) => {
   const sliderRef = useRef(null);
@@ -12,48 +12,79 @@ const TourSlider = ({ title, tours = [] }) => {
     return null;
   }
 
-  const tourSliderSettings = {
-    infinite: tours.length > 1, // Fix: infinite only works with >1 item
+  const toursLength = tours.length;
+
+  // Memoize slider settings to prevent recreation on every render
+  const tourSliderSettings = useMemo(() => ({
+    infinite: toursLength > 1,
     speed: 400,
     arrows: false,
     dots: false,
     focusOnSelect: true,
-    autoplay: false,
-    slidesToShow: 4, // Always show 4 slots - CSS enforces 25% width per card
+    autoplay: toursLength > 1,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    variableWidth: false, // Ensure fixed width per slide
-    centerMode: false,
-    adaptiveHeight: false,
     responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 4,
+          infinite: toursLength > 1,
+          autoplay: toursLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
+        },
+      },
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3, // CSS will handle width
+          slidesToShow: 4,
+          infinite: toursLength > 1,
+          autoplay: toursLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 2, // CSS will handle width
+          slidesToShow: 3,
+          infinite: toursLength > 1,
+          autoplay: toursLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2, // CSS will handle width
+          slidesToShow: 2,
+          infinite: toursLength > 1,
+          autoplay: toursLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
       {
         breakpoint: 575,
         settings: {
           slidesToShow: 1,
+          infinite: toursLength > 1,
+          autoplay: toursLength > 1,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         },
       },
     ],
-  };
+  }), [toursLength]);
 
   return (
-    <section className="tour-slider-section rel z-1" style={{ background: '#fff', paddingTop: '50px', paddingBottom: '50px' }}>
+    <section 
+      className="tour-slider-section rel z-1" 
+      style={{ background: '#fff', paddingTop: '50px', paddingBottom: '50px' }}
+    >
       <div className="container-fluid">
         <div className="row">
           <div className="col-12">
@@ -72,22 +103,9 @@ const TourSlider = ({ title, tours = [] }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    transition: 'all 0.3s ease',
                     color: '#484848',
                     fontSize: '16px',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'var(--primary-color)';
-                    e.target.style.borderColor = 'var(--primary-color)';
-                    e.target.style.color = '#fff';
-                    e.target.style.transform = 'scale(1.05)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = '#fff';
-                    e.target.style.borderColor = '#E9E9E9';
-                    e.target.style.color = '#484848';
-                    e.target.style.transform = 'scale(1)';
                   }}
                 >
                   <i className="fas fa-chevron-left"></i>
@@ -104,22 +122,9 @@ const TourSlider = ({ title, tours = [] }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    transition: 'all 0.3s ease',
                     color: '#484848',
                     fontSize: '16px',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'var(--primary-color)';
-                    e.target.style.borderColor = 'var(--primary-color)';
-                    e.target.style.color = '#fff';
-                    e.target.style.transform = 'scale(1.05)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = '#fff';
-                    e.target.style.borderColor = '#E9E9E9';
-                    e.target.style.color = '#484848';
-                    e.target.style.transform = 'scale(1)';
                   }}
                 >
                   <i className="fas fa-chevron-right"></i>
@@ -156,8 +161,11 @@ const TourSlider = ({ title, tours = [] }) => {
                 }
 
                 return (
-                  <div key={tour.id || index} className="tour-slider-item" style={{ padding: '0 10px', width: '100%', maxWidth: '100%' }}>
-                    <div className="destination-item style-two tour-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', transition: 'all 0.3s ease', background: '#fff', width: '100%', height: '100%' }}>
+                  <div key={tour.id || index} className="tour-slider-item" style={{ padding: '0 5px' }}>
+                    <div 
+                      className="destination-item"
+                      style={{ display: 'flex', flexDirection: 'column' }}
+                    >
                       <div className="image" style={{ position: 'relative', width: '100%' }}>
                         {discount && (
                           <div
@@ -185,7 +193,7 @@ const TourSlider = ({ title, tours = [] }) => {
                           alt={tour.title || tour.name}
                           style={{
                             width: '100%',
-                            height: '250px',
+                                  height: '200px',
                             objectFit: 'cover',
                           }}
                           onError={(e) => {
@@ -207,35 +215,24 @@ const TourSlider = ({ title, tours = [] }) => {
                           className="book-now-btn"
                           style={{
                             position: 'absolute',
-                            bottom: '15px',
-                            right: '15px',
+                            bottom: '10px',
+                            right: '10px',
                             background: 'var(--secondary-color)',
                             color: '#fff',
-                            padding: '12px 24px',
-                            borderRadius: '30px',
+                            padding: '8px 16px',
+                            borderRadius: '25px',
                             textDecoration: 'none',
                             fontWeight: '600',
-                            fontSize: '14px',
+                            fontSize: '12px',
                             zIndex: 2,
-                            transition: 'all 0.3s ease',
                             boxShadow: '0 4px 12px rgba(247, 146, 30, 0.3)',
-                          }}
-                          onMouseEnter={(e) => {
-                            e.target.style.background = 'var(--primary-color)';
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 6px 16px rgba(99, 171, 69, 0.4)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.background = 'var(--secondary-color)';
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 4px 12px rgba(247, 146, 30, 0.3)';
                           }}
                         >
                           Book Now
                         </Link>
                       </div>
-                      <div className="content" style={{ padding: '20px' }}>
-                        <h6 style={{ marginBottom: '12px', fontSize: '18px', fontWeight: '600', lineHeight: '1.4' }}>
+                      <div className="content" style={{ padding: '15px' }}>
+                        <h6 style={{ marginBottom: '8px', fontSize: '16px', fontWeight: '600', lineHeight: '1.4' }}>
                           <Link
                             href={
                               tour.link
@@ -245,13 +242,7 @@ const TourSlider = ({ title, tours = [] }) => {
                                     query: { id: tour.id },
                                   }
                             }
-                            style={{ color: '#1C231F', textDecoration: 'none', transition: 'color 0.3s ease' }}
-                            onMouseEnter={(e) => {
-                              e.target.style.color = 'var(--primary-color)';
-                            }}
-                            onMouseLeave={(e) => {
-                              e.target.style.color = '#1C231F';
-                            }}
+                            style={{ color: '#1C231F', textDecoration: 'none' }}
                           >
                             {tour.title}
                           </Link>
@@ -261,7 +252,7 @@ const TourSlider = ({ title, tours = [] }) => {
                           style={{
                             display: 'flex',
                             alignItems: 'center',
-                            marginBottom: '10px',
+                            marginBottom: '8px',
                           }}
                         >
                           {[...Array(5)].map((_, i) => (
@@ -270,22 +261,22 @@ const TourSlider = ({ title, tours = [] }) => {
                               className="fas fa-star"
                               style={{
                                 color: i < rating ? '#ffc107' : '#ddd',
-                                fontSize: '14px',
+                                fontSize: '12px',
                                 marginRight: '2px',
                               }}
                             />
                           ))}
-                          <span style={{ marginLeft: '5px', fontSize: '14px', color: '#666' }}>
+                          <span style={{ marginLeft: '5px', fontSize: '12px', color: '#666' }}>
                             ({reviews})
                           </span>
                         </div>
-                        <div className="price" style={{ fontSize: '22px', fontWeight: '700', color: 'var(--primary-color)', marginTop: '8px' }}>
+                        <div className="price" style={{ fontSize: '18px', fontWeight: '700', color: 'var(--primary-color)', marginTop: '5px' }}>
                           AED {currentPrice}
                           {originalPrice && (
                             <span
                               style={{
-                                marginLeft: '12px',
-                                fontSize: '16px',
+                                marginLeft: '8px',
+                                fontSize: '14px',
                                 color: '#999',
                                 textDecoration: 'line-through',
                                 fontWeight: '400',

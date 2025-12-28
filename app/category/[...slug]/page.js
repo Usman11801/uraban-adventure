@@ -13,21 +13,6 @@ export default async function CategoryListPage({ params }) {
     "🔵 CategoryListPage: Route handler called with params:",
     JSON.stringify(params)
   );
-  // #region agent log
-  fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      location: "category/[...slug]/page.js:11",
-      message: "Route handler called",
-      data: { params: JSON.stringify(params) },
-      timestamp: Date.now(),
-      sessionId: "debug-session",
-      runId: "run1",
-      hypothesisId: "A",
-    }),
-  }).catch(() => {});
-  // #endregion
 
   const { slug } = params;
 
@@ -38,39 +23,8 @@ export default async function CategoryListPage({ params }) {
   } else if (slug) {
     fullPath = slug;
   } else {
-    // #region agent log
-    fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        location: "category/[...slug]/page.js:22",
-        message: "No slug in params - calling notFound",
-        data: { params: JSON.stringify(params) },
-        timestamp: Date.now(),
-        sessionId: "debug-session",
-        runId: "run1",
-        hypothesisId: "B",
-      }),
-    }).catch(() => {});
-    // #endregion
     notFound();
   }
-
-  // #region agent log
-  fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      location: "category/[...slug]/page.js:24",
-      message: "Full path extracted",
-      data: { fullPath, isArray: Array.isArray(slug) },
-      timestamp: Date.now(),
-      sessionId: "debug-session",
-      runId: "run1",
-      hypothesisId: "A",
-    }),
-  }).catch(() => {});
-  // #endregion
 
   const supabase = await createClient();
 
@@ -82,68 +36,13 @@ export default async function CategoryListPage({ params }) {
     .eq("is_active", true)
     .single();
 
-  // #region agent log
-  fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      location: "category/[...slug]/page.js:37",
-      message: "First category lookup - trying fullPath as slug",
-      data: {
-        fullPath,
-        found: !!category,
-        error: categoryError?.message,
-        errorCode: categoryError?.code,
-      },
-      timestamp: Date.now(),
-      sessionId: "debug-session",
-      runId: "run1",
-      hypothesisId: "E",
-    }),
-  }).catch(() => {});
-  // #endregion
-
   // If not found, remove -list suffix and try again
   if (categoryError || !category) {
     // Remove all trailing -list suffixes (handle cases like desert-resort-list-list)
     let categorySlug = fullPath.replace(/(-list)+$/, "");
 
-    // #region agent log
-    fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        location: "category/[...slug]/page.js:45",
-        message: "Category slug after removing -list",
-        data: { fullPath, categorySlug },
-        timestamp: Date.now(),
-        sessionId: "debug-session",
-        runId: "run1",
-        hypothesisId: "C",
-      }),
-    }).catch(() => {});
-    // #endregion
-
     // Validate category slug is not empty
     if (!categorySlug || categorySlug.trim().length === 0) {
-      // #region agent log
-      fetch(
-        "http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            location: "category/[...slug]/page.js:50",
-            message: "Empty category slug - calling notFound",
-            data: { fullPath, categorySlug },
-            timestamp: Date.now(),
-            sessionId: "debug-session",
-            runId: "run1",
-            hypothesisId: "D",
-          }),
-        }
-      ).catch(() => {});
-      // #endregion
       notFound();
     }
 
@@ -155,50 +54,11 @@ export default async function CategoryListPage({ params }) {
       .eq("is_active", true)
       .single();
 
-    // #region agent log
-    fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        location: "category/[...slug]/page.js:58",
-        message: "Second category lookup - trying without -list",
-        data: {
-          categorySlug,
-          found: !!result.data,
-          error: result.error?.message,
-          errorCode: result.error?.code,
-        },
-        timestamp: Date.now(),
-        sessionId: "debug-session",
-        runId: "run1",
-        hypothesisId: "E",
-      }),
-    }).catch(() => {});
-    // #endregion
-
     if (result.data) {
       category = result.data;
       categoryError = null;
     } else {
       // Still not found, return 404
-      // #region agent log
-      fetch(
-        "http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            location: "category/[...slug]/page.js:66",
-            message: "Category not found in both attempts - calling notFound",
-            data: { fullPath, categorySlug },
-            timestamp: Date.now(),
-            sessionId: "debug-session",
-            runId: "run1",
-            hypothesisId: "E",
-          }),
-        }
-      ).catch(() => {});
-      // #endregion
       notFound();
     }
   }
@@ -207,46 +67,8 @@ export default async function CategoryListPage({ params }) {
   const categorySlug = category.slug || fullPath.replace(/(-list)+$/, "");
 
   if (categoryError || !category) {
-    // #region agent log
-    fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        location: "category/[...slug]/page.js:72",
-        message: "Final check failed - calling notFound",
-        data: {
-          categoryError: categoryError?.message,
-          hasCategory: !!category,
-        },
-        timestamp: Date.now(),
-        sessionId: "debug-session",
-        runId: "run1",
-        hypothesisId: "E",
-      }),
-    }).catch(() => {});
-    // #endregion
     notFound();
   }
-
-  // #region agent log
-  fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      location: "category/[...slug]/page.js:75",
-      message: "Category found successfully",
-      data: {
-        categoryId: category.id,
-        categoryName: category.name,
-        categorySlug: category.slug,
-      },
-      timestamp: Date.now(),
-      sessionId: "debug-session",
-      runId: "run1",
-      hypothesisId: "A",
-    }),
-  }).catch(() => {});
-  // #endregion
 
   // Fetch packages for this category
   const { data: packages, error: packagesError } = await supabase
@@ -261,26 +83,6 @@ export default async function CategoryListPage({ params }) {
     .eq("status", "active")
     .eq("category_id", category.id)
     .order("created_at", { ascending: false });
-
-  // #region agent log
-  fetch("http://127.0.0.1:7242/ingest/c0cffba1-d502-4b81-a0b4-d003caf941d5", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      location: "category/[...slug]/page.js:85",
-      message: "Packages fetched",
-      data: {
-        categoryId: category.id,
-        packageCount: packages?.length || 0,
-        error: packagesError?.message,
-      },
-      timestamp: Date.now(),
-      sessionId: "debug-session",
-      runId: "run1",
-      hypothesisId: "F",
-    }),
-  }).catch(() => {});
-  // #endregion
 
   if (packagesError) {
     console.error("Error fetching packages:", packagesError);
@@ -337,6 +139,7 @@ export default async function CategoryListPage({ params }) {
             section="main"
             initialTours={tours}
             detailPage="/top-tour-details"
+            showPagination={false}
           />
         </div>
       </section>

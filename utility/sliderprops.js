@@ -2,13 +2,14 @@ export const sliderProps = {
   testimonials: {
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: false,
+    infinite: true, // Changed to true to enable infinite loop with autoplay
     speed: 400,
     arrows: false,
     dots: false,
     focusOnSelect: true,
-    autoplay: false,
-    autoplaySpeed: 5000,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 2000, // Auto slide every 2 seconds
+    pauseOnHover: false, // Don't pause on hover - continuous auto slide
   },
   destination: {
     infinite: true,
@@ -138,14 +139,16 @@ export const sliderProps = {
   gallery: {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 400, // Match CategorySlider speed
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2000, // Auto slide every 2 seconds
+    pauseOnHover: false, // Don't pause on hover - continuous auto slide
     arrows: false,
     fade: true,
     cssEase: 'linear',
+    focusOnSelect: true, // Match CategorySlider
     responsive: [
       {
         breakpoint: 1024,
@@ -153,7 +156,10 @@ export const sliderProps = {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: false
+          dots: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         }
       },
       {
@@ -162,7 +168,10 @@ export const sliderProps = {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: false,
-          arrows: false
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          pauseOnHover: false,
         }
       }
     ]

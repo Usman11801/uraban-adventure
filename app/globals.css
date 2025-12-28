@@ -33,7 +33,8 @@
 
 /* Full width gallery carousel */
 .hero-area {
-  min-height: 600px !important;
+  min-height: 360px !important;
+  max-height: 360px !important;
   position: relative !important;
   display: block !important;
   visibility: visible !important;
@@ -130,55 +131,50 @@ img.mfp-img {
   display: none !important;
 }
 .tour-slider-active .slick-slide {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 25% !important; /* Force 4 items per row, so each is 25% */
-  max-width: 25% !important;
-  min-width: 25% !important;
-  flex: 0 0 25% !important;
-  box-sizing: border-box !important;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-@media (max-width: 1200px) {
-  .tour-slider-active .slick-slide {
-    width: 33.333% !important;
-    max-width: 33.333% !important;
-    min-width: 33.333% !important;
-    flex: 0 0 33.333% !important;
-  }
-}
-@media (max-width: 991px) {
-  .tour-slider-active .slick-slide {
-    width: 50% !important;
-    max-width: 50% !important;
-    min-width: 50% !important;
-    flex: 0 0 50% !important;
-  }
-}
-@media (max-width: 575px) {
-  .tour-slider-active .slick-slide {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 100% !important;
-    flex: 0 0 100% !important;
-  }
-}
-.tour-slider-active .slick-list {
+.tour-slider-active .destination-item {
   display: flex !important;
-  flex-direction: row !important;
+  flex-direction: column !important;
+  border-radius: 12px;
   overflow: hidden;
-  width: 100% !important;
-}
-.tour-slider-active .slick-track {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: stretch;
-  width: 100% !important;
-  transform: translate3d(0, 0, 0) !important;
-}
-.tour-slider-active .slick-slide > div {
-  display: flex !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  background: #fff;
   width: 100%;
   height: 100%;
+  /* Removed transition to prevent hover effects */
+}
+.tour-slider-active .destination-item .image {
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  position: relative;
+}
+.tour-slider-active .destination-item .image img {
+  height: 200px !important;
+  object-fit: cover !important;
+  width: 100%;
+}
+.tour-slider-active .destination-item .content {
+  flex: 1 !important;
+  padding: 15px !important;
+}
+.tour-slider-active .destination-item .content {
+  flex: 1 !important;
+  padding: 20px;
+}
+/* Removed hover effect - no hover actions on tour slider items */
+.tour-slider-active .destination-item:hover,
+.tour-slider-active .destination-item *:hover {
+  /* Explicitly disable all hover effects on tour slider items */
+  transform: none !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+}
+.tour-slider-active .book-now-btn:hover,
+.tour-slider-active a:hover {
+  /* No hover effects on buttons and links */
+  transform: none !important;
+  opacity: 1 !important;
 }
 .tour-slider-section {
   position: relative;
@@ -223,8 +219,14 @@ img.mfp-img {
   flex-shrink: 0 !important;
 }
 .category-slider-active .destination-item .image img {
-  height: 250px !important;
+  height: 180px !important;
   object-fit: cover !important;
+}
+.category-slider-active .destination-item .content {
+  padding: 12px !important;
+}
+.category-slider-active .destination-item {
+  min-height: auto !important;
 }
 .category-slider-active .destination-item .image .heart {
   display: none !important;

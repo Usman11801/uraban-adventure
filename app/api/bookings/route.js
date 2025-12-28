@@ -1,6 +1,7 @@
 import { createServiceClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { sendBookingConfirmationEmail } from '@/lib/loops/email'
+import { createStripeClient } from '@/lib/stripe/client'
 
 // POST - Create a new booking
 export async function POST(request) {
@@ -32,7 +33,7 @@ export async function POST(request) {
 
     // Create bookings for each cart item
     const bookings = []
-    let clientSecret = null
+    let checkoutUrl = null
 
     for (const item of cart_items) {
       // Parse travel date
@@ -138,34 +139,127 @@ export async function POST(request) {
       }
     }
 
-    // If Stripe payment, create payment intent
+    // If Stripe payment, create invoice and checkout session
     if (payment_method === 'stripe') {
       try {
-        // TODO: Integrate Stripe payment intent creation
-        // For now, return a placeholder
-        clientSecret = 'stripe_client_secret_placeholder'
-        
-        // In production, you would:
-        // 1. Import Stripe
-        // 2. Create payment intent
-        // 3. Return client secret
-        // const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-        // const paymentIntent = await stripe.paymentIntents.create({
-        //   amount: Math.round(total_amount * 100), // Convert to cents
-        //   currency: 'aed',
-        //   metadata: { booking_ids: bookings.map(b => b.id).join(',') }
-        // })
-        // clientSecret = paymentIntent.client_secret
+        const stripe = createStripeClient()
+        const bookingIds = bookings.map(b => b.id).join(',')
+
+        // Step 1: Create or retrieve Stripe Customer
+        let customer
+        const existingCustomers = await stripe.customers.list({
+          email: customer_email,
+          limit: 1,
+        })
+
+        if (existingCustomers.data.length > 0) {
+          customer = existingCustomers.data[0]
+        } else {
+          customer = await stripe.customers.create({
+            email: customer_email,
+            name: customer_name,
+            phone: customer_phone,
+            metadata: {
+              bookingIds: bookingIds,
+            },
+          })
+        }
+
+        // Step 2: Create Invoice as draft first
+        const invoice = await stripe.invoices.create({
+          customer: customer.id,
+          auto_advance: false, // Don't auto-finalize, we'll finalize after adding items
+          collection_method: 'charge_automatically',
+          metadata: {
+            bookingIds: bookingIds,
+            customerName: customer_name,
+            customerEmail: customer_email,
+          },
+        })
+
+        console.log('Created draft invoice:', invoice.id, 'Status:', invoice.status)
+
+        // Step 3: Add line items to the Invoice
+        for (const item of cart_items) {
+          const itemTotal = parseFloat(item.totalAmount || 0)
+          const addonsTotal = item.selectedAddons ? Object.keys(item.selectedAddons).reduce((sum, addonId) => {
+            const addon = item.selectedAddons[addonId]
+            if (addon && addon.selected) {
+              return sum + ((addon.adult || 0) * (addon.adultPrice || 0)) + ((addon.child || 0) * (addon.childPrice || 0))
+            }
+            return sum
+          }, 0) : 0
+
+          const lineItemTotal = itemTotal + addonsTotal
+
+          if (lineItemTotal > 0) {
+            await stripe.invoiceItems.create({
+              customer: customer.id,
+              invoice: invoice.id,
+              amount: Math.round(lineItemTotal * 100), // Convert to smallest currency unit
+              currency: 'aed',
+              description: `${item.tourTitle || 'Tour Package'} - Travel Date: ${item.selectedDate || 'TBD'}, Adults: ${item.adultCount || 0}, Children: ${item.childCount || 0}`,
+              metadata: {
+                bookingId: item.tourId?.toString() || '',
+                tourTitle: item.tourTitle || '',
+              },
+            })
+          }
+        }
+
+        // If no cart items, create a single invoice item from total amount
+        if (cart_items.length === 0) {
+          await stripe.invoiceItems.create({
+            customer: customer.id,
+            invoice: invoice.id,
+            amount: Math.round(parseFloat(total_amount) * 100),
+            currency: 'aed',
+            description: `Booking Payment for ${customer_name}`,
+            metadata: {
+              bookingIds: bookingIds,
+            },
+          })
+        }
+
+        // Step 4: Retrieve the invoice to ensure all items are added
+        const updatedInvoice = await stripe.invoices.retrieve(invoice.id)
+        console.log('Invoice after adding items:', updatedInvoice.id, 'Status:', updatedInvoice.status, 'Total:', updatedInvoice.total)
+
+        // Step 5: Finalize the Invoice to make it "open" and visible in dashboard
+        const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id, {
+          auto_advance: false, // Don't auto-advance, we want it to stay "open" until paid
+        })
+
+        console.log('Finalized invoice:', finalizedInvoice.id, 'Status:', finalizedInvoice.status, 'Hosted URL:', finalizedInvoice.hosted_invoice_url)
+
+        // Verify the invoice is in "open" status
+        if (finalizedInvoice.status !== 'open' && finalizedInvoice.status !== 'paid') {
+          console.warn('Invoice status is not "open" after finalization:', finalizedInvoice.status)
+        }
+
+        // Step 6: Use Invoice's hosted payment page URL
+        // The invoice should now be visible in Stripe Dashboard > Invoices
+        if (!finalizedInvoice.hosted_invoice_url) {
+          throw new Error('Invoice finalized but no hosted_invoice_url available. Invoice ID: ' + finalizedInvoice.id)
+        }
+
+        checkoutUrl = finalizedInvoice.hosted_invoice_url
+        console.log('Checkout URL created successfully:', checkoutUrl)
       } catch (stripeError) {
         console.error('Stripe error:', stripeError)
         // Continue even if Stripe fails - booking is still created
+        return NextResponse.json(
+          { error: `Booking created but failed to create payment session: ${stripeError.message}` },
+          { status: 500 }
+        )
       }
     }
 
     return NextResponse.json({
       success: true,
       bookings,
-      clientSecret,
+      checkoutUrl,
+      invoiceId: payment_method === 'stripe' ? checkoutUrl?.includes('invoice') ? 'Created' : null : null,
       message: payment_method === 'pay_on_arrival' 
         ? 'Booking confirmed! You will pay on arrival.'
         : 'Booking created. Please proceed with payment.',
