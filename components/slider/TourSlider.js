@@ -83,12 +83,12 @@ const TourSlider = ({ title, tours = [] }) => {
   return (
     <section 
       className="tour-slider-section rel z-1" 
-      style={{ background: '#fff', paddingTop: '50px', paddingBottom: '50px' }}
+      style={{ background: '#fff', paddingTop: '20px', paddingBottom: '20px' }}
     >
       <div className="container-fluid">
         <div className="row">
           <div className="col-12">
-            <div className="section-title" style={{ padding: '0 15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '30px' }}>
+            <div className="section-title" style={{ padding: '0 15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
               <h2 style={{ fontSize: '32px', fontWeight: '700', marginBottom: '0', color: '#1C231F', fontFamily: 'var(--heading-font)' }}>{title}</h2>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <button

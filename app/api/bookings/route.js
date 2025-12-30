@@ -179,7 +179,8 @@ export async function POST(request) {
 
         console.log('Created draft invoice:', invoice.id, 'Status:', invoice.status)
 
-        // Step 3: Add line items to the Invoice
+        // Step 3: Add line items to the Invoice and calculate subtotal
+        let subtotal = 0
         for (const item of cart_items) {
           const itemTotal = parseFloat(item.totalAmount || 0)
           const addonsTotal = item.selectedAddons ? Object.keys(item.selectedAddons).reduce((sum, addonId) => {
@@ -191,6 +192,7 @@ export async function POST(request) {
           }, 0) : 0
 
           const lineItemTotal = itemTotal + addonsTotal
+          subtotal += lineItemTotal
 
           if (lineItemTotal > 0) {
             await stripe.invoiceItems.create({
@@ -209,10 +211,11 @@ export async function POST(request) {
 
         // If no cart items, create a single invoice item from total amount
         if (cart_items.length === 0) {
+          subtotal = parseFloat(total_amount || 0)
           await stripe.invoiceItems.create({
             customer: customer.id,
             invoice: invoice.id,
-            amount: Math.round(parseFloat(total_amount) * 100),
+            amount: Math.round(subtotal * 100),
             currency: 'aed',
             description: `Booking Payment for ${customer_name}`,
             metadata: {
@@ -221,9 +224,26 @@ export async function POST(request) {
           })
         }
 
+        // Step 3.5: Add 5% VAT as a separate invoice item
+        if (subtotal > 0) {
+          const vatAmount = subtotal * 0.05 // 5% VAT
+          await stripe.invoiceItems.create({
+            customer: customer.id,
+            invoice: invoice.id,
+            amount: Math.round(vatAmount * 100), // Convert to smallest currency unit
+            currency: 'aed',
+            description: 'VAT (5%)',
+            metadata: {
+              type: 'vat',
+              rate: '5',
+            },
+          })
+          console.log('Added VAT (5%):', vatAmount, 'on subtotal:', subtotal)
+        }
+
         // Step 4: Retrieve the invoice to ensure all items are added
         const updatedInvoice = await stripe.invoices.retrieve(invoice.id)
-        console.log('Invoice after adding items:', updatedInvoice.id, 'Status:', updatedInvoice.status, 'Total:', updatedInvoice.total)
+        console.log('Invoice after adding items:', updatedInvoice.id, 'Status:', updatedInvoice.status, 'Subtotal:', subtotal, 'Total:', updatedInvoice.total)
 
         // Step 5: Finalize the Invoice to make it "open" and visible in dashboard
         const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id, {

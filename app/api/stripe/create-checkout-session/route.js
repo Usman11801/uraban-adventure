@@ -25,7 +25,8 @@ export async function POST(request) {
       )
     }
 
-    // Build line items from cart items
+    // Build line items from cart items and calculate subtotal
+    let subtotal = 0
     const lineItems = cartItems.map(item => {
       const itemTotal = parseFloat(item.totalAmount || 0)
       const addonsTotal = item.selectedAddons ? Object.keys(item.selectedAddons).reduce((sum, addonId) => {
@@ -36,6 +37,9 @@ export async function POST(request) {
         return sum
       }, 0) : 0
       
+      const itemSubtotal = itemTotal + addonsTotal
+      subtotal += itemSubtotal
+      
       return {
         price_data: {
           currency: currency.toLowerCase(),
@@ -43,7 +47,7 @@ export async function POST(request) {
             name: item.tourTitle || 'Tour Package',
             description: `Travel Date: ${item.selectedDate || 'TBD'}, Adults: ${item.adultCount || 0}, Children: ${item.childCount || 0}`,
           },
-          unit_amount: Math.round((itemTotal + addonsTotal) * 100), // Convert to smallest currency unit
+          unit_amount: Math.round(itemSubtotal * 100), // Convert to smallest currency unit
         },
         quantity: 1,
       }
@@ -51,6 +55,7 @@ export async function POST(request) {
 
     // If no cart items, create a single line item from total amount
     if (lineItems.length === 0) {
+      subtotal = parseFloat(amount || 0)
       lineItems.push({
         price_data: {
           currency: currency.toLowerCase(),
@@ -58,7 +63,23 @@ export async function POST(request) {
             name: 'Booking Payment',
             description: `Booking ID: ${bookingId}`,
           },
-          unit_amount: Math.round(parseFloat(amount) * 100),
+          unit_amount: Math.round(subtotal * 100),
+        },
+        quantity: 1,
+      })
+    }
+
+    // Add 5% VAT as a separate line item
+    if (subtotal > 0) {
+      const vatAmount = subtotal * 0.05 // 5% VAT
+      lineItems.push({
+        price_data: {
+          currency: currency.toLowerCase(),
+          product_data: {
+            name: 'VAT',
+            description: 'VAT (5%)',
+          },
+          unit_amount: Math.round(vatAmount * 100), // Convert to smallest currency unit
         },
         quantity: 1,
       })

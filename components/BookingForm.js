@@ -152,7 +152,7 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
         </div>
 
         <form onSubmit={handleSubmit} className="booking-form">
-          <div className="booking-form-row">
+          <div className="booking-form-grid">
             <div className="booking-form-group">
               <label>
                 He/She <span className="required">*</span>
@@ -169,9 +169,7 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
               </select>
               {errors.gender && <span className="error-message">{errors.gender}</span>}
             </div>
-          </div>
 
-          <div className="booking-form-row">
             <div className="booking-form-group">
               <label>
                 First Name <span className="required">*</span>
@@ -201,9 +199,7 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
               />
               {errors.lastName && <span className="error-message">{errors.lastName}</span>}
             </div>
-          </div>
 
-          <div className="booking-form-row">
             <div className="booking-form-group">
               <label>
                 Email <span className="required">*</span>
@@ -233,9 +229,7 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
               />
               {errors.nationality && <span className="error-message">{errors.nationality}</span>}
             </div>
-          </div>
 
-          <div className="booking-form-row">
             <div className="booking-form-group">
               <label>
                 Phone Number <span className="required">*</span>
@@ -250,9 +244,7 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
               />
               {errors.phone && <span className="error-message">{errors.phone}</span>}
             </div>
-          </div>
 
-          <div className="booking-form-row">
             <div className="booking-form-group full-width">
               <label>
                 Hotel Name / Pickup Location <span className="required">*</span>
@@ -360,11 +352,10 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
             padding: 30px;
           }
 
-          .booking-form-row {
+          .booking-form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            margin-bottom: 20px;
           }
 
           .booking-form-group {
@@ -465,7 +456,7 @@ const BookingForm = ({ cartItems, grandTotal, onClose, paymentType, onSuccess })
           }
 
           @media (max-width: 768px) {
-            .booking-form-row {
+            .booking-form-grid {
               grid-template-columns: 1fr;
             }
 

@@ -15,14 +15,26 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
   const [displayTotal, setDisplayTotal] = useState("0.00");
   const [isClient, setIsClient] = useState(false);
 
-  // Transfer option pricing
+  // Pricing configuration - use tour price as base (same logic as TourCard: discount_price || base_price || price)
+  const displayPrice = tour?.discount_price || tour?.base_price || tour?.price || 350;
+  const basePrice = Number(displayPrice) || 350;
+  
+  // Calculate transfer pricing based on the package price (dynamic, not hardcoded)
+  // Sharing: Adult = base price, Child = 85% of base price
+  // Private: Adult = base price * 2, Child = base price * 1.67 (approximately 85% of private adult)
   const transferPricing = {
-    sharing: { adult: 150, child: 130, infant: 0 },
-    private: { adult: 300, child: 250, infant: 0 }
+    sharing: { 
+      adult: basePrice, 
+      child: Math.round(basePrice * 0.85), 
+      infant: 0 
+    },
+    private: { 
+      adult: Math.round(basePrice * 2), 
+      child: Math.round(basePrice * 1.67), 
+      infant: 0 
+    }
   };
-
-  // Pricing configuration - use tour price as base
-  const basePrice = Number(tour?.price) || 350;
+  
   const adultPrice = transferPricing[transferOption]?.adult || basePrice;
   const childPrice = transferPricing[transferOption]?.child || Math.round(basePrice * 0.5);
   const infantPrice = transferPricing[transferOption]?.infant || 0;
@@ -575,6 +587,9 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                         required
                     style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', height: '36px', boxSizing: 'border-box' }}
                       />
+                  <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>
+                    {parseFloat(basePrice).toFixed(2)} AED
+                  </div>
                     </div>
 
                 {/* Adult */}
@@ -587,7 +602,7 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                     onChange={(e) => setAdultCount(Number(e.target.value) || 0)}
                     style={{ width: '100%', padding: '8px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', textAlign: 'center', height: '36px', boxSizing: 'border-box' }}
                       />
-                  <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>{adultPrice} AED</div>
+                  <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>{parseFloat(adultPrice).toFixed(2)} AED</div>
                 </div>
 
                 {/* Child */}
@@ -600,7 +615,7 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                     onChange={(e) => setChildCount(Number(e.target.value) || 0)}
                     style={{ width: '100%', padding: '8px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '14px', textAlign: 'center', height: '36px', boxSizing: 'border-box' }}
                   />
-                  <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>{childPrice} AED</div>
+                  <div style={{ fontSize: '11px', color: '#666', marginTop: '3px', textAlign: 'center', height: '16px', lineHeight: '16px' }}>{parseFloat(childPrice).toFixed(2)} AED</div>
                 </div>
 
                 {/* Infant */}
@@ -622,9 +637,10 @@ const Booking = ({ tour, onBookingChange, onBuyNow, onAddToCart }) => {
                   <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--secondary-color)' }}>
                     {displayTotal} AED
                     </div>
-                  {tour?.price && parseFloat(tour.price) > parseFloat(displayTotal) && (
+                  {/* Show original price if there's a discount (base_price > discount_price) */}
+                  {tour?.discount_price && tour?.base_price && parseFloat(tour.base_price) > parseFloat(tour.discount_price) && (
                     <div style={{ fontSize: '11px', color: '#999', textDecoration: 'line-through', marginTop: '3px' }}>
-                      {tour.price} AED
+                      {parseFloat(tour.base_price).toFixed(2)} AED
                     </div>
                   )}
                 </div>

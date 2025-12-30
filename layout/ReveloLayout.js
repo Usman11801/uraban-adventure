@@ -2,6 +2,7 @@
 import EmbedPopup from "@/components/popup/EmbedPopup";
 import ImageView from "@/components/popup/ImageView";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import FloatingCall from "@/components/FloatingCall";
 import { roveloUtility } from "@/utility";
 import { useEffect } from "react";
 import niceSelect from "react-nice-select";
@@ -23,6 +24,7 @@ const ReveloLayout = ({ children, header, footer, insta, sideBar }) => {
     <div className={`page-wrapper ${sideBar ? "for-sidebar-menu" : ""}`}>
       <EmbedPopup />
       <ImageView />
+      <FloatingCall phoneNumber="+971528067631" />
       <FloatingWhatsApp
         encodedMessage={
           "Hey! I am interested in your tour packages. Can you help me?"

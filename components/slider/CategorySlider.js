@@ -77,16 +77,16 @@ const CategorySlider = ({ title, categories = [] }) => {
   }), [categoriesLength]);
 
   return (
-    <section className="destinations-area bgc-black pt-100 pb-70 rel z-1">
+    <section className="destinations-area bgc-black rel z-1" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
       <div className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-lg-12">
             <div
-              className="section-title text-white text-center counter-text-wrap mb-70"
+              className="section-title text-white text-center counter-text-wrap"
               data-aos="fade-up"
               data-aos-duration={1500}
               data-aos-offset={50}
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', marginBottom: '20px' }}
             >
               <div style={{ flex: '1', minWidth: '200px' }}>
                 <SectionTitle

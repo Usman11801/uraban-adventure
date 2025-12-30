@@ -20,9 +20,20 @@ const Banner = ({ pageTitle, pageName, search, backgroundImage }) => {
     <Fragment>
       <section
         className="page-banner-area pt-50 pb-35 rel z-1 bgs-cover"
-        style={{ backgroundImage: `url(${bgImageUrl})` }}
+        style={{ 
+          backgroundImage: `url(${bgImageUrl})`,
+          height: '360px',
+          minHeight: '360px',
+          maxHeight: '360px',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
       >
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className={`banner-inner text-white ${search ? "mb-50" : ""}`}>
             <h2
               className="page-title mb-10"

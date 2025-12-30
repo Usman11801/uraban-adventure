@@ -53,9 +53,18 @@ const page = () => {
             const response = await fetch(`/api/packages/${slug}`);
             const data = await response.json();
             if (data.package) {
-              setTour(data.package);
-              setId(data.package.id);
-              console.log("Tour fetched by slug:", data.package);
+              // Transform package data to match card display format
+              const transformedPackage = {
+                ...data.package,
+                // Calculate price the same way as TourCard: discount_price || base_price || price
+                price: data.package.discount_price || data.package.base_price || data.package.price || 0,
+                // Keep original values for reference
+                base_price: data.package.base_price,
+                discount_price: data.package.discount_price,
+              };
+              setTour(transformedPackage);
+              setId(transformedPackage.id);
+              console.log("Tour fetched by slug:", transformedPackage);
             } else {
               console.error("Package not found with slug:", slug);
             }
@@ -66,8 +75,17 @@ const page = () => {
             const response = await fetch(`/api/packages/by-id/${id}`);
             const data = await response.json();
             if (data.package) {
-              setTour(data.package);
-              console.log("Tour fetched by id:", data.package);
+              // Transform package data to match card display format
+              const transformedPackage = {
+                ...data.package,
+                // Calculate price the same way as TourCard: discount_price || base_price || price
+                price: data.package.discount_price || data.package.base_price || data.package.price || 0,
+                // Keep original values for reference
+                base_price: data.package.base_price,
+                discount_price: data.package.discount_price,
+              };
+              setTour(transformedPackage);
+              console.log("Tour fetched by id:", transformedPackage);
             } else {
               console.error("Package not found with id:", id);
             }

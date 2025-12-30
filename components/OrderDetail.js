@@ -22,8 +22,12 @@ const OrderDetail = ({ tour, bookingData, selectedAddons, onBuyNow, onAddToCart 
 
   // Calculate tour total
   const tourTotal = bookingData ? parseFloat(bookingData.totalAmount || 0) : 0;
-  const originalTourPrice = tour?.price ? parseFloat(tour.price) : 0;
-  const tourDiscount = originalTourPrice > tourTotal ? originalTourPrice - tourTotal : 0;
+  // Use same price logic as TourCard: discount_price || base_price || price
+  const displayPrice = tour?.discount_price || tour?.base_price || tour?.price || 0;
+  const originalTourPrice = tour?.base_price ? parseFloat(tour.base_price) : (displayPrice ? parseFloat(displayPrice) : 0);
+  // Show original price only if there's a discount
+  const showOriginalPrice = tour?.discount_price && tour?.base_price && parseFloat(tour.discount_price) < parseFloat(tour.base_price);
+  const tourDiscount = showOriginalPrice && originalTourPrice > tourTotal ? originalTourPrice - tourTotal : 0;
 
   // Calculate addons total
   const addonsTotal = selectedAddons ? Object.keys(selectedAddons).reduce((total, addonId) => {
