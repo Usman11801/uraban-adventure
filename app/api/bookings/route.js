@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
-import { sendBookingConfirmationEmail } from '@/lib/loops/email'
+import { sendBookingConfirmationEmail, sendAdminBookingNotificationEmail } from '@/lib/loops/email'
 import { createStripeClient } from '@/lib/stripe/client'
 
 // POST - Create a new booking
@@ -88,6 +88,57 @@ export async function POST(request) {
       }
 
       bookings.push(booking)
+    }
+
+    // Send admin notification email for all pending bookings (both pay_on_arrival and stripe)
+    if (booking_status === 'pending' && bookings.length > 0) {
+      try {
+        // Send notification for the first booking (or all if needed)
+        const firstBooking = bookings[0]
+        const firstCartItem = cart_items[0]
+        
+        // Get package details for this booking
+        let packageName = firstCartItem?.tourTitle || 'Tour Package'
+        if (firstBooking.package_id) {
+          const { data: packageData } = await supabase
+            .from('packages')
+            .select('name')
+            .eq('id', firstBooking.package_id)
+            .single()
+          
+          if (packageData?.name) {
+            packageName = packageData.name
+          }
+        }
+
+        // Send admin notification email
+        const adminEmailResult = await sendAdminBookingNotificationEmail({
+          bookingId: firstBooking.booking_id || firstBooking.id,
+          packageName: packageName,
+          customerName: customer_name,
+          customerEmail: customer_email,
+          customerPhone: customer_phone,
+          travelDate: firstBooking.travel_date,
+          adults: firstBooking.adults,
+          children: firstBooking.children,
+          totalAmount: parseFloat(firstBooking.total_amount),
+          currency: 'AED',
+          paymentMethod: payment_method,
+          hotelName: hotel_name,
+          nationality: nationality,
+          addons: firstBooking.addons || [],
+        })
+
+        if (!adminEmailResult.success) {
+          console.error(`Failed to send admin notification email for booking ${firstBooking.id}:`, adminEmailResult.error)
+          // Don't fail the booking creation if email fails
+        } else {
+          console.log(`Admin notification email sent successfully for booking ${firstBooking.id}`)
+        }
+      } catch (adminEmailError) {
+        console.error('Error sending admin booking notification email:', adminEmailError)
+        // Don't fail the booking creation if email fails
+      }
     }
 
     // Send confirmation email for "Pay on Arrival" bookings
