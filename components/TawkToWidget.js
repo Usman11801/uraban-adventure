@@ -53,6 +53,27 @@ const TawkToWidget = () => {
       window.Tawk_API.key = apiKey;
     }
 
+    // Ensure widget is visible on load
+    window.Tawk_API.onLoad = function() {
+      console.log("Tawk.to widget loaded successfully");
+      // Ensure widget is visible
+      if (window.Tawk_API && window.Tawk_API.showWidget) {
+        window.Tawk_API.showWidget();
+      }
+      // Force visibility via CSS if needed
+      setTimeout(() => {
+        const tawkContainer = document.getElementById('tawkchat-container') || 
+                              document.querySelector('[id*="tawk"]') ||
+                              document.querySelector('iframe[src*="tawk.to"]');
+        if (tawkContainer) {
+          tawkContainer.style.display = 'block';
+          tawkContainer.style.visibility = 'visible';
+          tawkContainer.style.opacity = '1';
+          tawkContainer.style.zIndex = '9998';
+        }
+      }, 1000);
+    };
+
     // Create and configure the tawk.to script
     const s1 = document.createElement("script");
     s1.async = true;

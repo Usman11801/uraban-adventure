@@ -427,3 +427,49 @@ img.mfp-img {
 .admin-quick-action-link[data-gradient*="#F7921E"]:hover {
   background: linear-gradient(135deg, #F7921E 0%, #e67e1a 100%) !important;
 }
+
+/* Floating Action Buttons - Ensure visibility on all devices */
+.position-fixed.rounded-circle {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure tawk.to widget is visible */
+#tawkchat-container,
+#tawkchat-container *,
+iframe[id*="tawk"],
+div[id*="tawk"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 9998 !important;
+}
+
+/* Mobile-specific styles for floating buttons */
+@media (max-width: 768px) {
+  .position-fixed.rounded-circle {
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px !important;
+    min-height: 55px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+  }
+  
+  /* Ensure tawk.to widget is visible on mobile */
+  #tawkchat-container,
+  iframe[id*="tawk"],
+  div[id*="tawk"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9998 !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+}

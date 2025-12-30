@@ -13,7 +13,16 @@ const FloatingWhatsApp = ({encodedMessage}) => {
         height: "60px",
         bottom: "20px",
         left: "20px",
-        zIndex: 1000,
+        zIndex: 9999,
+        display: "flex",
+        visibility: "visible",
+        opacity: 1,
+      }}
+      onTouchStart={(e) => {
+        e.currentTarget.style.transform = "scale(0.95)";
+      }}
+      onTouchEnd={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
       }}
     >
       <i className="fab fa-whatsapp fa-lg"></i>
