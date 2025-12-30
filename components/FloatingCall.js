@@ -9,7 +9,7 @@ const FloatingCall = ({ phoneNumber = "+971528067631" }) => {
         width: "60px",
         height: "60px",
         bottom: "90px",
-        right: "20px",
+        left: "20px",
         zIndex: 1000,
         backgroundColor: "#007bff",
         border: "none",
